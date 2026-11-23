@@ -1,0 +1,16 @@
+# Secrets & credentials
+.env
+
+# Browser session & virtual environment
+.chrome_profile/
+.venv/
+
+# Runtime logs & screenshots
+logs/
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# macOS metadata
+.DS_Store

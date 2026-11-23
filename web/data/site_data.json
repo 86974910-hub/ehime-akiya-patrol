@@ -1,0 +1,1501 @@
+{
+  "summary": {
+    "total_count": 538,
+    "municipality_total": 20,
+    "covered_municipalities": 16,
+    "sale_count": 491,
+    "rent_count": 47,
+    "sale_min_man": 1.0,
+    "sale_max_man": 8800.0,
+    "sale_median_man": 330.0,
+    "rent_min_yen": 12000,
+    "rent_max_yen": 100000,
+    "rent_median_yen": 35000,
+    "recent_7days_count": 0,
+    "last_updated": "2026-11-23 23:08",
+    "region_counts": {
+      "東予": 342,
+      "中予": 34,
+      "南予": 162
+    }
+  },
+  "municipalities": [
+    {
+      "name": "今治市",
+      "region": "東予",
+      "count": 88,
+      "sale_count": 81,
+      "rent_count": 7,
+      "price_stats": {
+        "min_man": 10.0,
+        "max_man": 8800.0,
+        "median_man": 350.0
+      },
+      "tags": {
+        "under_100": 14,
+        "farm": 4,
+        "sea": 34,
+        "parking": 41,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "大三島25-036",
+          "status": "新着(初回ベースライン)",
+          "district": "大三島地区（大三島・上浦） 大三島町口総",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "7DK",
+          "built": "",
+          "land_area": "441.07㎡",
+          "bldg_area": "221.47㎡",
+          "notes": "山林・畑付。新規営農を考えている方 / 駐車場:有 / 1台",
+          "url": "https://iju-imabari.jp/akiya-bank/%e5%a4%a7%e4%b8%89%e5%b3%b625-036/"
+        },
+        {
+          "id": "上浦018",
+          "status": "新着(初回ベースライン)",
+          "district": "大三島地区（大三島・上浦） 上浦町井口",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "5DK",
+          "built": "",
+          "land_area": "271.2㎡",
+          "bldg_area": "102.2㎡",
+          "notes": "駐車場:有 / 2台",
+          "url": "https://iju-imabari.jp/akiya-bank/%e4%b8%8a%e6%b5%a6018-%e4%b8%8a%e6%b5%a6%e7%94%ba%e4%ba%95%e5%8f%a3/"
+        },
+        {
+          "id": "関前25-016",
+          "status": "新着(初回ベースライン)",
+          "district": "関前地区（岡村・大下島・小大下島） 関前岡村",
+          "kind": "売買",
+          "price": "55万円",
+          "layout": "12DK",
+          "built": "",
+          "land_area": "85.34㎡",
+          "bldg_area": "52.89㎡",
+          "notes": "駐車場:無",
+          "url": "https://iju-imabari.jp/akiya-bank/%e9%96%a2%e5%89%8d25-016/"
+        },
+        {
+          "id": "関前24-042",
+          "status": "新着(初回ベースライン)",
+          "district": "関前地区（岡村・大下島・小大下島） 関前岡村",
+          "kind": "売買",
+          "price": "40万円",
+          "layout": "8DK",
+          "built": "",
+          "land_area": "137.09㎡",
+          "bldg_area": "2㎡",
+          "notes": "",
+          "url": "https://iju-imabari.jp/akiya-bank/%e9%96%a2%e5%89%8d24-042/"
+        },
+        {
+          "id": "関前006 関前岡村",
+          "status": "新着(初回ベースライン)",
+          "district": "関前地区（岡村・大下島・小大下島） 関前岡村",
+          "kind": "売買",
+          "price": "50万円",
+          "layout": "3K",
+          "built": "1971年2月建築",
+          "land_area": "174.2㎡",
+          "bldg_area": "52.56㎡",
+          "notes": "駐車場:空無 / 無料",
+          "url": "https://iju-imabari.jp/akiya-bank/%e9%96%a2%e5%89%8d006-%e9%96%a2%e5%89%8d%e5%b2%a1%e6%9d%91/"
+        }
+      ],
+      "list_url": "https://iju-imabari.jp/vacant-house/",
+      "source_type": "html",
+      "source_notes": "いまばり暮らし(市公式移住ポータル)。まち/里山/海/しまなみエリア別。アットホーム(https://www.athome.co.jp/akiya/ehime/imabari-city/)にも掲載(bot遮断で未確認)。HTTP200確認済"
+    },
+    {
+      "name": "上島町",
+      "region": "東予",
+      "count": 161,
+      "sale_count": 143,
+      "rent_count": 18,
+      "price_stats": {
+        "min_man": 1.0,
+        "max_man": 2700.0,
+        "median_man": 200.0
+      },
+      "tags": {
+        "under_100": 54,
+        "farm": 1,
+        "sea": 161,
+        "parking": 0,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "#221",
+          "status": "新着(初回ベースライン)",
+          "district": "生名島",
+          "kind": "売買",
+          "price": "50万円",
+          "layout": "",
+          "built": "",
+          "land_area": "131.50㎡",
+          "bldg_area": "",
+          "notes": "宅地・畑",
+          "url": "https://kamijima-life.jp/residences/221/"
+        },
+        {
+          "id": "#000",
+          "status": "新着(初回ベースライン)",
+          "district": "上島町弓削引野898-23",
+          "kind": "売買",
+          "price": "18,800円(令和8年度）",
+          "layout": "３ＬＤＫ",
+          "built": "H14",
+          "land_area": "",
+          "bldg_area": "",
+          "notes": "RC4階建 1F",
+          "url": "https://kamijima-life.jp/residences/000/"
+        },
+        {
+          "id": "#199",
+          "status": "新着(初回ベースライン)",
+          "district": "弓削島",
+          "kind": "売買",
+          "price": "98万円",
+          "layout": "5DK",
+          "built": "33年",
+          "land_area": "138.70㎡",
+          "bldg_area": "111.40㎡",
+          "notes": "木造瓦葺2階建",
+          "url": "https://kamijima-life.jp/residences/199/"
+        },
+        {
+          "id": "#184",
+          "status": "新着(初回ベースライン)",
+          "district": "生名島",
+          "kind": "売買",
+          "price": "50万円",
+          "layout": "6DK",
+          "built": "55年",
+          "land_area": "245.28㎡",
+          "bldg_area": "121.10㎡",
+          "notes": "木造瓦葺2階建",
+          "url": "https://kamijima-life.jp/residences/184/"
+        },
+        {
+          "id": "#211",
+          "status": "新着(初回ベースライン)",
+          "district": "弓削島",
+          "kind": "売買",
+          "price": "100万円 賃貸 1.5万円/月",
+          "layout": "10KK",
+          "built": "74年",
+          "land_area": "331.95㎡",
+          "bldg_area": "180.60㎡",
+          "notes": "木造瓦葺2階建",
+          "url": "https://kamijima-life.jp/residences/211/"
+        }
+      ],
+      "list_url": "https://kamijima-life.jp/residence/archive/",
+      "source_type": "html",
+      "source_notes": "上島町空き家・空き地情報バンク一覧ページ"
+    },
+    {
+      "name": "西条市",
+      "region": "東予",
+      "count": 76,
+      "sale_count": 70,
+      "rent_count": 6,
+      "price_stats": {
+        "min_man": 60.0,
+        "max_man": 4000.0,
+        "median_man": 500.0
+      },
+      "tags": {
+        "under_100": 5,
+        "farm": 17,
+        "sea": 3,
+        "parking": 12,
+        "good_cond": 9
+      },
+      "featured": [
+        {
+          "id": "No.108",
+          "status": "新着(初回ベースライン)",
+          "district": "大町",
+          "kind": "売却",
+          "price": "売却： 60 万 円 賃貸（月額）： 円",
+          "layout": "",
+          "built": "昭和 33 年",
+          "land_area": "267.55㎡",
+          "bldg_area": "69.48㎡",
+          "notes": "広い敷地、家庭菜園可。 / 大幅な補修が必要 / ・再建築不可・進入路が狭いため車の通行不可 ・敷地内に小屋（２階建て×２棟）あり ・各部屋に床の沈み・軋み、部分的な外壁の剥がれ箇所あり。 ・写真は撮影時のもの（2020 年 6 月）",
+          "url": "https://www.city.saijo.ehime.jp/uploaded/attachment/86890.pdf"
+        },
+        {
+          "id": "No.232",
+          "status": "新着(初回ベースライン)",
+          "district": "広江",
+          "kind": "売却",
+          "price": "売却： 100 万 円 賃貸（月額）： 円",
+          "layout": "",
+          "built": "不詳",
+          "land_area": "570.80㎡",
+          "bldg_area": "120.83㎡",
+          "notes": "閑静な住宅街に立地する平屋物件。 / 大幅な補修が必要 / ・家庭菜園可能 ・外壁・天井・床にいたみあり ・写真は撮影時のもの（2023 年 4 月）",
+          "url": "https://www.city.saijo.ehime.jp/uploaded/attachment/84911.pdf"
+        },
+        {
+          "id": "No.254",
+          "status": "新着(初回ベースライン)",
+          "district": "喜多川",
+          "kind": "賃貸",
+          "price": "売却： 万円 賃貸（月額）： 7 万５千 円",
+          "layout": "",
+          "built": "平成 14 年",
+          "land_area": "462.49㎡",
+          "bldg_area": "112.62㎡",
+          "notes": "2階居住スペース賃貸。 / 補修は不要 / ・敷金２か月分・礼金１か月分・駐車場代別途必要（料金要相談） ・ペットの飼育不可 ・希望があれば、農地の賃貸可 ・１階駐車スペース、２階居住スペース ・写真は撮影時のもの（2023 年 6 月）",
+          "url": "https://www.city.saijo.ehime.jp/uploaded/attachment/84921.pdf"
+        },
+        {
+          "id": "No.258",
+          "status": "新着(初回ベースライン)",
+          "district": "玉之江",
+          "kind": "売却",
+          "price": "売却： 2,600 万円 賃貸（月額）： 万円",
+          "layout": "",
+          "built": "不詳、平成24 年",
+          "land_area": "1470.15㎡",
+          "bldg_area": "271.63㎡",
+          "notes": "広大な敷地内に2棟有り。 / 補修は不要 / ・敷地内に２棟有（古民家（リフォームあり）・ハウスメーカー物件（H24 築）） ・隣接する畑も同時売却（農地法の制限あり） ・写真は撮影時のもの（2023 年 7 月） 北側 南側",
+          "url": "https://www.city.saijo.ehime.jp/uploaded/attachment/84924.pdf"
+        },
+        {
+          "id": "No.019",
+          "status": "新着(初回ベースライン)",
+          "district": "河原津",
+          "kind": "売却",
+          "price": "売却： 500 万 円 賃貸（月額）： 円",
+          "layout": "",
+          "built": "昭和 46 年",
+          "land_area": "233.74㎡",
+          "bldg_area": "168.56㎡",
+          "notes": "敷地内に「離れ」あり。海近く。 / 補修は不要 / ・平成10 年増築。（車庫２階） ・母屋（奥側）、離れ（道路側）あり。 ・写真は撮影時のもの（2016 年 7 月） 離れ１Ｆ 離れ２Ｆ 母屋",
+          "url": "https://www.city.saijo.ehime.jp/uploaded/attachment/84871.pdf"
+        }
+      ],
+      "list_url": "https://www.city.saijo.ehime.jp/soshiki/ijyusuishin/akiya-bank.html",
+      "source_type": "pdf",
+      "source_notes": "市公式の空き家バンク一覧。各物件の詳細情報PDFを直接掲載"
+    },
+    {
+      "name": "新居浜市",
+      "region": "東予",
+      "count": 0,
+      "sale_count": 0,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": null,
+        "max_man": null,
+        "median_man": null
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 0,
+        "sea": 0,
+        "parking": 0,
+        "good_cond": 0
+      },
+      "featured": [],
+      "list_url": "https://www.homes.co.jp/akiyabank/ehime/niihama-shi/",
+      "source_type": "portal",
+      "source_notes": "公式提携の新居浜市空き家バンクナビ(akiya-navi.com)は2026-10-22より緊急メンテナンス停止中。LIFULL HOME'S(bot遮断)にも掲載"
+    },
+    {
+      "name": "四国中央市",
+      "region": "東予",
+      "count": 17,
+      "sale_count": 16,
+      "rent_count": 1,
+      "price_stats": {
+        "min_man": 50.0,
+        "max_man": 1498.0,
+        "median_man": 290.0
+      },
+      "tags": {
+        "under_100": 3,
+        "farm": 3,
+        "sea": 2,
+        "parking": 16,
+        "good_cond": 1
+      },
+      "featured": [
+        {
+          "id": "No.57",
+          "status": "新着(初回ベースライン)",
+          "district": "三島宮川",
+          "kind": "売却",
+          "price": "売却： 1,000,000 円",
+          "layout": "",
+          "built": "",
+          "land_area": "326.87㎡",
+          "bldg_area": "151.13㎡",
+          "notes": "閑静な住宅地。木造２階建て。再建築不可。 / 駐車場:無 / 多少の補修は必要 / ・再建築不可 ・駐車場なし",
+          "url": "https://shikokuchuoiju.jp/app/wp-content/uploads/2026/11/9e0d83376745045caf994f73652abeb6.pdf"
+        },
+        {
+          "id": "No.54",
+          "status": "新着(初回ベースライン)",
+          "district": "土居町天満",
+          "kind": "売却",
+          "price": "売却： ５００，０００円 賃貸（月額）： 円",
+          "layout": "",
+          "built": "昭和 2 年",
+          "land_area": "589.50㎡",
+          "bldg_area": "160.85㎡",
+          "notes": "木造平屋建て。離れ、物置あり。雨漏り箇所あり。残置物あり。 / 駐車場:有 （車庫 有・無） / ・増改築複数回あり ・一部床に沈みあり ・雨漏り箇所あり ・残置物あり（売主にて処分） ・オール電化仕様（電気温水器の設置が必要）",
+          "url": "https://shikokuchuoiju.jp/app/wp-content/uploads/2026/07/3b6832eba2d8d7e7ae11a75d5a7c456e.pdf"
+        },
+        {
+          "id": "No.35",
+          "status": "新着(初回ベースライン)",
+          "district": "土居町小林",
+          "kind": "売却",
+          "price": "売却：５００，０００円",
+          "layout": "",
+          "built": "昭和 27 年",
+          "land_area": "285.91㎡",
+          "bldg_area": "133.18㎡",
+          "notes": "閑静な住宅地。木造平屋物件。 / 駐車場:１台（車庫有） / ・一部床に沈み有",
+          "url": "https://shikokuchuoiju.jp/app/wp-content/uploads/2025/01/3ffa2dbd0ed3388e1803510e24b05e31.pdf"
+        },
+        {
+          "id": "No.49",
+          "status": "新着(初回ベースライン)",
+          "district": "土居町北野",
+          "kind": "売却",
+          "price": "売却： １，４００，０００円 賃貸（月額）： 円",
+          "layout": "",
+          "built": "昭和２８年",
+          "land_area": "",
+          "bldg_area": "80.02㎡",
+          "notes": "木造平屋建。JR線路に隣接。敷地内に他家の墓標、宅地介在畑あり。 / 駐車場:有 （車庫 有・無） / ・木造平屋納屋（昭和３０年築）、木造平屋家畜舎（昭和４１年築）が存在する。 ・JR 予讃線に隣接している。 ・敷地内に他家の墓標が存在す",
+          "url": "https://shikokuchuoiju.jp/app/wp-content/uploads/2026/05/82029268b125f41f3355e08cc1745654-1.pdf"
+        },
+        {
+          "id": "No.42",
+          "status": "新着(初回ベースライン)",
+          "district": "土居町蕪崎",
+          "kind": "売却",
+          "price": "売却：2,500,000 円",
+          "layout": "",
+          "built": "設",
+          "land_area": "252.22㎡",
+          "bldg_area": "116.55㎡",
+          "notes": "閑静な住宅街。木造2階建て。キッチンリフォーム済。 / 駐車場:あり / ○キッチンリフォーム済 ○ブロック塀及び庭の造作の一部を撤去し駐車スペース確保済",
+          "url": "https://shikokuchuoiju.jp/app/wp-content/uploads/2025/09/8974efd6f72a96be81b87c5dc6cd8b38.pdf"
+        }
+      ],
+      "list_url": "https://shikokuchuoiju.jp/akiyabank/",
+      "source_type": "html",
+      "source_notes": "四国のまんなか生活(市の移住サイト)。川之江/三島/土居/新宮地区。HTTP200確認済"
+    },
+    {
+      "name": "松山市",
+      "region": "中予",
+      "count": 5,
+      "sale_count": 5,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": 150.0,
+        "max_man": 400.0,
+        "median_man": 300.0
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 0,
+        "sea": 5,
+        "parking": 1,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "gogo_tomari_sale_0205",
+          "status": "新着(初回ベースライン)",
+          "district": "興居島・泊",
+          "kind": "売買",
+          "price": "1,500,000 円",
+          "layout": "8DK以上",
+          "built": "1963年（築63年）",
+          "land_area": "",
+          "bldg_area": "142.0㎡",
+          "notes": "和室×5,洋室×4, DK, 倉庫",
+          "url": "https://ritou-akiya.com/house/gogo_tomari_sale_0205"
+        },
+        {
+          "id": "gogo_kadota_sale_0202",
+          "status": "新着(初回ベースライン)",
+          "district": "興居島・門田",
+          "kind": "売買",
+          "price": "4,000,000 円",
+          "layout": "5DK・5LDK",
+          "built": "1988年（築38年）",
+          "land_area": "",
+          "bldg_area": "117.0㎡",
+          "notes": "和室×4,洋室×1, DK, 倉庫",
+          "url": "https://ritou-akiya.com/house/gogo_kadota_sale_0202"
+        },
+        {
+          "id": "naka_yoshiki_sale_0201",
+          "status": "新着(初回ベースライン)",
+          "district": "中島・吉木",
+          "kind": "売買",
+          "price": "3,000,000 円",
+          "layout": "8DK以上",
+          "built": "1998年（築28年）",
+          "land_area": "",
+          "bldg_area": "244.0㎡",
+          "notes": "和室×8,洋室×1, LDK,K,K,ガレージ,倉庫",
+          "url": "https://ritou-akiya.com/house/naka_yoshiki_sale_0201"
+        },
+        {
+          "id": "naka_ooura_sale_0197",
+          "status": "新着(初回ベースライン)",
+          "district": "中島・中島大浦",
+          "kind": "売買",
+          "price": "3,000,000 円",
+          "layout": "4DK・4LDK",
+          "built": "1971年（築55年）",
+          "land_area": "",
+          "bldg_area": "",
+          "notes": "和室×3,洋室×1, DK, 大型倉庫（別棟）",
+          "url": "https://ritou-akiya.com/house/naka_ooura_sale_0197"
+        },
+        {
+          "id": "gogo_kadota_sale_0199",
+          "status": "新着(初回ベースライン)",
+          "district": "興居島・門田",
+          "kind": "売買",
+          "price": "1,500,000 円",
+          "layout": "5DK・5LDK",
+          "built": "1976年（築50年）",
+          "land_area": "",
+          "bldg_area": "116.9㎡",
+          "notes": "和室×4,洋室×1, DK, 倉庫",
+          "url": "https://ritou-akiya.com/house/gogo_kadota_sale_0199"
+        }
+      ],
+      "list_url": "https://ritou-akiya.com/house",
+      "source_type": "html",
+      "source_notes": "市街地は全国版(アットホーム/LIFULL HOME'S、bot遮断)。離島(忽那諸島)はritou-akiya.com、三津浜はhttp://www.mitsuhamaru.com/"
+    },
+    {
+      "name": "伊予市",
+      "region": "中予",
+      "count": 6,
+      "sale_count": 6,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": 200.0,
+        "max_man": 1500.0,
+        "median_man": 575.0
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 0,
+        "sea": 0,
+        "parking": 3,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "第８４号",
+          "status": "新着(初回ベースライン)",
+          "district": "中村",
+          "kind": "売買",
+          "price": "１,５００万円",
+          "layout": "",
+          "built": "昭和５７年",
+          "land_area": "３８８．２７㎡",
+          "bldg_area": "１１７．３２㎡",
+          "notes": "４台可 / 庭あり・車庫あり・倉庫あり / 市街化調整区域",
+          "url": "https://akisapo-iyo.com/akiya_bank/9998"
+        },
+        {
+          "id": "第８３号",
+          "status": "新着(初回ベースライン)",
+          "district": "下三谷",
+          "kind": "売買",
+          "price": "６００万円",
+          "layout": "",
+          "built": "昭和６１年（平成７年増築）",
+          "land_area": "９６．５６㎡",
+          "bldg_area": "１２１．０２㎡",
+          "notes": "１台可 / 車庫あり / 市街化調整区域",
+          "url": "https://akisapo-iyo.com/akiya_bank/9970"
+        },
+        {
+          "id": "第８２号",
+          "status": "新着(初回ベースライン)",
+          "district": "下吾川",
+          "kind": "売買",
+          "price": "５５０万円",
+          "layout": "",
+          "built": "昭和６１年",
+          "land_area": "１０４．１９㎡",
+          "bldg_area": "９９．９２㎡",
+          "notes": "なし / 市街化区域",
+          "url": "https://akisapo-iyo.com/akiya_bank/9951"
+        },
+        {
+          "id": "第８１号",
+          "status": "新着(初回ベースライン)",
+          "district": "上唐川",
+          "kind": "売買",
+          "price": "２００万円",
+          "layout": "",
+          "built": "昭和５７年",
+          "land_area": "６３３．５５㎡",
+          "bldg_area": "１１９．９７㎡",
+          "notes": "４台可 / 庭あり・車庫あり・倉庫あり / 都市計画区域外",
+          "url": "https://akisapo-iyo.com/akiya_bank/9882"
+        },
+        {
+          "id": "第８０号",
+          "status": "新着(初回ベースライン)",
+          "district": "中山町中山",
+          "kind": "売買",
+          "price": "４８０万円",
+          "layout": "",
+          "built": "昭和５２年",
+          "land_area": "１７５．６２㎡",
+          "bldg_area": "９５．５８㎡",
+          "notes": "１台可 / 庭あり・倉庫あり / 都市計画区域外",
+          "url": "https://akisapo-iyo.com/akiya_bank/9863"
+        }
+      ],
+      "list_url": "https://akisapo-iyo.com/akiya_list",
+      "source_type": "html",
+      "source_notes": "NPO法人空き家サポート伊予の物件一覧ページ"
+    },
+    {
+      "name": "東温市",
+      "region": "中予",
+      "count": 2,
+      "sale_count": 1,
+      "rent_count": 1,
+      "price_stats": {
+        "min_man": 2400.0,
+        "max_man": 2400.0,
+        "median_man": 2400.0
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 0,
+        "sea": 0,
+        "parking": 1,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "1061",
+          "status": "新着(初回ベースライン)",
+          "district": "北方甲783番地1",
+          "kind": "売買",
+          "price": "2,400万円（応相談）",
+          "layout": "【1階】居間・台所・風呂・トイレ・和室（10畳、6畳、6畳）",
+          "built": "",
+          "land_area": "1,503.22㎡",
+          "bldg_area": "249㎡",
+          "notes": "電気（引き込み済み）/ガス（プロパンガス）/水道（上水道）/下水道（浄化槽）/トイレ（汲取り）/庭/物置/駅2.2km/バス停1km/支所2.3km/スーパー1.8㎞/病院2.5km/消防署1.7㎞/警察署1.4㎞/保育所1.2㎞/小学校1",
+          "url": "https://toon-iju.com/akiya/1061.html"
+        },
+        {
+          "id": "426",
+          "status": "新着(初回ベースライン)",
+          "district": "南方472番地１",
+          "kind": "賃貸",
+          "price": "23,000円～26,000円（お部屋の間取り等によって金額が異なります）",
+          "layout": "１DK・ワンルームの２種類です",
+          "built": "",
+          "land_area": "",
+          "bldg_area": "",
+          "notes": "最寄駅：伊予鉄道横河原駅、最寄バス停：伊予鉄バス川内支所停、構造規模：ＲＣ４階建て（１階部分）、面積：24.73㎡、築年月：1985年３月、契約期間：２年、駐車場：有（3,000円/月）、設備等：ガスコンロ付・収納スペース・洗濯機置場・給湯",
+          "url": "https://toon-iju.com/akiya/426.html"
+        }
+      ],
+      "list_url": "https://toon-iju.com/akiya/",
+      "source_type": "html",
+      "source_notes": "東温市移住・定住支援ポータルの空き家情報(selling/lease)"
+    },
+    {
+      "name": "久万高原町",
+      "region": "中予",
+      "count": 21,
+      "sale_count": 17,
+      "rent_count": 4,
+      "price_stats": {
+        "min_man": 70.0,
+        "max_man": 700.0,
+        "median_man": 290.0
+      },
+      "tags": {
+        "under_100": 3,
+        "farm": 4,
+        "sea": 0,
+        "parking": 9,
+        "good_cond": 5
+      },
+      "featured": [
+        {
+          "id": "No.256",
+          "status": "新着(初回ベースライン)",
+          "district": "直瀬",
+          "kind": "売買",
+          "price": "70万円",
+          "layout": "",
+          "built": "明治元年",
+          "land_area": "294平方メートル",
+          "bldg_area": "",
+          "notes": "修繕:要（床、雨漏り等） / 駐車場:あり（車庫1台） / 畑：113平方メートル / ・車庫/倉庫、畑（家庭菜園用）、田 住宅至近にあり ・登記費用は購入者負担 ・家屋は未登記 ・家財道具等現状渡し",
+          "url": "https://www.kumakogen.jp/site/iju/25868.html"
+        },
+        {
+          "id": "No.8-3",
+          "status": "新着(初回ベースライン)",
+          "district": "柳井川",
+          "kind": "売買",
+          "price": "280万円（応相談）",
+          "layout": "",
+          "built": "S40年頃",
+          "land_area": "85平方メートル",
+          "bldg_area": "",
+          "notes": "修繕:不要 / 駐車場:あり（2台） / 畑：2,261平方メートル / リフォームして7年が経ちました。国道沿いにある物件です。すぐに生活が可能です。 年2回ほど帰省し、田舎暮らしをしています。",
+          "url": "https://www.kumakogen.jp/site/iju/26280.html"
+        },
+        {
+          "id": "No.8-14",
+          "status": "新着(初回ベースライン)",
+          "district": "西明神",
+          "kind": "売買",
+          "price": "700万円",
+          "layout": "",
+          "built": "平成2年",
+          "land_area": "315平方メートル",
+          "bldg_area": "",
+          "notes": "修繕:不要 / 駐車場:車庫あり（1台） / 畑：270平方メートル / 現状渡しとなります。（家具等） 2年前に水回り整備、エアコン2台を入れ替えました。 オール電化、400V、コンロはIH、お風呂は四電のレンタル給湯器です。 住居",
+          "url": "https://www.kumakogen.jp/site/iju/27246.html"
+        },
+        {
+          "id": "No.8-5",
+          "status": "新着(初回ベースライン)",
+          "district": "日野浦",
+          "kind": "売買",
+          "price": "95万円",
+          "layout": "",
+          "built": "昭和48年",
+          "land_area": "54.22平方メートル",
+          "bldg_area": "",
+          "notes": "修繕:要（トイレ、お風呂等） / 駐車場:なし / 畑：なし / 家屋は未登記です。売買にかかる諸手続き費用は購入者でご負担ください。 道路沿いのポツンと一軒家。セカンドハウスも良し、お店にするのも良し！ 四国カルストへの通り",
+          "url": "https://www.kumakogen.jp/site/iju/26441.html"
+        },
+        {
+          "id": "No.167",
+          "status": "新着(初回ベースライン)",
+          "district": "久万",
+          "kind": "売買",
+          "price": "90万円",
+          "layout": "",
+          "built": "",
+          "land_area": "",
+          "bldg_area": "",
+          "notes": "",
+          "url": "https://www.kumakogen.jp/site/iju/19318.html"
+        }
+      ],
+      "list_url": "https://www.kumakogen.jp/site/iju/list98-409.html",
+      "source_type": "html",
+      "source_notes": "町公式の空き情報一覧表。売却/賃貸、交渉中含む。HTTP200確認済"
+    },
+    {
+      "name": "砥部町",
+      "region": "中予",
+      "count": 0,
+      "sale_count": 0,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": null,
+        "max_man": null,
+        "median_man": null
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 0,
+        "sea": 0,
+        "parking": 0,
+        "good_cond": 0
+      },
+      "featured": [],
+      "list_url": "https://www.e-iju.net/akiya/public/Top",
+      "source_type": "portal",
+      "source_notes": "町公式ページ(izyuusien.html)は404。えひめ移住ネットおよびアットホームに掲載"
+    },
+    {
+      "name": "宇和島市",
+      "region": "南予",
+      "count": 14,
+      "sale_count": 13,
+      "rent_count": 1,
+      "price_stats": {
+        "min_man": 100.0,
+        "max_man": 800.0,
+        "median_man": 600.0
+      },
+      "tags": {
+        "under_100": 1,
+        "farm": 10,
+        "sea": 4,
+        "parking": 10,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "No.181",
+          "status": "新着(初回ベースライン)",
+          "district": "日振島喜路",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "6DK",
+          "built": "昭和57年11月",
+          "land_area": "82.0平方メートル",
+          "bldg_area": "119.24 平方メートル",
+          "notes": "駐車場:なし / 補修:多少必要",
+          "url": "https://www.city.uwajima.ehime.jp/site/ijyu/akiya181.html"
+        },
+        {
+          "id": "No.169",
+          "status": "新着(初回ベースライン)",
+          "district": "津島町須下",
+          "kind": "売買",
+          "price": "400万円",
+          "layout": "7LDK",
+          "built": "平成9年",
+          "land_area": "112.39平方メートル",
+          "bldg_area": "213.46 平方メートル （１階：80.89平方メートル ２階：80.89平方メートル 3階：51.68平方メートル）",
+          "notes": "駐車場:なし（近くに貸土地あり） / 補修:不要 / 庭・畑:あり / 土砂災害警戒区域（急傾斜）",
+          "url": "https://www.city.uwajima.ehime.jp/site/ijyu/akiya169.html"
+        },
+        {
+          "id": "No.183",
+          "status": "新着(初回ベースライン)",
+          "district": "津島町山財",
+          "kind": "売買",
+          "price": "800万円",
+          "layout": "9DK",
+          "built": "不明",
+          "land_area": "896.2平方メートル",
+          "bldg_area": "住居：168.57平方メートル 納屋：95.86平方メートル",
+          "notes": "駐車場:あり（２台分） / 補修:多少必要 / 庭・畑:あり / 改修部分あり",
+          "url": "https://www.city.uwajima.ehime.jp/site/ijyu/akiya183.html"
+        },
+        {
+          "id": "No.188",
+          "status": "新着(初回ベースライン)",
+          "district": "宇和島市九島",
+          "kind": "売買",
+          "price": "800万円",
+          "layout": "3DK",
+          "built": "平成23年",
+          "land_area": "88.62平方メートル",
+          "bldg_area": "住居：76.17平方メートル",
+          "notes": "駐車場:なし / 補修:必要なし / 庭・畑:庭あり / 土砂災害警戒区域（急傾斜地）、太陽光パネルあり",
+          "url": "https://www.city.uwajima.ehime.jp/site/ijyu/akiya188.html"
+        },
+        {
+          "id": "No.155",
+          "status": "新着(初回ベースライン)",
+          "district": "吉田町立間",
+          "kind": "売買",
+          "price": "800万",
+          "layout": "6LDK",
+          "built": "昭和60年",
+          "land_area": "265.15 平方メートル",
+          "bldg_area": "135.0 平方メートル （１階：69.0平方メートル ２階：66.0平方メートル）",
+          "notes": "駐車場:2台可 / 補修:多少必要 / 庭・畑:あり / 土砂災害警戒区域（土石流）",
+          "url": "https://www.city.uwajima.ehime.jp/site/ijyu/akiya155.html"
+        }
+      ],
+      "list_url": "https://www.city.uwajima.ehime.jp/site/ijyu/akiyabank.html",
+      "source_type": "html",
+      "source_notes": "市公式。個別ページ(akiyaNN.html)に物件。HTTP200"
+    },
+    {
+      "name": "八幡浜市",
+      "region": "南予",
+      "count": 67,
+      "sale_count": 64,
+      "rent_count": 3,
+      "price_stats": {
+        "min_man": 40.0,
+        "max_man": 3180.0,
+        "median_man": 395.0
+      },
+      "tags": {
+        "under_100": 11,
+        "farm": 0,
+        "sea": 8,
+        "parking": 5,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "No.224",
+          "status": "新着(初回ベースライン)",
+          "district": "海暮らし",
+          "kind": "売買",
+          "price": "100 万円",
+          "layout": "3K",
+          "built": "1961年12月",
+          "land_area": "80.62㎡",
+          "bldg_area": "46.28㎡",
+          "notes": "中古（多少の補修必要） / なし / 電気・公営水道",
+          "url": "https://yawatahama-iju.com/akiya/17166/"
+        },
+        {
+          "id": "No.118",
+          "status": "新着(初回ベースライン)",
+          "district": "海暮らし",
+          "kind": "売買",
+          "price": "100 万円",
+          "layout": "和室 8帖×1 ・5帖×1 ・3帖 × 1、 洋室 ×1 、",
+          "built": "不明",
+          "land_area": "156.68㎡（約47.39坪）",
+          "bldg_area": "平屋 39.66㎡（約12坪） ＋ 浴室・倉庫",
+          "notes": "多少の修繕が必要です。 / 無 / 電気・プロパンガス・公共水道・公共下水道",
+          "url": "https://yawatahama-iju.com/akiya/11337/"
+        },
+        {
+          "id": "No.267",
+          "status": "新着(初回ベースライン)",
+          "district": "山暮らし",
+          "kind": "売買",
+          "price": "48 万円",
+          "layout": "4K",
+          "built": "1981年9月",
+          "land_area": "76.61㎡",
+          "bldg_area": "1階 40.47㎡ 2階 36.77㎡ 計77.24㎡",
+          "notes": "中古（多少の補修必要【入居者負担】） / あり / 電気・プロパンガス・公営水道・汲み取りトイレ",
+          "url": "https://yawatahama-iju.com/akiya/19350/"
+        },
+        {
+          "id": "No.253",
+          "status": "新着(初回ベースライン)",
+          "district": "山暮らし",
+          "kind": "売買",
+          "price": "50 万円",
+          "layout": "8K",
+          "built": "1975年12月",
+          "land_area": "609.98㎡",
+          "bldg_area": "1階 113.49㎡ 2階 93.20㎡ 計 206.69㎡",
+          "notes": "中古（大幅な補修・一部の建物解体が必要【入居者負担】） / あり（軽自動車なら敷地内に駐車可能） / 電気・簡易水道・合併浄化槽",
+          "url": "https://yawatahama-iju.com/akiya/18565/"
+        },
+        {
+          "id": "No.254",
+          "status": "新着(初回ベースライン)",
+          "district": "まち暮らし",
+          "kind": "売買",
+          "price": "40 万円",
+          "layout": "4K",
+          "built": "不明",
+          "land_area": "77.57㎡",
+          "bldg_area": "1階 36.98㎡ 2階 42.53㎡ 計 79.51㎡",
+          "notes": "中古（多少の補修必要【入居者負担】） / なし（近隣に有料駐車場あり） / 電気・プロパンガス・公営水道・公共下水道",
+          "url": "https://yawatahama-iju.com/akiya/18581/"
+        }
+      ],
+      "list_url": "https://yawatahama-iju.com/akiya/",
+      "source_type": "html",
+      "source_notes": "八幡浜市移住・定住支援ポータル内の空き家バンク一覧(page/1..5)"
+    },
+    {
+      "name": "大洲市",
+      "region": "南予",
+      "count": 23,
+      "sale_count": 21,
+      "rent_count": 2,
+      "price_stats": {
+        "min_man": 150.0,
+        "max_man": 3000.0,
+        "median_man": 500.0
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 2,
+        "sea": 0,
+        "parking": 0,
+        "good_cond": 4
+      },
+      "featured": [
+        {
+          "id": "1-1-222",
+          "status": "新着(初回ベースライン)",
+          "district": "大洲地域  阿蔵",
+          "kind": "売買",
+          "price": "1,480万円",
+          "layout": "",
+          "built": "平成10年築",
+          "land_area": "205.92",
+          "bldg_area": "1階 90.41",
+          "notes": "修繕不要 / 有 3台分 / 無",
+          "url": "https://www.city.ozu.ehime.jp/akiyabank/1-1-222.html"
+        },
+        {
+          "id": "3-1-008",
+          "status": "新着(初回ベースライン)",
+          "district": "肱川地域  肱川町予子林",
+          "kind": "売買",
+          "price": "200万円",
+          "layout": "",
+          "built": "平成2年築",
+          "land_area": "418.79",
+          "bldg_area": "1階 80.12",
+          "notes": "修繕が必要 / 有 5台分 / 有 田畑山林あり（応相談）",
+          "url": "https://www.city.ozu.ehime.jp/akiyabank/3-1-008.html"
+        },
+        {
+          "id": "1-1-223",
+          "status": "新着(初回ベースライン)",
+          "district": "大洲地域  東大洲",
+          "kind": "売買",
+          "price": "3,000万円",
+          "layout": "",
+          "built": "平成元年築",
+          "land_area": "662.05",
+          "bldg_area": "1階 183.62",
+          "notes": "修繕不要 / 有 3台分 / 無",
+          "url": "https://www.city.ozu.ehime.jp/akiyabank/1-1-223.html"
+        },
+        {
+          "id": "1-1-220",
+          "status": "新着(初回ベースライン)",
+          "district": "大洲地域  徳森",
+          "kind": "売買",
+          "price": "700万円",
+          "layout": "",
+          "built": "昭和50年築",
+          "land_area": "179.72",
+          "bldg_area": "1階 63.17",
+          "notes": "修繕不要 / 有 1台分 / 無",
+          "url": "https://www.city.ozu.ehime.jp/akiyabank/1-1-220.html"
+        },
+        {
+          "id": "1-1-225",
+          "status": "新着(初回ベースライン)",
+          "district": "大洲地域  市木",
+          "kind": "賃貸",
+          "price": "35,000円",
+          "layout": "",
+          "built": "昭和61年築",
+          "land_area": "99.85",
+          "bldg_area": "1階 61.77",
+          "notes": "修繕不要 / 有 1台分 / 無",
+          "url": "https://www.city.ozu.ehime.jp/akiyabank/1-1-225.html"
+        }
+      ],
+      "list_url": "https://www.city.ozu.ehime.jp/akiyabank/search/search.php",
+      "source_type": "html",
+      "source_notes": "大洲市公式空き家バンク検索(type=11,12,21,31,32で種別一覧)"
+    },
+    {
+      "name": "西予市",
+      "region": "南予",
+      "count": 0,
+      "sale_count": 0,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": null,
+        "max_man": null,
+        "median_man": null
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 0,
+        "sea": 0,
+        "parking": 0,
+        "good_cond": 0
+      },
+      "featured": [],
+      "list_url": "https://www.city.seiyo.ehime.jp/kakuka/kensetsu/kensetsu/akiya/15809.html",
+      "source_type": "portal",
+      "source_notes": "独自一覧なし。アットホーム・LIFULL HOME'S等に掲載(bot遮断)"
+    },
+    {
+      "name": "松前町",
+      "region": "中予",
+      "count": 0,
+      "sale_count": 0,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": null,
+        "max_man": null,
+        "median_man": null
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 0,
+        "sea": 0,
+        "parking": 0,
+        "good_cond": 0
+      },
+      "featured": [],
+      "list_url": "https://www.town.masaki.ehime.jp/",
+      "source_type": "portal",
+      "source_notes": "町独自一覧なし。アットホーム全国版を利用(bot遮断)"
+    },
+    {
+      "name": "内子町",
+      "region": "南予",
+      "count": 10,
+      "sale_count": 7,
+      "rent_count": 3,
+      "price_stats": {
+        "min_man": 100.0,
+        "max_man": 1800.0,
+        "median_man": 400.0
+      },
+      "tags": {
+        "under_100": 2,
+        "farm": 0,
+        "sea": 0,
+        "parking": 0,
+        "good_cond": 1
+      },
+      "featured": [
+        {
+          "id": "No.96",
+          "status": "新着(初回ベースライン)",
+          "district": "五十崎エリア 大久喜甲167-2",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "",
+          "built": "不明（100年以上前）",
+          "land_area": "309.44m²",
+          "bldg_area": "84.30㎡",
+          "notes": "必要 / 令和2年まで利用",
+          "url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/ijyu/akiya96.html"
+        },
+        {
+          "id": "No.70",
+          "status": "新着(初回ベースライン)",
+          "district": "内子エリア 内子町内子2439番地",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "",
+          "built": "昭和54年",
+          "land_area": "81.71㎡",
+          "bldg_area": "63.63㎡",
+          "notes": "修繕必要 / 20年利用していない。",
+          "url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/ijyu/akiya69.html"
+        },
+        {
+          "id": "No.80",
+          "status": "新着(初回ベースライン)",
+          "district": "内子エリア 内子町内子3457番地",
+          "kind": "賃貸",
+          "price": "5.5万円",
+          "layout": "",
+          "built": "昭和46年",
+          "land_area": "98.25㎡",
+          "bldg_area": "80.02㎡",
+          "notes": "修繕不要 / 5年間利用していない",
+          "url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/ijyu/akiya80.html"
+        },
+        {
+          "id": "No.94",
+          "status": "新着(初回ベースライン)",
+          "district": "小田エリア 寺村511番地",
+          "kind": "売買",
+          "price": "400万円",
+          "layout": "",
+          "built": "1955年/1971年",
+          "land_area": "253.76m²",
+          "bldg_area": "134.27㎡",
+          "notes": "不要 / 令和7年5月まで利用",
+          "url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/ijyu/akiya94.html"
+        },
+        {
+          "id": "No.93",
+          "status": "新着(初回ベースライン)",
+          "district": "小田エリア 寺村528番地",
+          "kind": "賃貸",
+          "price": "４万円",
+          "layout": "",
+          "built": "1995年",
+          "land_area": "126.24m²",
+          "bldg_area": "132.99㎡",
+          "notes": "必要 / 令和8年8月まで利用",
+          "url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/ijyu/akiya93.html"
+        }
+      ],
+      "list_url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/search/search.php?search=1&page=1&all=1",
+      "source_type": "html",
+      "source_notes": "うちこ屋バンク全件検索URL"
+    },
+    {
+      "name": "伊方町",
+      "region": "南予",
+      "count": 10,
+      "sale_count": 10,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": 50.0,
+        "max_man": 1680.0,
+        "median_man": 350.0
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 0,
+        "sea": 0,
+        "parking": 0,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "I-036",
+          "status": "新着(初回ベースライン)",
+          "district": "伊方地域 九町1番耕地浦安550番地1、2",
+          "kind": "売買",
+          "price": "300万円（応相談）",
+          "layout": "1LDK（倉庫付き）",
+          "built": "20年～40年",
+          "land_area": "268.46平方メートル",
+          "bldg_area": "56.73平方メートル",
+          "notes": "売家 売地",
+          "url": "https://www.town.ikata.ehime.jp/akiya/iju-teiju/20362.html"
+        },
+        {
+          "id": "I-040",
+          "status": "新着(初回ベースライン)",
+          "district": "伊方地域 川永田甲972番地",
+          "kind": "売買",
+          "price": "70万円（※応相談）",
+          "layout": "－",
+          "built": "",
+          "land_area": "65.38平方メートル",
+          "bldg_area": "",
+          "notes": "売地",
+          "url": "https://www.town.ikata.ehime.jp/akiya/iju-teiju/24345.html"
+        },
+        {
+          "id": "I-045",
+          "status": "新着(初回ベースライン)",
+          "district": "伊方地域 中浦甲347番地1（西側半分）",
+          "kind": "売買",
+          "price": "売却：350万",
+          "layout": "－",
+          "built": "",
+          "land_area": "139.5平方メートル",
+          "bldg_area": "",
+          "notes": "売地",
+          "url": "https://www.town.ikata.ehime.jp/akiya/iju-teiju/25490.html"
+        },
+        {
+          "id": "I-046",
+          "status": "新着(初回ベースライン)",
+          "district": "伊方地域 川永田甲7番地1",
+          "kind": "売買",
+          "price": "売却：380万（応相談）",
+          "layout": "－",
+          "built": "",
+          "land_area": "174.84平方メートル",
+          "bldg_area": "",
+          "notes": "売地",
+          "url": "https://www.town.ikata.ehime.jp/akiya/iju-teiju/26315.html"
+        },
+        {
+          "id": "I-047",
+          "status": "新着(初回ベースライン)",
+          "district": "伊方地域 二見甲1705番地、1695番地",
+          "kind": "売買",
+          "price": "売却：480万（応相談）",
+          "layout": "－",
+          "built": "60年以上",
+          "land_area": "―",
+          "bldg_area": "",
+          "notes": "売家",
+          "url": "https://www.town.ikata.ehime.jp/akiya/iju-teiju/26405.html"
+        }
+      ],
+      "list_url": "https://www.town.ikata.ehime.jp/akiya/search/search.php?hid_flg_search=1&page=1",
+      "source_type": "html",
+      "source_notes": "伊方町空き家バンク検索結果URL"
+    },
+    {
+      "name": "松野町",
+      "region": "南予",
+      "count": 5,
+      "sale_count": 4,
+      "rent_count": 1,
+      "price_stats": {
+        "min_man": 550.0,
+        "max_man": 550.0,
+        "median_man": 550.0
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 2,
+        "sea": 0,
+        "parking": 4,
+        "good_cond": 1
+      },
+      "featured": [
+        {
+          "id": "No.32",
+          "status": "新着(初回ベースライン)",
+          "district": "吉野",
+          "kind": "賃貸",
+          "price": "賃借：2万円/月 売買：80万円",
+          "layout": "",
+          "built": "築およそ60年",
+          "land_area": "",
+          "bldg_area": "",
+          "notes": "駐車スペース：軽1台分 / 最近まで人が住んでいたため、比較的状態も良く、すぐに入居可能な物件です。近所にある畑も併せて借りることも可能。ご相談ください。",
+          "url": "https://www.town.matsuno.ehime.jp/site/akiya/11761.html"
+        },
+        {
+          "id": "No.42",
+          "status": "新着(初回ベースライン)",
+          "district": "目黒(上目黒地区）",
+          "kind": "売買",
+          "price": "550万円（農地、山林を含んだ価格となります。） 賃借希望の場合は、要相談",
+          "layout": "間取り図のとおり 間取り図Ｎｏ42 [PDFファイル／830KB]",
+          "built": "築100年程度",
+          "land_area": "390.79平方メートル",
+          "bldg_area": "117.11平方メートル",
+          "notes": "倉庫あり / 現状での引き渡しになります。（家財の処分等については、要相談） 農地、山林（畑が約8,000平方メートル、山林が約90,000平方メートル）を含んだ売買価格であり、農地について農業委員会の届出が必要となります。",
+          "url": "https://www.town.matsuno.ehime.jp/site/akiya/17998.html"
+        },
+        {
+          "id": "No.43",
+          "status": "新着(初回ベースライン)",
+          "district": "豊岡(豊岡後地区）",
+          "kind": "売買",
+          "price": "要相談",
+          "layout": "間取り図のとおり 間取り図Ｎｏ43 [PDFファイル／1006KB]",
+          "built": "昭和48年建築",
+          "land_area": "680.70平方メートル",
+          "bldg_area": "93.30平方メートル",
+          "notes": "倉庫、駐車場あり / 現状での引き渡しになります。（家財の処分等については、要相談）",
+          "url": "https://www.town.matsuno.ehime.jp/site/akiya/18219.html"
+        },
+        {
+          "id": "No.41",
+          "status": "新着(初回ベースライン)",
+          "district": "豊岡(豊岡前地区）",
+          "kind": "売買",
+          "price": "要相談",
+          "layout": "間取り図のとおり 間取り図Ｎｏ41 [PDFファイル／1.16MB]",
+          "built": "築40年",
+          "land_area": "404.44平方メートル",
+          "bldg_area": "34.57平方メートル",
+          "notes": "車庫あり 倉庫あり / 現状での引き渡しになります。（家財の処分等については、要相談）",
+          "url": "https://www.town.matsuno.ehime.jp/site/akiya/17884.html"
+        },
+        {
+          "id": "No.40",
+          "status": "新着(初回ベースライン)",
+          "district": "豊岡(豊岡前地区）",
+          "kind": "売買",
+          "price": "要相談",
+          "layout": "間取り図のとおり 間取り図Ｎｏ40 [PDFファイル／870KB]",
+          "built": "築24年",
+          "land_area": "331平方メートル",
+          "bldg_area": "63.17平方メートル",
+          "notes": "駐車スペースあり 物置あり ＢＳアンテナあり / 現状での引き渡しになります。（家財の処分等については、要相談）",
+          "url": "https://www.town.matsuno.ehime.jp/site/akiya/17882.html"
+        }
+      ],
+      "list_url": "https://www.town.matsuno.ehime.jp/site/akiya/",
+      "source_type": "html",
+      "source_notes": "町公式。個別ページに物件。HTTP200"
+    },
+    {
+      "name": "鬼北町",
+      "region": "南予",
+      "count": 5,
+      "sale_count": 5,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": 550.0,
+        "max_man": 1500.0,
+        "median_man": 950.0
+      },
+      "tags": {
+        "under_100": 0,
+        "farm": 1,
+        "sea": 1,
+        "parking": 5,
+        "good_cond": 1
+      },
+      "featured": [
+        {
+          "id": "525003",
+          "status": "新着(初回ベースライン)",
+          "district": "小倉(泉地区)",
+          "kind": "売買",
+          "price": "580万円",
+          "layout": "4LDK以上",
+          "built": "119年",
+          "land_area": "537.31平米",
+          "bldg_area": "148.32平米",
+          "notes": "駐車場:2台以上（露天） / ○商業施設の集中する近永地区から車で約10分、静かな住宅地にあります。トイレ、風呂場、台所をはじめ、25年程前にほぼ全面改装済みです。明治39年に建築された古民家の良さを感じられる庭付き一軒家です。 ○居宅 1",
+          "url": "https://kihoku.umiyama-kurashi.jp/t_bukken/%e5%b0%8f%e5%80%89%e3%80%94525003%e3%80%95/"
+        },
+        {
+          "id": "525002",
+          "status": "新着(初回ベースライン)",
+          "district": "出目(泉地区)",
+          "kind": "売買",
+          "price": "1500万円",
+          "layout": "4LDK以上",
+          "built": "38年",
+          "land_area": "",
+          "bldg_area": "235.22平米",
+          "notes": "駐車場:2台以上（露天） / ○住宅街の静かな環境です。道の駅広見森の三角ぼうしなどの商業施設へもアクセス良好です。また予土線出目駅から徒歩５分圏内にあり、電車でのおでかけにも便利です。 ○農地付き空き家 畑 308平米 ○居宅２棟 194",
+          "url": "https://kihoku.umiyama-kurashi.jp/t_bukken/%e5%87%ba%e7%9b%ae%e3%80%94525002%e3%80%95/"
+        },
+        {
+          "id": "426001",
+          "status": "新着(初回ベースライン)",
+          "district": "下大野(三島地区)",
+          "kind": "売買",
+          "price": "950万円",
+          "layout": "3DK",
+          "built": "27年",
+          "land_area": "361.46平米",
+          "bldg_area": "84.37平米",
+          "notes": "駐車場:2台以上（露天） / ○静かな住宅地にあり、近隣に下大野郵便局があります。近永の商業地域からは車で15分ほど、道の駅日吉夢産地までは車で12分ほどに位置し、お買い物に便利な立地です。 ○居宅 84.37平米 ○宅地 361.46平米",
+          "url": "https://kihoku.umiyama-kurashi.jp/t_bukken/%e4%b8%8b%e5%a4%a7%e9%87%8e%e3%80%94426001%e3%80%95/"
+        },
+        {
+          "id": "226080",
+          "status": "新着(初回ベースライン)",
+          "district": "国遠(近永地区)",
+          "kind": "売買",
+          "price": "550万円",
+          "layout": "3DK",
+          "built": "45年",
+          "land_area": "223.74平米",
+          "bldg_area": "76.76平米",
+          "notes": "駐車場:1台（屋根有） / ○車で３分圏内に鬼北町立北宇和病院や鬼北町役場があり、近永の商業地域からも車で５分ほどと近くアクセスの良い立地です。住宅街の静かな環境です。 ○居宅 76.76平米 ○宅地 223.74平米 ○設備状況 トイレ：",
+          "url": "https://kihoku.umiyama-kurashi.jp/t_bukken/%e5%9b%bd%e9%81%a0226080/"
+        },
+        {
+          "id": "6162",
+          "status": "新着(初回ベースライン)",
+          "district": "近永(近永地区)",
+          "kind": "売買",
+          "price": "1,150万円",
+          "layout": "4LDK以上",
+          "built": "38年",
+          "land_area": "",
+          "bldg_area": "412.71平米",
+          "notes": "駐車場:2台以上（露天） / ○近永地区中心部に位置し、買い物へのアクセスは良好です。また徒歩５分圏内に鬼北町役場、鬼北町立北宇和病院があります。 ○居宅２棟 1254-2：305.27平米 1267：107.44平米 ○設備状況 1254",
+          "url": "https://kihoku.umiyama-kurashi.jp/t_bukken/%e8%bf%91%e6%b0%b8%e3%80%946162%e3%80%95/"
+        }
+      ],
+      "list_url": "https://kihoku.umiyama-kurashi.jp/bukken_archive",
+      "source_type": "html",
+      "source_notes": "鬼北町空き家情報サイト。HTTP200"
+    },
+    {
+      "name": "愛南町",
+      "region": "南予",
+      "count": 28,
+      "sale_count": 28,
+      "rent_count": 0,
+      "price_stats": {
+        "min_man": 25.0,
+        "max_man": 1500.0,
+        "median_man": 400.0
+      },
+      "tags": {
+        "under_100": 2,
+        "farm": 1,
+        "sea": 1,
+        "parking": 11,
+        "good_cond": 0
+      },
+      "featured": [
+        {
+          "id": "0715",
+          "status": "新着(初回ベースライン)",
+          "district": "赤水793 （行政区：赤水）",
+          "kind": "売買",
+          "price": "100万",
+          "layout": "",
+          "built": "築62年",
+          "land_area": "290.83㎡",
+          "bldg_area": "",
+          "notes": "駐車場なし",
+          "url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/files/0715_daityou.pdf"
+        },
+        {
+          "id": "0511",
+          "status": "新着(初回ベースライン)",
+          "district": "福浦1870番地",
+          "kind": "売買",
+          "price": "25万円",
+          "layout": "",
+          "built": "",
+          "land_area": "212.43㎡",
+          "bldg_area": "",
+          "notes": "駐車場なし 庭",
+          "url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/files/0511_daityou.pdf"
+        },
+        {
+          "id": "0801",
+          "status": "新着(初回ベースライン)",
+          "district": "広見288-1 （行政区：久保江）",
+          "kind": "売買",
+          "price": "要相談",
+          "layout": "",
+          "built": "平成28年",
+          "land_area": "",
+          "bldg_area": "",
+          "notes": "駐車場3台以上・フローリング・簡易水洗トイレ・バストイレ別・畑付き",
+          "url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/files/0801_daityou.pdf"
+        },
+        {
+          "id": "0805",
+          "status": "新着(初回ベースライン)",
+          "district": "高畑49、48-1、48-2 （行政区：高畑）",
+          "kind": "売買",
+          "price": "490万円",
+          "layout": "",
+          "built": "昭和５１年",
+          "land_area": "628.68㎡",
+          "bldg_area": "",
+          "notes": "駐車場３台分以上　室内洗濯機置場　海近物件",
+          "url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/files/0805daityou.pdf"
+        },
+        {
+          "id": "0704",
+          "status": "新着(初回ベースライン)",
+          "district": "御荘平城28-1 （行政区：長崎）",
+          "kind": "売買",
+          "price": "300万",
+          "layout": "",
+          "built": "築42年",
+          "land_area": "114.23㎡",
+          "bldg_area": "",
+          "notes": "駐車場有　室内洗濯機置場",
+          "url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/files/0704_daityou.pdf"
+        }
+      ],
+      "list_url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/ijujoho.html",
+      "source_type": "pdf",
+      "source_notes": "登録物件一覧ページ。各物件は登録台帳PDFで公開"
+    }
+  ]
+}

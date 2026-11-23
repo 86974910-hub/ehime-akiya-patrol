@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>愛媛の空き家パトロール｜地元民が全20市町を毎日チェック</title>
+  <meta name="description" content="都会の時計を外して、瀬戸内の光と古民家で、新しい人生を耕す。愛媛県全20市町の空き家バンクを毎日自動巡回し、リアルな相場と現地代理下見レポートをお届けします。" />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <span>愛媛の空き家パトロール</span>
+        <span class="brand-sub">Setouchi &amp; Ehime Life</span>
+      </a>
+      <nav class="header-nav" aria-label="メインナビゲーション">
+        <a href="#map-section">全20市町マップ</a>
+        <a href="#inspection-section">現地代理下見</a>
+        <a href="#media-section">note・X速報</a>
+        <a href="#contact-section">ご依頼・相談</a>
+      </nav>
+      <a class="header-cta" href="#contact-section">下見を相談する</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Editorial Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="en-kicker">Setouchi &amp; Ehime Life</span>
+            <h1 class="hero-title">都会の時計を外して、瀬戸内の光と古民家で、新しい人生を耕す。</h1>
+            <p class="hero-lead">
+              愛媛県全20市町の空き家バンクを毎日自動巡回。バラバラだった<span id="lead-total-count" class="num">538</span>件のリアルな相場と、地元民だけの本音メモを一つの地図に。
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-mikan" href="#map-section">
+                <span>地図から市町を選ぶ</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+              <a class="btn btn-ghost" href="#inspection-section">
+                <span>1万円の現地代理下見を知る</span>
+              </a>
+            </div>
+          </div>
+
+          <aside class="hero-visual" aria-label="パトロールノート">
+            <div class="hero-visual-kicker">Daily Field Dispatch</div>
+            <p class="hero-visual-quote">
+              島の路地、山の朝霧、みかん畑の向こうの海。<br />
+              自治体の更新を毎日見守り、<br />
+              まだ誰も見つけていない一軒をお届けします。
+            </p>
+            <div class="hero-visual-meta">
+              <span>対象：東予・中予・南予 20市町</span>
+              <span class="num">05:10 JST Patrol</span>
+            </div>
+          </aside>
+        </div>
+
+        <!-- Live Status Bar (Glassmorphism Strip) -->
+        <div class="live-bar" role="region" aria-label="リアルタイム巡回ステータス">
+          <div class="live-cell">
+            <div class="live-label"><span class="live-dot"></span>総掲載数（募集中）</div>
+            <div class="live-val" id="stat-total">--件</div>
+            <div class="live-sub" id="stat-breakdown">売買 --件 / 賃貸 --件</div>
+          </div>
+          <div class="live-cell">
+            <div class="live-label">売買最安値 / 中央値</div>
+            <div class="live-val" id="stat-min-price">--万円</div>
+            <div class="live-sub" id="stat-median-price">中央値 --万円</div>
+          </div>
+          <div class="live-cell">
+            <div class="live-label">監視エリア</div>
+            <div class="live-val">県内全20市町</div>
+            <div class="live-sub" id="stat-covered">直接取得 --市町</div>
+          </div>
+          <div class="live-cell">
+            <div class="live-label">最終巡回日時</div>
+            <div class="live-val" id="stat-updated" style="font-size: 1.08rem;">----</div>
+            <div class="live-sub" id="stat-recent">直近7日新着・改定 --件</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section class="section reveal" id="map-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="en-kicker">Interactive Atlas</span>
+          <h2 class="section-title">愛媛県全20市町 空き家マップ</h2>
+          <p class="section-desc">
+            島しょ部から山間部、佐田岬半島まで。気になる市町に触れると、今の募集件数と相場、注目物件が開きます。
+          </p>
+        </div>
+
+        <div class="atlas-toolbar">
+          <div class="region-pills" role="tablist" aria-label="エリア絞り込み">
+            <button class="region-tab active" data-region="all" type="button">すべて (20)</button>
+            <button class="region-tab" data-region="東予" type="button">東予 (5)</button>
+            <button class="region-tab" data-region="中予" type="button">中予 (6)</button>
+            <button class="region-tab" data-region="南予" type="button">南予 (9)</button>
+          </div>
+          <div class="legend" aria-label="件数ヒートマップ凡例">
+            <span class="legend-item"><span class="swatch" style="background:#EAE5D9"></span>0件(外部委託等)</span>
+            <span class="legend-item"><span class="swatch" style="background:#C8DCE3"></span>1〜9件</span>
+            <span class="legend-item"><span class="swatch" style="background:#7FA8BA"></span>10〜29件</span>
+            <span class="legend-item"><span class="swatch" style="background:#3A6E88"></span>30〜79件</span>
+            <span class="legend-item"><span class="swatch" style="background:#143B54"></span>80件〜</span>
+          </div>
+        </div>
+
+        <div class="atlas-grid">
+          <!-- Left: Organic Ehime Terrain SVG Map -->
+          <div class="atlas-canvas">
+            <div class="svg-frame">
+              <svg id="ehime-map" viewBox="0 0 840 650" role="img" aria-label="愛媛県全20市町 地形インタラクティブ地図">
+                <defs>
+                  <linearGradient id="seaGrad" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#E7EFF2" />
+                    <stop offset="100%" stop-color="#DAE7EC" />
+                  </linearGradient>
+                </defs>
+                <rect width="840" height="650" fill="url(#seaGrad)" />
+
+                <!-- 海域の穏やかな等深線・波紋ライン -->
+                <path d="M 30 220 Q 160 190 250 130 T 430 40" fill="none" stroke="rgba(20,35,48,0.06)" stroke-width="1.2" />
+                <path d="M 15 310 Q 140 270 260 220 T 400 100" fill="none" stroke="rgba(20,35,48,0.05)" stroke-width="1" stroke-dasharray="6 6" />
+                <path d="M 40 500 Q 95 480 120 535 T 110 630" fill="none" stroke="rgba(20,35,48,0.06)" stroke-width="1.2" />
+                <path d="M 550 115 Q 670 110 780 95" fill="none" stroke="rgba(20,35,48,0.06)" stroke-width="1.2" />
+
+                <!-- 山間部（四国山地）の控えめな等高線 -->
+                <path d="M 445 360 Q 515 310 595 345" fill="none" stroke="rgba(74,107,93,0.14)" stroke-width="1.2" />
+                <path d="M 465 378 Q 525 335 585 365" fill="none" stroke="rgba(74,107,93,0.12)" stroke-width="1" />
+
+                <!-- 海域ラベル -->
+                <text x="145" y="102" fill="#637D8C" font-family='"Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif' font-size="13" font-weight="500" letter-spacing="0.14em">伊 予 灘</text>
+                <text x="705" y="76" fill="#637D8C" font-family='"Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif' font-size="13" font-weight="500" letter-spacing="0.14em">燧 灘</text>
+                <text x="58" y="562" fill="#637D8C" font-family='"Noto Sans JP", -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif' font-size="13" font-weight="500" letter-spacing="0.14em">宇 和 海</text>
+
+                <!-- しまなみ・航路ガイド線 -->
+                <path d="M 332 142 Q 355 158 378 178" fill="none" stroke="#85A4B3" stroke-width="1.3" stroke-dasharray="3 3" />
+                <path d="M 455 92 Q 465 110 472 128" fill="none" stroke="#85A4B3" stroke-width="1.3" stroke-dasharray="3 3" />
+                <path d="M 526 66 Q 550 62 568 62" fill="none" stroke="#85A4B3" stroke-width="1.3" stroke-dasharray="3 3" />
+
+                <!-- 1. 上島町（芸予諸島：弓削島・生名島・岩城島・魚島） -->
+                <g class="muni-group" data-muni="上島町" data-cx="612" data-cy="68">
+                  <path class="muni-shape" d="M 572 34 C 594 24, 626 26, 646 42 C 660 54, 656 84, 636 96 C 612 108, 578 100, 566 82 C 556 66, 558 42, 572 34 Z M 664 68 C 674 64, 684 72, 680 82 C 674 90, 660 86, 664 68 Z" />
+                </g>
+
+                <!-- 2. 今治市（高縄半島北東＋大三島・伯方島・大島） -->
+                <g class="muni-group" data-muni="今治市" data-cx="474" data-cy="132">
+                  <path class="muni-shape" d="M 420 34 C 440 22, 468 24, 476 42 C 480 56, 460 66, 440 62 C 422 58, 412 44, 420 34 Z M 482 42 C 502 36, 520 46, 518 62 C 514 76, 492 78, 480 66 Z M 446 72 C 468 68, 496 76, 502 92 C 498 106, 466 106, 444 94 Z M 416 110 C 446 102, 488 108, 518 134 C 538 152, 540 166, 518 178 C 490 192, 468 202, 456 196 C 436 184, 422 170, 412 152 C 402 134, 404 118, 416 110 Z" />
+                </g>
+
+                <!-- 3. 西条市（石鎚山北麓〜加茂川河口） -->
+                <g class="muni-group" data-muni="西条市" data-cx="556" data-cy="226">
+                  <path class="muni-shape" d="M 518 178 C 546 170, 588 172, 616 176 L 614 274 C 584 282, 536 286, 502 278 C 496 254, 498 214, 518 178 Z" />
+                </g>
+
+                <!-- 4. 新居浜市 -->
+                <g class="muni-group" data-muni="新居浜市" data-cx="652" data-cy="222">
+                  <path class="muni-shape" d="M 616 176 C 644 166, 672 164, 692 168 L 692 270 C 664 278, 634 278, 614 274 Z" />
+                </g>
+
+                <!-- 5. 四国中央市（法皇山脈〜香川・徳島県境） -->
+                <g class="muni-group" data-muni="四国中央市" data-cx="748" data-cy="208">
+                  <path class="muni-shape" d="M 692 168 C 724 148, 764 142, 796 150 C 810 176, 812 228, 796 264 C 762 276, 720 276, 692 270 Z" />
+                </g>
+
+                <!-- 6. 松山市（高縄半島西〜松山平野＋忽那諸島：中島・興居島） -->
+                <g class="muni-group" data-muni="松山市" data-cx="388" data-cy="210">
+                  <path class="muni-shape" d="M 294 118 C 314 106, 336 112, 342 132 C 344 148, 326 158, 306 154 C 288 148, 282 128, 294 118 Z M 352 166 C 368 156, 396 146, 412 152 C 424 172, 440 186, 456 196 C 458 220, 456 244, 444 256 C 414 260, 368 258, 342 254 C 336 226, 338 186, 352 166 Z" />
+                </g>
+
+                <!-- 7. 東温市 -->
+                <g class="muni-group" data-muni="東温市" data-cx="480" data-cy="238">
+                  <path class="muni-shape" d="M 456 196 C 474 198, 496 190, 508 186 C 504 220, 502 254, 502 278 C 482 282, 464 282, 448 274 C 446 250, 450 220, 456 196 Z" />
+                </g>
+
+                <!-- 8. 松前町 -->
+                <g class="muni-group" data-muni="松前町" data-cx="362" data-cy="282">
+                  <path class="muni-shape" d="M 342 254 C 366 258, 386 258, 398 258 L 394 308 C 368 308, 340 308, 324 302 C 328 284, 334 268, 342 254 Z" />
+                </g>
+
+                <!-- 9. 砥部町 -->
+                <g class="muni-group" data-muni="砥部町" data-cx="426" data-cy="294">
+                  <path class="muni-shape" d="M 398 258 C 418 258, 438 256, 448 274 L 448 334 C 426 334, 408 334, 394 328 Z" />
+                </g>
+
+                <!-- 10. 伊予市（双海海岸沿い） -->
+                <g class="muni-group" data-muni="伊予市" data-cx="336" data-cy="336">
+                  <path class="muni-shape" d="M 324 302 C 348 308, 374 308, 394 308 L 394 360 C 354 364, 298 364, 266 356 C 282 336, 304 316, 324 302 Z" />
+                </g>
+
+                <!-- 11. 久万高原町（四国山地中央） -->
+                <g class="muni-group" data-muni="久万高原町" data-cx="520" data-cy="340">
+                  <path class="muni-shape" d="M 448 274 C 474 282, 536 284, 608 276 C 618 320, 604 378, 578 404 C 534 412, 464 408, 424 398 C 422 368, 434 348, 448 334 Z" />
+                </g>
+
+                <!-- 12. 内子町 -->
+                <g class="muni-group" data-muni="内子町" data-cx="376" data-cy="390">
+                  <path class="muni-shape" d="M 332 362 C 362 362, 394 360, 424 362 C 426 382, 424 402, 418 424 C 384 426, 352 426, 326 422 Z" />
+                </g>
+
+                <!-- 13. 大洲市（長浜海岸〜肱川流域） -->
+                <g class="muni-group" data-muni="大洲市" data-cx="284" data-cy="394">
+                  <path class="muni-shape" d="M 266 356 C 292 362, 314 362, 332 362 L 326 428 C 294 432, 264 432, 240 426 C 242 396, 250 374, 266 356 Z" />
+                </g>
+
+                <!-- 14. 伊方町（伸びやかな佐田岬半島） -->
+                <g class="muni-group" data-muni="伊方町" data-cx="116" data-cy="412">
+                  <path class="muni-shape" d="M 174 382 C 136 392, 86 408, 22 424 C 14 428, 16 444, 28 446 C 84 434, 134 420, 174 414 Z" />
+                </g>
+
+                <!-- 15. 八幡浜市 -->
+                <g class="muni-group" data-muni="八幡浜市" data-cx="206" data-cy="404">
+                  <path class="muni-shape" d="M 174 382 C 194 372, 224 372, 242 380 L 240 434 C 216 438, 188 436, 174 428 Z" />
+                </g>
+
+                <!-- 16. 西予市（三瓶・明浜〜野村・城川） -->
+                <g class="muni-group" data-muni="西予市" data-cx="296" data-cy="456">
+                  <path class="muni-shape" d="M 174 428 C 210 436, 274 434, 326 428 C 362 424, 396 422, 418 424 C 424 446, 422 468, 410 486 C 344 492, 234 494, 168 486 C 160 468, 162 446, 174 428 Z" />
+                </g>
+
+                <!-- 17. 宇和島市（リアス式海岸＋日振島・戸島） -->
+                <g class="muni-group" data-muni="宇和島市" data-cx="212" data-cy="528">
+                  <path class="muni-shape" d="M 168 486 C 204 492, 244 492, 268 490 L 268 568 C 234 574, 184 574, 152 562 C 142 544, 162 536, 146 520 C 138 506, 154 494, 168 486 Z M 108 518 C 118 514, 128 520, 124 530 C 118 536, 106 530, 108 518 Z" />
+                </g>
+
+                <!-- 18. 鬼北町 -->
+                <g class="muni-group" data-muni="鬼北町" data-cx="310" data-cy="516">
+                  <path class="muni-shape" d="M 268 490 C 296 490, 324 488, 348 488 L 348 544 C 318 548, 288 548, 268 544 Z" />
+                </g>
+
+                <!-- 19. 松野町 -->
+                <g class="muni-group" data-muni="松野町" data-cx="386" data-cy="516">
+                  <path class="muni-shape" d="M 348 488 C 374 488, 396 486, 410 486 C 424 504, 424 528, 412 544 C 390 548, 368 548, 348 544 Z" />
+                </g>
+
+                <!-- 20. 愛南町（宇和海最南端） -->
+                <g class="muni-group" data-muni="愛南町" data-cx="204" data-cy="598">
+                  <path class="muni-shape" d="M 152 562 C 188 572, 232 572, 268 568 C 272 592, 264 622, 242 630 C 206 634, 162 628, 138 614 C 130 594, 142 576, 152 562 Z" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="muni-chips" id="muni-chips" aria-label="市町ショートカット一覧"></div>
+          </div>
+
+          <!-- Right: Magazine-Style Municipality Detail Panel -->
+          <aside class="detail-panel" id="detail-panel" aria-live="polite">
+            <p>データを読み込み中です...</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service 1: Field Research Report -->
+    <section class="section section-sand reveal" id="inspection-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="en-kicker">Field Research Report</span>
+          <h2 class="section-title">1万円の「現地代理下見レポート」</h2>
+          <p class="section-desc">
+            飛行機・レンタカー代5〜8万円をかけて見に行く前に、現地の風・音・道幅・隣家との距離を、愛媛在住の運営者があなたの目となって動画でお届けします。
+          </p>
+        </div>
+
+        <div class="story-grid">
+          <div class="research-items">
+            <div class="research-row">
+              <div class="research-num">01</div>
+              <div>
+                <h4>外観・屋根・基礎・傾きの目視確認写真</h4>
+                <p>公道・敷地外から確認できる範囲の屋根瓦や基礎、建物の傾き、周囲との高低差を撮影します。</p>
+              </div>
+            </div>
+            <div class="research-row">
+              <div class="research-num">02</div>
+              <div>
+                <h4>前面道路の幅員・車の停めやすさ</h4>
+                <p>軽自動車だけでなく普通車が入れるか、対向車との離合や駐車のしやすさを実地で確認します。</p>
+              </div>
+            </div>
+            <div class="research-row">
+              <div class="research-num">03</div>
+              <div>
+                <h4>日当たり・風通し・隣家との距離感</h4>
+                <p>図面には載らない周囲の圧迫感、草木の茂り方、昼間の空気感や生活音まで記録します。</p>
+              </div>
+            </div>
+            <div class="research-row">
+              <div class="research-num">04</div>
+              <div>
+                <h4>最寄りスーパー・コンビニ・病院等までの実測距離</h4>
+                <p>実際に車を走らせた所要時間と、日々の買い物や通院のリアルな動線を調査します。</p>
+              </div>
+            </div>
+            <div class="research-row">
+              <div class="research-num">05</div>
+              <div>
+                <h4>周辺環境スマホ動画（3〜5分）＋地元民の率直メモ</h4>
+                <p>物件の周辺を歩いて撮ったノーカットに近い動画と、地元住民ならではの率直な所見を添えて納品します。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="offer-panel">
+            <span class="en-kicker">Pricing &amp; Coverage</span>
+            <div class="offer-price-tag">
+              10,000<small>円（税込 / 1件）</small>
+            </div>
+            <div style="font-size: 0.9rem; font-weight: 700; color: var(--sage);">
+              対応エリア：愛媛県全域対応
+            </div>
+
+            <div class="travel-policy">
+              <strong>交通費に関する規定</strong><br />
+              中予エリア（松山市・伊予市・東温市・砥部町・松前町・久万高原町など）は基本料金内（追加交通費なし）で対応いたします。<br />
+              東予・南予の遠方エリア、および島嶼部（しまなみ海道エリア・上島町・中島などの忽那諸島・宇和海エリア等）につきましては、往復の交通費実費（高速道路料金・フェリー乗船料・燃料費等）を事前にお見積りのうえ、別途ご負担いただきます。
+            </div>
+
+            <a class="btn btn-mikan" style="width: 100%;" href="#contact-section">
+              <span>現地代理下見を相談する</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="legal-box" role="note" aria-label="宅地建物取引業法に関する重要事項">
+          <strong>宅地建物取引業法に関する線引き（重要事項）</strong>
+          当サービスは不動産の仲介・売買/賃貸契約の交渉・重要事項の説明等は一切行いません。自治体空き家バンク等への正式な内覧・問い合わせ前の判断材料として、現地の周辺環境や道路状況・外観の様子をご依頼者に代わって撮影・報告する「現地リサーチ代行サービス」です。
+        </div>
+      </div>
+    </section>
+
+    <!-- Service 2: note & X Media -->
+    <section class="section reveal" id="media-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="en-kicker">Editorial &amp; Daily Updates</span>
+          <h2 class="section-title">毎日の速報は X・深い考察は note で</h2>
+          <p class="section-desc">
+            自動パトロールで拾い上げた新着・値下げ情報に、暮らしの視点を重ねて発信しています。
+          </p>
+        </div>
+
+        <div class="media-columns">
+          <article class="media-col">
+            <div>
+              <h3>無料看板記事（全20市町まとめ）</h3>
+              <p>全20市町の空き家バンク公式リンク、538件のエリア別価格相場、購入前のチェックポイントを1本にまとめた保存版ガイドです。</p>
+            </div>
+            <a class="btn btn-ghost" id="link-note-welcome" href="https://note.com/" target="_blank" rel="noopener noreferrer">
+              <span>noteでまとめ記事を読む</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="media-col">
+            <div>
+              <h3>週間レポート＆地元民メモ（note）</h3>
+              <p>毎週日曜に、その週の新着・価格改定物件を一覧化し、地元民のリアルメモを添えてお届けするメンバーシップを準備中です。</p>
+            </div>
+            <a class="btn btn-navy" id="link-note-membership" href="https://note.com/" target="_blank" rel="noopener noreferrer">
+              <span>noteアカウントを開く</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="media-col">
+            <div>
+              <h3>X（旧Twitter）毎日速報</h3>
+              <p>100万円以下・畑付き・海近・改修不要などの注目物件を検知し次第、140字の速報ポストでお知らせしています。</p>
+            </div>
+            <a class="btn btn-ghost" id="link-x-profile" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+              <span>Xで速報を受け取る</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Form Section -->
+    <section class="section section-paper reveal" id="contact-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="en-kicker">Contact &amp; Request</span>
+          <h2 class="section-title">現地代理下見のご依頼・お問い合わせ</h2>
+          <p class="section-desc">
+            気になる物件の公式URLとご希望エリアをお知らせください。遠方・島嶼部の場合は事前にお見積りをご案内します。
+          </p>
+        </div>
+
+        <div class="form-sheet">
+          <div id="selected-area-hint" class="notice-box" style="display:none;"></div>
+          <div id="google-form-container">
+            <div class="form-placeholder">
+              <p style="margin:0 0 10px; font-weight:700; font-size:1.1rem;">現地代理下見 お申し込み・ご相談窓口</p>
+              <p style="margin:0 0 18px; color:var(--navy-soft); font-size:0.9rem;">
+                フォームが表示されない・開かない場合は、<a href="mailto:ehime.akiya.patrol@gmail.com" style="font-weight:700; text-decoration:underline;">ehime.akiya.patrol@gmail.com</a> まで「気になる物件の公式URL」をお送りください。
+              </p>
+              <a class="btn btn-navy" id="mailto-btn" href="mailto:ehime.akiya.patrol@gmail.com?subject=%E3%80%90%E7%8F%BE%E5%9C%B0%E4%BB%A3%E7%90%86%E4%B8%8B%E8%A6%8B%E7%9B%B8%E8%AB%87%E3%80%91%E6%84%9B%E5%AA%9B%E3%81%AE%E7%A9%BA%E3%81%8D%E5%AE%B6%E3%83%91%E3%83%88%E3%83%AD%E3%83%BC%E3%83%AB">
+                <span>メールで下見を相談する</span>
+                <span class="btn-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 愛媛の空き家パトロール</div>
+      <div class="footer-links">
+        <a href="tokushoho.html">特定商取引法に基づく表記</a>
+        <a href="mailto:ehime.akiya.patrol@gmail.com">ehime.akiya.patrol@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
