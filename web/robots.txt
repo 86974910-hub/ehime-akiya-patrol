@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ehime-akiya-patrol.pages.dev/sitemap.xml
