@@ -9,6 +9,15 @@
 logs/
 data/geojson_cache/
 
+# Raw uncompressed dog source photos (keep locally, deploy only *_web.webp)
+web/assets/*.png
+web/assets/*.jpeg
+web/assets/*.jpg
+!web/assets/ogp.png
+web/assets/dogs/*.png
+web/assets/dogs/*.jpeg
+web/assets/dogs/*.jpg
+
 # Python caches
 __pycache__/
 *.py[cod]
