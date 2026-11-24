@@ -262,6 +262,53 @@ function renderChips() {
   });
 }
 
+function renderSubsidyCard(sub) {
+  if (!sub) return "";
+  const reno = sub.renovation_subsidy || {};
+  const furn = sub.furniture_disposal_subsidy || {};
+
+  let headline = "";
+  if (reno.available && reno.max_childrearing_man > 0) {
+    if (reno.max_worker_man && reno.max_worker_man !== reno.max_childrearing_man) {
+      headline = `改修 最大<strong>${formatNumber(reno.max_childrearing_man)}万円</strong>（働き手 ${formatNumber(reno.max_worker_man)}万円・補助率 ${escapeHtml(reno.rate || "2/3")}）`;
+    } else {
+      headline = `改修 最大<strong>${formatNumber(reno.max_childrearing_man)}万円</strong>（補助率 ${escapeHtml(reno.rate || "要確認")}）`;
+    }
+  } else {
+    headline = `<strong>老朽危険空家除却補助・移住支援金等</strong>（年度枠要確認）`;
+  }
+
+  const furnTag =
+    furn.available && furn.max_man > 0
+      ? `<span class="subsidy-chip">家財処分 最大${formatNumber(furn.max_man)}万円</span>`
+      : "";
+
+  const rateTag =
+    reno.available && reno.rate && reno.rate !== "-"
+      ? `<span class="subsidy-chip">補助率 ${escapeHtml(reno.rate)}</span>`
+      : "";
+
+  return `
+    <div class="subsidy-box" aria-label="この市町の空き家関連補助金">
+      <div class="subsidy-head">
+        <span class="subsidy-kicker">🏡 空き家改修・移住支援補助金</span>
+        <div class="subsidy-chips">${rateTag}${furnTag}</div>
+      </div>
+      <div class="subsidy-headline">${headline}</div>
+      <div class="subsidy-prog">${escapeHtml(sub.program_name || "")}</div>
+      <p class="subsidy-cond">${escapeHtml(reno.conditions || "")}</p>
+      <div class="subsidy-foot">
+        <span class="subsidy-warn">※着工・契約前の事前申請が必須（予算枠あり）</span>
+        ${
+          sub.official_url
+            ? `<a class="subsidy-link" href="${escapeHtml(sub.official_url)}" target="_blank" rel="noopener noreferrer">公式案内 ↗</a>`
+            : ""
+        }
+      </div>
+    </div>
+  `;
+}
+
 function renderDetailPanel() {
   if (!SITE_DATA) return;
   const panel = document.getElementById("detail-panel");
@@ -383,6 +430,8 @@ function renderDetailPanel() {
           ? `<div class="tag-row">${tagBadges.map((b) => `<span class="tag-pill">${escapeHtml(b)}</span>`).join("")}</div>`
           : ""
       }
+
+      ${renderSubsidyCard(m.subsidy)}
 
       ${propsHtml}
 

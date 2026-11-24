@@ -833,6 +833,102 @@ button:focus-visible {
   font-weight: 700;
 }
 
+/* Municipality Subsidy Info Card */
+.subsidy-box {
+  background: linear-gradient(155deg, #F3F8F5 0%, #EBF3EE 100%);
+  border: 1px solid rgba(74, 107, 93, 0.34);
+  border-left: 4px solid var(--sage);
+  border-radius: 12px;
+  padding: 13px 15px;
+  margin-bottom: 18px;
+}
+
+.subsidy-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.subsidy-kicker {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--sage);
+  letter-spacing: 0.04em;
+}
+
+.subsidy-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.subsidy-chip {
+  background: var(--washi-pure);
+  color: var(--navy);
+  border: 1px solid rgba(74, 107, 93, 0.28);
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.subsidy-headline {
+  font-size: 0.92rem;
+  color: var(--navy);
+  line-height: 1.5;
+  margin-bottom: 3px;
+}
+
+.subsidy-headline strong {
+  color: #2B5946;
+  font-size: 1.02rem;
+}
+
+.subsidy-prog {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--navy-soft);
+  margin-bottom: 4px;
+}
+
+.subsidy-cond {
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.subsidy-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 7px;
+  border-top: 1px dashed rgba(74, 107, 93, 0.25);
+}
+
+.subsidy-warn {
+  font-size: 0.71rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.subsidy-link {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--sage);
+  border-bottom: 1px solid var(--sage);
+}
+
+.subsidy-link:hover {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
 .featured-heading {
   margin: 0 0 12px;
   font-family: var(--font-base);

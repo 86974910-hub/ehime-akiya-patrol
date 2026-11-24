@@ -15,6 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = BASE_DIR / "data" / "ehime_akiya_db.csv"
 CHANGE_HISTORY_PATH = BASE_DIR / "data" / "change_history.csv"
 SOURCES_PATH = BASE_DIR / "config" / "ehime_akiya_sources.json"
+SUBSIDIES_PATH = BASE_DIR / "config" / "ehime_subsidies.json"
 OUT_PATH = BASE_DIR / "web" / "data" / "site_data.json"
 
 TOYO = {"四国中央市", "新居浜市", "西条市", "今治市", "上島町"}
@@ -150,6 +151,12 @@ def fmt_man(v: float) -> str:
 
 def main():
     sources = json.loads(SOURCES_PATH.read_text(encoding="utf-8"))
+    subsidy_by_muni = {}
+    if SUBSIDIES_PATH.exists():
+        sub_json = json.loads(SUBSIDIES_PATH.read_text(encoding="utf-8"))
+        for item in sub_json.get("municipalities", []):
+            subsidy_by_muni[item["municipality"]] = item
+
     raw_rows = []
     if DB_PATH.exists():
         with open(DB_PATH, encoding="utf-8-sig") as f:
@@ -252,6 +259,7 @@ def main():
             "recent_changes_7d": change_7d_by_muni.get(
                 m, {"new_count": 0, "price_down_count": 0, "closed_count": 0}
             ),
+            "subsidy": subsidy_by_muni.get(m),
             "featured": featured,
             "list_url": src["list_url"],
             "source_type": src.get("source_type", "html"),
