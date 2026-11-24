@@ -2,8 +2,8 @@
 """
 愛媛の空き家パトロール：週次ダイジェスト記事生成スクリプト（日曜まとめ配信用）
 `data/change_history.csv` から直近7日間の「新着・値下げ（価格改定）・募集終了」を集計し、
-「無料公開パート（市町別件数サマリー）＋ メンバーシップ限定パート（全件詳細・値下げ差額・成約スピード・地元民の本音メモ）」
-の構成で `drafts/weekly_YYYYMMDD.md` および `drafts/weekly_YYYYMMDD_note.json` を出力する。
+パイプ記号（| / ｜）や擬似テーブルを一切使わず、note標準見出し（## / ###）・太字・箇条書き・引用ブロックを用いた
+「地元民が親身に語りかける雑誌特集スタイル」で `drafts/weekly_YYYYMMDD.md` および `drafts/weekly_YYYYMMDD_note.json` を出力する。
 """
 
 import argparse
@@ -58,6 +58,13 @@ def load_recent_changes(target_date: date, days: int = 7) -> list[dict]:
     return rows
 
 
+def _human_feature_summary(feat: str) -> str:
+    clean = (feat or "").replace("|", "／").replace("｜", "・").strip()
+    if not clean:
+        return "自治体公式ページにて外観写真や詳細スペックが公開されています。改修の要否や周辺環境をあわせてご確認ください。"
+    return f"{clean}。実際に検討される際は、前面道路の道幅や日当たりも含めてチェックしておくと安心です。"
+
+
 def build_weekly_draft(target_date: date, days: int = 7) -> tuple[Path, Path]:
     DRAFTS_DIR.mkdir(parents=True, exist_ok=True)
     today_str = target_date.isoformat()
@@ -72,8 +79,8 @@ def build_weekly_draft(target_date: date, days: int = 7) -> tuple[Path, Path]:
     closed_cnt = sum(1 for c in change_rows if c.get("変動種別") == "募集終了")
 
     title = (
-        f"【週間まとめ {start_str}〜{today_str}】愛媛の空き家パトロール｜"
-        f"新着{new_cnt}件・値下げ{down_cnt}件・募集終了{closed_cnt}件"
+        f"【週間まとめ {start_str}〜{today_str}】愛媛の空き家パトロール ― "
+        f"新着{new_cnt}件・値下げ{down_cnt}件・募集終了{closed_cnt}件の動向レポート"
     )
 
     # 市町×変動種別集計（無料公開パート用：URLや値下げ額は伏せ、市町名と件数のみ開示）
@@ -94,43 +101,63 @@ def build_weekly_draft(target_date: date, days: int = 7) -> tuple[Path, Path]:
                 parts.append(f"{m}で{t}{cnt}件")
 
     if parts:
-        summary_sentence = f"今週（{start_str}〜{today_str}）は、{'、'.join(parts)}を確認しました。"
+        summary_sentence = f"今週7日間（{start_str}〜{today_str}）の巡回では、**{'、'.join(parts)}**の動きを確認しました。"
     else:
-        summary_sentence = f"今週（{start_str}〜{today_str}）の巡回では大きな変動（新着・値下げ・募集終了）はありませんでした。"
+        summary_sentence = f"今週7日間（{start_str}〜{today_str}）の巡回では、大きな変動（新着・値下げ・募集終了）はありませんでした。"
 
     free_lines = [
-        "【無料公開パート】",
-        "こんにちは、「愛媛の空き家パトロール」です。",
-        f"今週7日間（{start_str}〜{today_str}）の愛媛県内全20市町・空き家バンク巡回ダイジェストをお届けします。",
+        "こんにちは、愛媛県の移住・古民家情報をお届けする「愛媛の空き家パトロール」です。",
         "",
-        "■ 今週の巡回サマリー（市町別件数）",
+        f"平日は仕事や家事で忙しく、県内20市町の空き家バンクを毎日チェックするのはなかなか手が回らないという方に向けて、今週7日間（{start_str}〜{today_str}）の変動ダイジェストをまとめました。",
+        "",
+        "## 今週の空き家バンク巡回サマリー（無料公開パート）",
+        "",
         summary_sentence,
-        f"・今週の新着物件：{new_cnt}件",
-        f"・今週の値下げ・価格改定：{down_cnt}件",
-        f"・今週の募集終了（成約・取下げ）：{closed_cnt}件",
-        "（※無料パートでは市町名と件数のみ公開しています。具体的な物件URL・旧価格→新価格の値下げ幅・募集終了までの経過日数・地元民の本音メモはメンバーシップ限定パートにて公開中です）",
         "",
-        "■ 愛媛県全20市町の空き家相場マップ＆代表物件サンプル（無料Webサイト）",
-        "https://ehime-akiya-patrol.pages.dev/",
+        f"- **今週の新着物件**：**{new_cnt}件**",
+        f"- **今週の値下げ・価格改定**：**{down_cnt}件**",
+        f"- **今週の募集終了（成約・取下げ）**：**{closed_cnt}件**",
+        "",
+        "無料公開パートでは、今週どの市町にどれくらい動きがあったかという全体サマリーをお伝えしています。具体的な物件ページURL、旧価格から新価格への値下げ幅、募集終了までの経過日数（成約スピード）、そして公開サイトでは書きにくい「地元民の本音メモ」は、この下のメンバーシップ限定パートで詳しく解説しています。",
+        "",
+        "まずは愛媛県全20市町の募集件数やエリア別の価格相場を地図で見比べたいという方は、毎日自動更新している無料Webマップからご覧ください。",
+        "",
+        "- **愛媛県全20市町の空き家相場マップ＆代表物件サンプル**：[Webマップを開いて市町別の相場を見る](https://ehime-akiya-patrol.pages.dev/)",
         "",
     ]
 
     member_lines = [
+        "---",
+        "",
         "=== ここから先はメンバーシップ限定（月額1,280円） ===",
         "",
-        "【メンバーシップ限定パート】",
-        "いつもメンバーシップをご利用いただきありがとうございます。",
-        f"今週（{start_str}〜{today_str}）に検知した「新着」「値下げ（価格改定）」「募集終了（成約スピード）」の全件リストと、公開サイトでは書けない地元民の本音メモをお届けします。",
+        "## 今週の変動物件・全件詳細レポート（メンバーシップ限定）",
+        "",
+        "いつもメンバーシップで応援していただき、本当にありがとうございます。",
+        "",
+        f"ここからは、今週（{start_str}〜{today_str}）に検知した「新着」「値下げ（価格改定）」「募集終了（成約スピード）」の全件リストと、地元在住者ならではのチェックポイントをお届けします。",
         "",
     ]
 
     sections = [
-        ("新着", "■ 1. 今週の新着物件まとめ"),
-        ("値下げ", "■ 2. 今週の値下げ・価格改定物件（旧価格→新価格・差額）"),
-        ("募集終了", "■ 3. 今週の募集終了・成約確認物件（初回取得からの経過日数）"),
+        (
+            "新着",
+            "## 1. 今週の新着物件まとめ",
+            "今週新しく空き家バンクに登場した物件です。補修不要の物件や畑・駐車場付きの物件は問い合わせが集中しやすいため、気になるエリアがあれば早めに公式ページをチェックしておくのが安心です。",
+        ),
+        (
+            "値下げ",
+            "## 2. 今週の値下げ・価格改定物件（旧価格から新価格への推移）",
+            "今週価格が引き下げられた（または条件が改定された）物件です。浮いた購入費用を水回りや屋根の改修費に回せるため、トータル予算を抑えたい方にとって狙い目となります。",
+        ),
+        (
+            "募集終了",
+            "## 3. 今週の募集終了・成約スピード記録（掲載経過日数）",
+            "今週、自治体サイト上で募集終了（または成約・取下げ）となった物件です。「どんな価格帯・条件の家が何日くらいで決まっているか」という相場観をつかむ材料としてご活用ください。",
+        ),
     ]
 
-    for key_type, heading in sections:
+    for key_type, heading, intro_desc in sections:
         if key_type == "値下げ":
             subset = [c for c in change_rows if c.get("変動種別") in ("値下げ", "価格改定")]
         else:
@@ -139,69 +166,90 @@ def build_weekly_draft(target_date: date, days: int = 7) -> tuple[Path, Path]:
         member_lines.append(f"{heading}（{len(subset)}件）")
         member_lines.append("")
         if not subset:
-            member_lines.append("・該当なし")
+            member_lines.append("今週の巡回では、該当する物件はありませんでした。")
             member_lines.append("")
             continue
+
+        member_lines.append(intro_desc)
+        member_lines.append("")
 
         for c in subset:
             muni = c.get("自治体名", "")
             region = get_region(muni)
-            pid = c.get("物件ID") or "IDなし"
-            area = c.get("地区名") or "地区要確認"
-            layout = c.get("間取り") or "間取り要確認"
-            feat = c.get("特記事項") or "特記なし"
+            pid = c.get("物件ID") or "番号なし"
+            area = (c.get("地区名") or f"{muni}内").replace("|", "／").replace("｜", "・")
+            layout = (c.get("間取り") or "公式ページ参照").replace("|", "／").replace("｜", "・")
+            feat_note = _human_feature_summary(c.get("特記事項", ""))
             url = c.get("詳細URL") or ""
             det_date = c.get("検知日") or today_str
 
             if c.get("変動種別") == "新着":
-                price_line = f"  価格：{c.get('新価格') or '要相談'}（検知日：{det_date}）"
+                new_p = (c.get("新価格") or "価格要相談").replace("|", "／").replace("｜", "・")
+                member_lines.extend([
+                    f"### 【{muni}・{area}】物件番号 {pid}（新着・{new_p}）",
+                    "",
+                    f"- **エリア**：{muni}（{region}エリア） {area}",
+                    f"- **募集価格**：**{new_p}**（検知日：{det_date}）",
+                    f"- **間取り**：{layout}",
+                    f"- **物件のポイント**：{feat_note}",
+                    f"- **公式ページ**：[自治体空き家バンクの詳細ページを見る]({url})",
+                    "",
+                    "> 【地元民の本音メモ（追記欄）】道幅・周辺環境・割安度：",
+                    "",
+                ])
             elif c.get("変動種別") in ("値下げ", "価格改定"):
-                price_line = (
-                    f"  価格推移：{c.get('旧価格')} → {c.get('新価格')}（差額：{c.get('価格差')}｜検知日：{det_date}・初回取得からの経過：{c.get('経過日数')}）"
-                )
+                old_p = (c.get("旧価格") or "-").replace("|", "／").replace("｜", "・")
+                new_p = (c.get("新価格") or "-").replace("|", "／").replace("｜", "・")
+                diff_p = (c.get("価格差") or "価格改定").replace("|", "／").replace("｜", "・")
+                member_lines.extend([
+                    f"### 【{muni}・{area}】物件番号 {pid}（{old_p} → {new_p}）",
+                    "",
+                    f"- **エリア**：{muni}（{region}エリア） {area}",
+                    f"- **価格の推移**：{old_p} から **{new_p}** へ改定（変動幅：**{diff_p}**）",
+                    f"- **検知日・経過日数**：{det_date} 検知（初回取得日 {c.get('初回取得日')} から {c.get('経過日数')} 経過）",
+                    f"- **間取り**：{layout}",
+                    f"- **物件のポイント**：{feat_note}",
+                    f"- **公式ページ**：[自治体空き家バンクの詳細ページを見る]({url})",
+                    "",
+                    "> 【地元民の本音メモ（追記欄）】道幅・周辺環境・割安度：",
+                    "",
+                ])
             else:
-                price_line = (
-                    f"  最終確認価格：{c.get('旧価格') or '-'}（初回取得日：{c.get('初回取得日')} → 募集終了までの経過日数：{c.get('経過日数')}｜検知日：{det_date}）"
-                )
-
-            member_lines.extend([
-                f"・【{c.get('変動種別')}】[{region}] {muni} {pid}（{area}）",
-                price_line,
-                f"  間取り・特徴：{layout} ／ {feat}",
-                f"  公式詳細URL：{url}",
-                "> 【地元民の本音メモ（追記欄）】道幅・周辺環境・割安度：",
-                "",
-            ])
+                old_p = (c.get("旧価格") or "価格記録なし").replace("|", "／").replace("｜", "・")
+                member_lines.extend([
+                    f"### 【{muni}・{area}】物件番号 {pid}（募集終了・掲載 {c.get('経過日数')}）",
+                    "",
+                    f"- **エリア**：{muni}（{region}エリア） {area}",
+                    f"- **最終確認価格**：{old_p}",
+                    f"- **成約・終了までのスピード**：初回取得日 {c.get('初回取得日')} から **{c.get('経過日数')}** で募集終了を確認（検知日：{det_date}）",
+                    f"- **間取り・特徴**：{layout}（{feat_note}）",
+                    f"- **参考URL**：[掲載されていた公式ページを確認する]({url})",
+                    "",
+                    "> 【地元民の本音メモ（追記欄）】道幅・周辺環境・割安度：",
+                    "",
+                ])
 
     member_lines.extend([
         "---",
-        "■ メンバーシップ会員特典のご案内",
-        "【メンバーシップ会員特典：現地代理下見が通常10,000円→8,000円（2,000円OFF）＆優先対応】",
-        "気になる物件が見つかった際、遠方からいきなり現地へ行く前に、地元民が「周辺の道幅・日当たり・騒音・近隣スーパーや病院までの実測感」を写真30枚以上＋動画で調査する現地代理下見レポートを、会員様限定で毎回2,000円OFF（税込8,000円・優先日程調整）にて承っております。",
-        "お申し込みはWebサイトの専用フォーム（https://ehime-akiya-patrol.pages.dev/#inspection-section）より「noteメンバーシップ会員」にチェックを入れてご依頼ください。",
         "",
-        "※本記事は自動パトロールで抽出した一次情報をもとに作成しています。最新の募集状況や内見申込は各自治体の公式窓口にてご確認ください。",
+        "## メンバーシップ会員特典：現地代理下見レポート 2,000円OFF",
+        "",
+        "気になる物件が見つかった際、いきなり遠方から飛行機やレンタカーを手配して現地へ行くのは、時間も交通費も大きな負担になります。",
+        "",
+        "そこで当メンバーシップの会員様には、愛媛在住の運営者があなたに代わって現地へ足を運ぶ「現地代理下見レポート」を、**通常10,000円のところ会員価格8,000円（税込・毎回2,000円OFF）＆優先日程調整**で承っております。",
+        "",
+        "- **会員特典価格**：1件 **8,000円（税込）**（通常 10,000円から2,000円OFF・1回のご依頼で月額会費以上にお得になります）",
+        "- **調査内容**：外観・屋根・基礎の目視写真30枚以上、前面道路の幅員（普通車で離合・駐車できるか）、日当たりや隣家との距離感、最寄りスーパーや病院までの実測距離、周辺ノーカット動画（3〜5分）",
+        "- **お申し込み窓口**：[愛媛の空き家パトロール 現地代理下見フォームから相談する](https://ehime-akiya-patrol.pages.dev/#inspection-section)",
+        "",
+        "本記事は各自治体の公式空き家バンク一次情報をもとに作成しています。最新の募集状況や内見申込については、各自治体の公式窓口にてご確認ください。",
         "",
         "#空き家バンク #古民家暮らし #地方移住 #愛媛移住 #二拠点生活",
     ])
 
     note_body = "\n".join(free_lines + member_lines)
+    md_full = f"# {title}\n\n{note_body}\n"
 
-    table_lines = [
-        "### 週間変動履歴一覧テーブル",
-        "| 検知日 | 変動種別 | エリア | 自治体 | 物件ID | 旧価格 | 新価格 | 価格差 | 経過日数 | 公式URL |",
-        "|---|---|---|---|---|---|---|---|---|---|",
-    ]
-    for c in change_rows:
-        table_lines.append(
-            f"| {c.get('検知日', '-')} | {c.get('変動種別', '-')} | {get_region(c.get('自治体名', ''))} | {c.get('自治体名', '-')} | {c.get('物件ID', '-')} | {c.get('旧価格') or '-'} | {c.get('新価格') or '-'} | {c.get('価格差') or '-'} | {c.get('経過日数') or '-'} | {c.get('詳細URL', '-')} |"
-        )
-
-    md_full = (
-        f"# {title}\n\n"
-        f"{note_body}\n\n"
-        f"{chr(10).join(table_lines)}\n"
-    )
     md_path.write_text(md_full, encoding="utf-8")
     json_path.write_text(
         json.dumps(
@@ -239,7 +287,14 @@ def main():
 
     if args.save_note:
         drafter = BASE_DIR / "scripts" / "note_drafter.py"
-        cmd = [sys.executable, str(drafter), "--draft-file", str(json_path), "--screenshot-name", f"weekly_{target_date.strftime('%Y%m%d')}_draft.png"]
+        cmd = [
+            sys.executable,
+            str(drafter),
+            "--draft-file",
+            str(json_path),
+            "--screenshot-name",
+            f"weekly_{target_date.strftime('%Y%m%d')}_draft.png",
+        ]
         log(f"note下書き保存を実行します: {' '.join(cmd)}")
         subprocess.run(cmd, check=True)
 
