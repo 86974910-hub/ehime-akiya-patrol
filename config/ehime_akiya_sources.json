@@ -22,10 +22,10 @@
   },
   {
     "municipality": "新居浜市",
-    "list_url": "https://www.homes.co.jp/akiyabank/ehime/niihama-shi/",
-    "source_type": "portal",
-    "last_verified": "2026-11-18",
-    "notes": "公式提携の新居浜市空き家バンクナビ(akiya-navi.com)は2026-10-22より緊急メンテナンス停止中。LIFULL HOME'S(bot遮断)にも掲載"
+    "list_url": "https://www.akiya-navi.com/niihama_akiya_bank/info.php",
+    "source_type": "html",
+    "last_verified": "2026-11-25",
+    "notes": "新居浜市空き家バンクナビ（メンテナンス復旧済・募集中物件を直接取得）"
   },
   {
     "municipality": "四国中央市",
@@ -39,7 +39,7 @@
     "list_url": "https://ritou-akiya.com/house",
     "source_type": "html",
     "last_verified": "2026-11-25",
-    "notes": "市街地は全国版(アットホーム/LIFULL HOME'S、bot遮断)。離島(忽那諸島)はritou-akiya.com、三津浜はhttp://www.mitsuhamaru.com/"
+    "notes": "離島(忽那諸島：ritou-akiya.com)＋三津浜町家バンク(ミツハマル：mitsuhamaru.com)の両方を自動巡回・統合取得"
   },
   {
     "municipality": "伊予市",
@@ -64,10 +64,10 @@
   },
   {
     "municipality": "砥部町",
-    "list_url": "https://www.e-iju.net/akiya/public/Top",
-    "source_type": "portal",
-    "last_verified": "2026-11-18",
-    "notes": "町公式ページ(izyuusien.html)は404。えひめ移住ネットおよびアットホームに掲載"
+    "list_url": "https://e-iju.net/akiyashisetsu",
+    "source_type": "html",
+    "last_verified": "2026-11-25",
+    "notes": "えひめ空き家情報バンク（e-iju.net/akiyashisetsu）掲載の砥部町物件をPlaywrightで自動取得"
   },
   {
     "municipality": "宇和島市",
@@ -92,10 +92,10 @@
   },
   {
     "municipality": "西予市",
-    "list_url": "https://www.city.seiyo.ehime.jp/kakuka/kensetsu/kensetsu/akiya/15809.html",
-    "source_type": "portal",
-    "last_verified": "2026-11-18",
-    "notes": "独自一覧なし。アットホーム・LIFULL HOME'S等に掲載(bot遮断)"
+    "list_url": "https://0cb21af5.viewer.kintoneapp.com/public/seiyo-akiya-bank",
+    "source_type": "html",
+    "last_verified": "2026-11-25",
+    "notes": "西予市公式空き家バンク（kViewer公開データベース）をPlaywrightで自動取得"
   },
   {
     "municipality": "松前町",

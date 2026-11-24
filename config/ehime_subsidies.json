@@ -1,0 +1,419 @@
+{
+  "schema_version": "1.0-draft",
+  "last_verified": "2026-11-24",
+  "common_notes": [
+    "全自治体共通の大原則：補助金の交付決定前に工事契約・着工・家財処分を開始すると対象外となります。",
+    "愛媛県と連携した『移住者住宅改修支援事業』がベースとなっており、県外からの移住者（子育て世帯・働き手世帯）で空き家バンク物件に5年以上定住することが基本要件です。",
+    "年度ごとの予算枠（先着順・期別募集）があるため、物件申込前に必ず各市町の担当窓口へ最新残枠をご確認ください。"
+  ],
+  "prefecture_base_program": {
+    "name": "愛媛県 移住者住宅改修支援事業（県・市町協調補助）",
+    "renovation_rate": "対象経費の2/3以内",
+    "renovation_max_worker": "最大100万円〜200万円（市町・指定地域により上乗せあり）",
+    "renovation_max_childrearing": "最大200万円〜400万円（18歳未満の子1人につき加算・指定地域最大500万円の市町あり）",
+    "furniture_disposal_max": "最大20万円（補助率2/3、原則住宅改修とセットまたは空き家バンク登録要件あり）",
+    "reference_url": "https://e-iju.net/"
+  },
+  "municipalities": [
+    {
+      "municipality": "今治市",
+      "region": "東予",
+      "program_name": "住もういまばり！空き家リフォーム補助金（移住者住宅改修支援事業）",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 150,
+        "max_childrearing_man": 500,
+        "conditions": "県外移住者・空き家バンク登録物件。指定地域（島しょ部・山間部等）は働き手最大150万円／子育て最大500万円。指定地域外は働き手100万円／子育て最大400万円。"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 25,
+        "conditions": "指定地域上限25万円／その他20万円（改修補助と併用・事前申請必須）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住：世帯100万円・単身60万円＋子育て加算）、老朽危険空家除却補助あり",
+      "official_url": "https://iju-imabari.jp/"
+    },
+    {
+      "municipality": "上島町",
+      "region": "東予",
+      "program_name": "上島町移住者住宅改修支援事業",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 100,
+        "max_childrearing_man": 400,
+        "conditions": "県外から移住し空き家バンク物件を購入・賃借して5年以上定住する働き手世帯（上限100万円）または子育て世帯（18歳未満の子1人につき100万円・最大400万円）"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出等に対し上限20万円（移住者住宅改修支援枠）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、離島お試し住宅・引越し支援あり",
+      "official_url": "https://kamijima-life.jp/"
+    },
+    {
+      "municipality": "西条市",
+      "region": "東予",
+      "program_name": "西条市移住者住宅改修支援事業費補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 100,
+        "max_childrearing_man": 400,
+        "conditions": "県外から移住し空き家バンク物件を取得・改修して5年以上居住する方。子育て世帯は加算含め最大400万円。"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "移住者住宅改修と併用（老朽危険空家除却補助上限80万円は家財処分対象外）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、移住体験ツアー・お試し移住住宅あり",
+      "official_url": "https://www.city.saijo.ehime.jp/soshiki/ijyusuishin/akiya-bank.html"
+    },
+    {
+      "municipality": "新居浜市",
+      "region": "東予",
+      "program_name": "新居浜市移住者住宅改修支援事業",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 100,
+        "max_childrearing_man": 400,
+        "conditions": "県外から移住し新居浜市空き家バンク登録物件を購入・賃借する働き手世帯（上限100万円）または子育て世帯（基本100万円＋子1人100万円・最大400万円）"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出・処分に対し2/3以内・上限20万円（5年以上定住要件）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（4/5以内・上限80万円）",
+      "official_url": "https://life.city.niihama.ehime.jp/"
+    },
+    {
+      "municipality": "四国中央市",
+      "region": "東予",
+      "program_name": "移住者住宅改修支援・フラット35地域連携型・老朽危険空家除却補助",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "要確認（年度予算枠）",
+        "max_worker_man": 100,
+        "max_childrearing_man": 400,
+        "conditions": "空き家取得・リフォーム支援（フラット35地域連携型金利引下げ等含む）。年度ごとの募集枠・要件を建築住宅課へ事前確認。"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "要確認",
+        "max_man": 20,
+        "conditions": "移住者向け支援枠の対象可否を事前確認"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、空き家除却補助あり",
+      "official_url": "https://shikokuchuoiju.jp/"
+    },
+    {
+      "municipality": "松山市",
+      "region": "中予",
+      "program_name": "松山市移住者住宅改修支援事業／空き家バンク登録支援事業（島しょ部等）",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 100,
+        "max_childrearing_man": 400,
+        "conditions": "県外移住者（子育て・働き手世帯）が空き家バンク登録物件を取得・賃借する場合。子育て世帯は子の人数に応じ最大200〜400万円。"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3（登録支援は1/2）",
+        "max_man": 20,
+        "conditions": "移住者改修枠で上限20万円（対象経費5万円以上）。島しょ部等の登録支援事業（家財処分等）は補助率1/2・上限10万円。"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（上限100万円・島しょ部最大160万円）",
+      "official_url": "https://www.city.matsuyama.ehime.jp/"
+    },
+    {
+      "municipality": "伊予市",
+      "region": "中予",
+      "program_name": "伊予市移住者住宅改修支援事業費補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 100,
+        "max_childrearing_man": 200,
+        "conditions": "県外から移住し空き家バンクを利用する60歳未満の方がいる世帯（働き手上限100万円・子育て最大200万円、年度要綱確認要）"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出等に対し2/3以内・上限20万円"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家等除却事業あり",
+      "official_url": "https://akisapo-iyo.com/"
+    },
+    {
+      "municipality": "東温市",
+      "region": "中予",
+      "program_name": "東温市空き家等活用定住支援事業補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3（県外移住）",
+        "max_worker_man": 100,
+        "max_childrearing_man": 400,
+        "conditions": "県外からの移住者（働き手100万円／子育て世帯は18歳未満の子1人につき100万円加算で最大400万円）。重点地域区分あり。"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "改修支援枠での併用可否を事前確認"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却事業あり",
+      "official_url": "https://toon-iju.com/"
+    },
+    {
+      "municipality": "久万高原町",
+      "region": "中予",
+      "program_name": "久万高原町移住者住宅改修支援事業・空き家活用補助",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 100,
+        "max_childrearing_man": 400,
+        "conditions": "県外・町外からの移住者による空き家バンク物件改修を対象（中山間地域加算や年度枠を定住促進窓口へ確認）"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "空き家片付け・家財道具処分補助あり（事前申請必須）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、お試し住宅・新規就農支援充実",
+      "official_url": "https://www.kumakogen.jp/site/iju/"
+    },
+    {
+      "municipality": "砥部町",
+      "region": "中予",
+      "program_name": "砥部町住宅リフォーム補助／老朽危険空き家除却事業補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "要確認（一般リフォーム枠上限20万円等）",
+        "max_worker_man": 20,
+        "max_childrearing_man": 20,
+        "conditions": "一般住宅リフォーム補助（上限20万円等）および県連携移住改修枠の年度実施状況を地域振興課へ事前確認"
+      },
+      "furniture_disposal_subsidy": {
+        "available": false,
+        "rate": "-",
+        "max_man": 0,
+        "conditions": "老朽危険空き家除却補助（4/5以内・上限80万円）は解体本体対象"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空き家除却補助（上限80万円）",
+      "official_url": "https://www.town.tobe.ehime.jp/kurashi_navi/hikkoshi_sumai/2921.html"
+    },
+    {
+      "municipality": "松前町",
+      "region": "中予",
+      "program_name": "松前町住環境改善事業（老朽危険空家除却費補助事業等）",
+      "renovation_subsidy": {
+        "available": false,
+        "rate": "-",
+        "max_worker_man": 0,
+        "max_childrearing_man": 0,
+        "conditions": "町独自の空き家バンク改修補助は限定的なため、年度ごとの住環境改善・移住支援枠を企画財政課へ事前確認"
+      },
+      "furniture_disposal_subsidy": {
+        "available": false,
+        "rate": "-",
+        "max_man": 0,
+        "conditions": "老朽危険空家除却費補助（4/5以内・上限80万円、特定地区の寄附除却制度あり）"
+      },
+      "relocation_acquisition_support": "老朽危険空家除却補助（上限80万円）、移住支援金（東京圏移住対象）",
+      "official_url": "https://www.town.masaki.ehime.jp/"
+    },
+    {
+      "municipality": "宇和島市",
+      "region": "南予",
+      "program_name": "宇和島市移住者住宅改修支援事業補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から空き家バンク等を利用して移住・定住する働き手世帯・子育て世帯（対象経費50万円以上等）"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "改修事業とセット申請で上限20万円（対象経費5万円以上）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（上限80万円）",
+      "official_url": "https://www.city.uwajima.ehime.jp/site/ijyu/"
+    },
+    {
+      "municipality": "八幡浜市",
+      "region": "南予",
+      "program_name": "八幡浜市移住者住宅改修支援事業補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から空き家バンク登録物件へ移住・定住する働き手世帯・子育て世帯"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出・処分に対し上限20万円（改修とセット申請）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（上限80万円）、お試し移住支援あり",
+      "official_url": "https://yawatahama-iju.com/"
+    },
+    {
+      "municipality": "大洲市",
+      "region": "南予",
+      "program_name": "大洲市移住者住宅改修支援事業・空き家活用補助",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から空き家バンク物件へ移住・定住する働き手世帯・子育て世帯（事前申請必須）"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出・処分費補助（上限20万円）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（上限80万円）",
+      "official_url": "https://www.city.ozu.ehime.jp/akiyabank/"
+    },
+    {
+      "municipality": "西予市",
+      "region": "南予",
+      "program_name": "西予市移住者住宅改修支援事業・空き家バンク活用補助",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から西予市空き家バンク登録物件へ移住・定住する働き手世帯・子育て世帯"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具搬出等補助（上限20万円）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（上限80万円）",
+      "official_url": "https://www.city.seiyo.ehime.jp/kakuka/kensetsu/kensetsu/akiya/15809.html"
+    },
+    {
+      "municipality": "内子町",
+      "region": "南予",
+      "program_name": "内子町移住者住宅改修支援事業（うちこ屋バンク連携）",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から「うちこ屋バンク」登録物件へ移住・定住する働き手世帯・子育て世帯"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出・処分費補助（上限20万円）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、歴史的町並み修景補助（対象地区）",
+      "official_url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/"
+    },
+    {
+      "municipality": "伊方町",
+      "region": "南予",
+      "program_name": "伊方町移住者住宅改修支援事業・空き家改修補助",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から伊方町空き家バンク物件へ移住・定住する働き手世帯・子育て世帯"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出・処分費補助（上限20万円）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（上限80万円）",
+      "official_url": "https://www.town.ikata.ehime.jp/akiya/"
+    },
+    {
+      "municipality": "松野町",
+      "region": "南予",
+      "program_name": "松野町移住者住宅改修支援事業補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から松野町空き家バンク物件へ移住・定住する働き手世帯・子育て世帯"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出・処分費補助（上限20万円）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、お試し住宅・子育て支援充実",
+      "official_url": "https://www.town.matsuno.ehime.jp/site/akiya/"
+    },
+    {
+      "municipality": "鬼北町",
+      "region": "南予",
+      "program_name": "鬼北町移住者住宅改修支援事業補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から鬼北町空き家バンク物件へ移住・定住する働き手世帯・子育て世帯"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出・処分費補助（上限20万円）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（上限80万円）",
+      "official_url": "https://kihoku.umiyama-kurashi.jp/"
+    },
+    {
+      "municipality": "愛南町",
+      "region": "南予",
+      "program_name": "愛南町移住者住宅改修支援事業補助金",
+      "renovation_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_worker_man": 200,
+        "max_childrearing_man": 400,
+        "conditions": "県外から愛南町空き家バンク登録物件へ移住・定住する働き手世帯・子育て世帯"
+      },
+      "furniture_disposal_subsidy": {
+        "available": true,
+        "rate": "2/3",
+        "max_man": 20,
+        "conditions": "家財道具の搬出・処分費補助（上限20万円。老朽危険空家除却補助上限80万円は家財対象外）"
+      },
+      "relocation_acquisition_support": "移住支援金（東京圏移住対象）、老朽危険空家除却補助（上限80万円）",
+      "official_url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/ijujoho.html"
+    }
+  ]
+}

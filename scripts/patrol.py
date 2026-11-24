@@ -31,7 +31,7 @@ LOGS_DIR = BASE_DIR / "logs"
 
 UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"}
 SSL_CTX = ssl.create_default_context(cafile=certifi.where())
-CLOSED = re.compile(r"交渉中|協議中|商談中|成約済|成約済み|募集終了")
+CLOSED = re.compile(r"交渉中|協議中|商談中|成約済|成約済み|契約済|契約済み|募集終了")
 
 FIELDS = [
     "取得日", "ステータス", "自治体名", "地区名", "種別", "価格",
@@ -385,6 +385,7 @@ def scrape_shikokuchuo(list_url: str):
 
 def scrape_matsuyama(list_url: str):
     out = []
+    # 1. 松山市離島部（里島空き家バンク）
     s = get(list_url)
     seen = set()
     for h, _ in links(s, list_url):
@@ -403,6 +404,281 @@ def scrape_matsuyama(list_url: str):
             特記事項=kv.get("間取り詳細", "")[:180], 物件ID=h.rsplit("/", 1)[-1],
             詳細URL=h, 掲載元="里島空き家バンク(松山市離島)"
         ))
+
+    # 2. 松山市三津浜地区（三津浜町家バンク ミツハマル）
+    mitsu_list_url = "https://www.mitsuhamaru.com/bukken/index.php"
+    ms = get(mitsu_list_url)
+    if ms:
+        lis = re.findall(r'(?s)<li class="bukken[^"]*">(.*?)</li>', ms)
+        active_targets = []
+        for li in lis:
+            if "icon_sumi.png" in li or CLOSED.search(li):
+                continue
+            m_href = re.search(r'href="(/detail/index\.php\?id=(\d+))"', li)
+            if not m_href:
+                continue
+            det_url = urllib.parse.urljoin(mitsu_list_url, m_href.group(1))
+            pid = f"mitsu_{m_href.group(2)}"
+            kind = "賃貸" if "icon_rent.png" in li else "売買"
+            active_targets.append((det_url, pid, kind))
+
+        def _fetch_mitsu(item):
+            det_url, pid, kind = item
+            d = get(det_url)
+            if not d:
+                return None
+            txt = clean_text(d)
+            if CLOSED.search(txt[:500]):
+                return None
+            lines = txt.splitlines()
+            loc = price = bldg = land = built = parking = equip = ""
+            for i, ln in enumerate(lines):
+                nxt = lines[i + 1] if i + 1 < len(lines) else ""
+                if ln == "■場 所" and nxt:
+                    loc = f"三津浜・{nxt}"
+                elif ln == "■価 格" and nxt:
+                    price = nxt
+                elif ln == "■建 物" and nxt:
+                    bldg = nxt
+                elif ln == "■土 地" and nxt:
+                    land = nxt
+                elif ln == "築年月" and nxt and nxt not in ("都市計画", "駐車場", "建物構造"):
+                    built = nxt
+                elif ln == "駐車場" and nxt and nxt not in ("建ぺい率／容積率", "階建"):
+                    parking = nxt
+                elif ln == "設備" and nxt and nxt not in ("備考", "現況"):
+                    equip = nxt
+            title_h = rx(r"<title[^>]*>(.*?)</title>", d, 120).split("｜")[0].strip()
+            notes_parts = [title_h]
+            if parking:
+                notes_parts.append(f"駐車場:{parking}")
+            if equip:
+                notes_parts.append(f"設備:{equip}")
+            return dict(
+                自治体名="松山市", 地区名=loc or "三津浜地区", 種別=kind, 価格=price,
+                間取り="", 築年数=built, 土地面積=land, 建物面積=bldg,
+                特記事項=" / ".join(x for x in notes_parts if x)[:180],
+                物件ID=pid, 詳細URL=det_url, 掲載元="ミツハマル(松山市三津浜)"
+            )
+
+        with ThreadPoolExecutor(max_workers=6) as ex:
+            for res in ex.map(_fetch_mitsu, active_targets):
+                if res:
+                    out.append(res)
+    return out
+
+
+def scrape_niihama(list_url: str):
+    """新居浜市空き家バンクナビ (akiya-navi.com) から募集中物件を取得"""
+    out = []
+    s = get(list_url, encoding="shift_jis")
+    if not s or "メンテナンス" in s:
+        return out
+    rel_urls = sorted(set(re.findall(r"content\.php\?id=(\d+)", s)), key=lambda x: int(x))
+
+    def _fetch_nii(nid: str):
+        det_url = f"https://www.akiya-navi.com/niihama_akiya_bank/content.php?id={nid}"
+        d = get(det_url, encoding="shift_jis")
+        if not d:
+            return None
+        txt = clean_text(d)
+        if CLOSED.search(txt[:450]):
+            return None
+        lines = txt.splitlines()
+        kv = {}
+        for i, ln in enumerate(lines):
+            if ln in ("契約形態", "登録地区", "売買価格", "賃貸価格", "所在地", "築年月", "構造", "延床面積", "敷地面積", "間取り", "補修", "水道", "下水道", "トイレ", "駐車場", "庭", "物置", "その他特記事項"):
+                nxt = lines[i + 1] if i + 1 < len(lines) else ""
+                if nxt and nxt not in ("&nbsp", "−", "-", "特になし"):
+                    kv[ln] = nxt
+        sale_p = kv.get("売買価格", "")
+        rent_p = kv.get("賃貸価格", "")
+        if "賃貸" in kv.get("契約形態", "") and rent_p:
+            kind, price = "賃貸", rent_p
+        else:
+            kind, price = "売買", sale_p or rent_p
+        loc = kv.get("所在地", "").replace("愛媛県新居浜市", "").strip()
+        if kv.get("登録地区"):
+            loc = f"{kv['登録地区']} {loc}".strip()
+        bldg = kv.get("延床面積", "").replace("u", "㎡")
+        land = kv.get("敷地面積", "").replace("u", "㎡")
+        notes = []
+        if kv.get("補修"):
+            notes.append(f"補修:{kv['補修']}")
+        if kv.get("駐車場"):
+            notes.append(f"駐車場:{kv['駐車場']}")
+        if kv.get("水道"):
+            notes.append(f"水道:{kv['水道']}")
+        if kv.get("下水道"):
+            notes.append(f"下水:{kv['下水道']}")
+        if kv.get("庭") == "有":
+            notes.append("庭あり")
+        if kv.get("物置") == "有":
+            notes.append("物置あり")
+        return dict(
+            自治体名="新居浜市", 地区名=loc or "新居浜市内", 種別=kind, 価格=price,
+            間取り=kv.get("間取り", ""), 築年数=kv.get("築年月", ""),
+            土地面積=land, 建物面積=bldg, 特記事項=" / ".join(notes)[:180],
+            物件ID=f"No.{nid}", 詳細URL=det_url, 掲載元="新居浜市空き家バンクナビ"
+        )
+
+    with ThreadPoolExecutor(max_workers=6) as ex:
+        for res in ex.map(_fetch_nii, rel_urls):
+            if res:
+                out.append(res)
+    return out
+
+
+def scrape_seiyo(list_url: str):
+    """西予市空き家バンク（kViewer公開データベース）をPlaywrightで取得"""
+    from playwright.sync_api import sync_playwright
+
+    out = []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, channel="chrome")
+        try:
+            page = browser.new_page()
+            page.goto(list_url, wait_until="networkidle", timeout=35000)
+            page.wait_for_timeout(2000)
+
+            # 一覧画面から全カードの基本情報と詳細URLを一括抽出
+            cards = page.evaluate(
+                """() => {
+                    const out = [];
+                    const seen = new Set();
+                    const anchors = Array.from(document.querySelectorAll('a[href*="/detail/"]'));
+                    for (const a of anchors) {
+                        const href = a.href;
+                        if (seen.has(href)) continue;
+                        seen.add(href);
+                        const card = a.closest('article, .kv-list-card, .kv-card, div[class*="card"], li') || a;
+                        out.push({ href, text: (card.innerText || '').trim() });
+                    }
+                    return out;
+                }"""
+            )
+            log(f"西予市 kViewer カード検出: {len(cards)}件 -> 詳細ページから価格・設備を取得中...")
+
+            for c in cards:
+                det_url = c["href"]
+                card_txt = c["text"]
+                if CLOSED.search(card_txt):
+                    continue
+                try:
+                    page.goto(det_url, wait_until="networkidle", timeout=20000)
+                    page.wait_for_timeout(350)
+                    txt = page.locator("body").inner_text()
+                except Exception:
+                    txt = card_txt
+                if CLOSED.search(txt[:400]):
+                    continue
+                lines = [l.strip() for l in txt.splitlines() if l.strip()]
+                kv = {}
+                keys_set = {
+                    "物件番号", "物件管理番号", "所在地", "売買価格", "月額賃借料",
+                    "建物面積", "土地面積", "建築年", "間取り", "補修の要否",
+                    "水道", "下水道", "トイレ", "駐車場", "駐車場台数",
+                    "物置", "庭", "農地", "ペットの飼育", "特記事項",
+                }
+                for i, ln in enumerate(lines):
+                    if ln in keys_set and ln not in kv:
+                        nxt = lines[i + 1] if i + 1 < len(lines) else ""
+                        if nxt and nxt not in keys_set and nxt not in ("設備状況", "問い合わせ先", "売買", "賃貸"):
+                            kv[ln] = nxt
+                pid = kv.get("物件番号") or kv.get("物件管理番号") or ""
+                loc = kv.get("所在地", "").replace("西予市", "").strip()
+                sale_p = kv.get("売買価格", "").replace("¥", "").replace("￥", "").strip()
+                rent_p = kv.get("月額賃借料", "").replace("¥", "").replace("￥", "").strip()
+                if rent_p and not sale_p:
+                    kind, price = "賃貸", rent_p
+                else:
+                    kind, price = "売買", sale_p or rent_p
+                notes = []
+                if kv.get("補修の要否"):
+                    notes.append(f"補修:{kv['補修の要否']}")
+                if kv.get("駐車場") == "有":
+                    notes.append(f"駐車場:有({kv.get('駐車場台数', '')})".replace("()", ""))
+                if kv.get("ペットの飼育"):
+                    notes.append(f"ペット:{kv['ペットの飼育']}")
+                if kv.get("農地"):
+                    notes.append(f"農地:{kv['農地']}")
+                if kv.get("特記事項"):
+                    notes.append(kv["特記事項"])
+                out.append(dict(
+                    自治体名="西予市", 地区名=loc or "西予市内", 種別=kind, 価格=price,
+                    間取り=kv.get("間取り", ""), 築年数=kv.get("建築年", ""),
+                    土地面積=kv.get("土地面積", ""), 建物面積=kv.get("建物面積", ""),
+                    特記事項=" / ".join(x for x in notes if x)[:180],
+                    物件ID=pid or det_url[-12:], 詳細URL=det_url, 掲載元="西予市空き家バンク(kViewer)"
+                ))
+        finally:
+            browser.close()
+    return out
+
+
+def scrape_tobe(list_url: str):
+    """砥部町（えひめ空き家情報バンク e-iju.net/akiyashisetsu）から砥部町物件を取得"""
+    from playwright.sync_api import sync_playwright
+
+    out = []
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True, channel="chrome")
+        try:
+            page = browser.new_page()
+            page.goto(list_url, wait_until="domcontentloaded", timeout=25000)
+            page.wait_for_timeout(3000)
+
+            tobe_links = page.evaluate(
+                """() => {
+                    const out = [];
+                    const seen = new Set();
+                    for (const a of document.querySelectorAll('a[href*="/property/"]')) {
+                        const txt = (a.innerText || '').replace(/\\s+/g, ' ').trim();
+                        if (!txt.includes('砥部町')) continue;
+                        if (seen.has(a.href)) continue;
+                        seen.add(a.href);
+                        out.push({ href: a.href, summary: txt });
+                    }
+                    return out;
+                }"""
+            )
+
+            for item in tobe_links:
+                det_url = item["href"]
+                summ = item["summary"]
+                if CLOSED.search(summ):
+                    continue
+                try:
+                    page.goto(det_url, wait_until="domcontentloaded", timeout=20000)
+                    page.wait_for_timeout(1500)
+                    body_txt = page.locator("body").inner_text()
+                except Exception:
+                    body_txt = summ
+                if CLOSED.search(body_txt[:500]):
+                    continue
+                kind = "賃貸" if "賃貸" in summ else "売買"
+                m_price = re.search(r"(\d+(?:\.\d+)?)\s*万円", summ) or re.search(r"希望価格[^\d]*(\d+(?:,\d+)*\s*万円)", body_txt)
+                price = f"{m_price.group(1)}万円" if m_price and not str(m_price.group(1)).endswith("万円") else (m_price.group(1) if m_price else "")
+                m_loc = re.search(r"砥部町([^\s/／]+)", summ)
+                loc = m_loc.group(1) if m_loc else "砥部町内"
+                m_layout = re.search(r"([０-９\d]+(?:[SＳ]?[LＬ]?[DＤ]?[KＫ]))", summ)
+                layout = m_layout.group(1).translate(str.maketrans("０１２３４５６７８９ＳＬＤＫ", "0123456789SLDK")) if m_layout else ""
+                m_pid = re.search(r"第([０-９\d]+)号", urllib.parse.unquote(det_url))
+                pid = f"第{m_pid.group(1)}号" if m_pid else urllib.parse.unquote(det_url).rstrip("/").rsplit("/", 1)[-1]
+                m_built = re.search(r"(?:建築年|築年)[^\n]{0,8}((?:昭和|平成|令和)\s*[０-９\d]+年|築\s*\d+年)", body_txt)
+                built = m_built.group(1) if m_built else ""
+                m_land = re.search(r"敷地面積[^\d]*([\d,\.]+)\s*(?:㎡|m2)", body_txt)
+                land = f"{m_land.group(1)}㎡" if m_land else ""
+                m_bldg = re.search(r"(?:延床面積|建物面積)[^\d]*([\d,\.]+)\s*(?:㎡|m2)", body_txt)
+                bldg = f"{m_bldg.group(1)}㎡" if m_bldg else ""
+                out.append(dict(
+                    自治体名="砥部町", 地区名=loc, 種別=kind, 価格=price,
+                    間取り=layout, 築年数=built, 土地面積=land, 建物面積=bldg,
+                    特記事項=summ.replace("MORE", "").strip()[:180],
+                    物件ID=pid, 詳細URL=det_url, 掲載元="えひめ空き家情報バンク(砥部町)"
+                ))
+        finally:
+            browser.close()
     return out
 
 
@@ -751,14 +1027,17 @@ SCRAPERS = {
     "今治市": (scrape_imabari, r"/akiya-bank/"),
     "上島町": (scrape_kamijima, r"/residences/\d+"),
     "西条市": (scrape_saijo, r"/uploaded/attachment/\d+\.pdf"),
+    "新居浜市": (scrape_niihama, r"content\.php\?id=\d+"),
     "四国中央市": (scrape_shikokuchuo, r"akiyabank_item"),
     "松山市": (scrape_matsuyama, r"/house/"),
     "伊予市": (scrape_iyo, r"/akiya_bank/\d+"),
     "東温市": (scrape_toon, r"/akiya/(?:selling|lease|\d+\.html)"),
     "久万高原町": (scrape_kumakogen, r"/site/iju/\d+\.html"),
+    "砥部町": (scrape_tobe, r"/property/"),
     "宇和島市": (scrape_uwajima, r"/site/ijyu/akiya(?:bank)?\d+\.html"),
     "八幡浜市": (scrape_yawatahama, r"物件管理番号"),
     "大洲市": (scrape_ozu, r"/akiyabank/\d+-\d+-\d+\.html"),
+    "西予市": (scrape_seiyo, r"/detail/"),
     "内子町": (scrape_uchiko, r"/teijyu-akiya/ijyu/akiya\d+\.html"),
     "伊方町": (scrape_ikata, r"/akiya/iju-teiju/\d+\.html"),
     "松野町": (scrape_matsuno, r"/site/akiya/\d+\.html"),

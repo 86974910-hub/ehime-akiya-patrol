@@ -1,0 +1,232 @@
+{
+  "西条市:No.019": {
+    "url": "https://www.city.saijo.ehime.jp/uploaded/attachment/84871.pdf",
+    "source_kind": "pdf",
+    "content_hash": "3577958e70ce8833",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": "井戸水",
+      "sewer_toilet": "浄化槽（水洗）",
+      "built_year": "昭和 46 年",
+      "repair_level": "大幅改修要",
+      "remaining_furniture": null,
+      "parking": null,
+      "front_road": null,
+      "nearby_access": null,
+      "land_extras": [
+        "倉庫・物置",
+        "離れ・蔵"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "募集中"
+    }
+  },
+  "西条市:No.067": {
+    "url": "https://www.city.saijo.ehime.jp/uploaded/attachment/84995.pdf",
+    "source_kind": "pdf",
+    "content_hash": "a2e7668e1ff8e2ba",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": "井戸水",
+      "sewer_toilet": "浄化槽（水洗）",
+      "built_year": "昭和 35 年",
+      "repair_level": "大幅改修要",
+      "remaining_furniture": null,
+      "parking": null,
+      "front_road": null,
+      "nearby_access": null,
+      "land_extras": [
+        "倉庫・物置"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "募集中"
+    }
+  },
+  "愛南町:0704": {
+    "url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/files/0704_daityou.pdf",
+    "source_kind": "pdf",
+    "content_hash": "bbc806c29c8b1ab6",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": null,
+      "sewer_toilet": "浄化槽（水洗）",
+      "built_year": "築42年",
+      "repair_level": "小規模修繕要",
+      "remaining_furniture": null,
+      "parking": "有 室内洗濯機置場",
+      "front_road": null,
+      "nearby_access": null,
+      "land_extras": [
+        "農地・畑"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "募集中"
+    }
+  },
+  "愛南町:0616": {
+    "url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/files/0616_daityou.pdf",
+    "source_kind": "pdf",
+    "content_hash": "6de9c1873a8429d0",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": null,
+      "sewer_toilet": "汲み取り式",
+      "built_year": "築52年",
+      "repair_level": "小規模修繕要",
+      "remaining_furniture": null,
+      "parking": "はありませんが近隣に貸駐車場有",
+      "front_road": null,
+      "nearby_access": null,
+      "land_extras": [
+        "農地・畑",
+        "倉庫・物置"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "募集中"
+    }
+  },
+  "今治市:大三島25-036": {
+    "url": "https://iju-imabari.jp/akiya-bank/%e5%a4%a7%e4%b8%89%e5%b3%b625-036/",
+    "source_kind": "html",
+    "content_hash": "eb3927a6744fe9f4",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": null,
+      "sewer_toilet": null,
+      "built_year": null,
+      "repair_level": null,
+      "remaining_furniture": null,
+      "parking": "有 / 1台",
+      "front_road": "状況",
+      "nearby_access": "バス停0.85ｋｍ、大三島支所6.2ｋｍ、大三島小学校5.7ｋｍ",
+      "land_extras": [
+        "農地・畑",
+        "山林"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "募集中"
+    }
+  },
+  "今治市:大西26-044": {
+    "url": "https://iju-imabari.jp/akiya-bank/%e5%a4%a7%e8%a5%bf26-044/",
+    "source_kind": "html",
+    "content_hash": "63338009fd6e1c28",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": null,
+      "sewer_toilet": "浄化槽（水洗）",
+      "built_year": "令和5年",
+      "repair_level": null,
+      "remaining_furniture": null,
+      "parking": "有 / 4台",
+      "front_road": "状況",
+      "nearby_access": "海浜公園も徒歩圏内 ／ 駅徒歩約３４分、大西支所約2.9ｋｍ、大西小学校約2.0ｋｍ ／ スーパー（ドラッグストアmac大西店）約2.5ｋｍ、今治ＩＣまで約8.4ｋ",
+      "land_extras": [
+        "農地・畑",
+        "山林",
+        "倉庫・物置"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "募集中"
+    }
+  },
+  "大洲市:1-1-222": {
+    "url": "https://www.city.ozu.ehime.jp/akiyabank/1-1-222.html",
+    "source_kind": "html",
+    "content_hash": "7f4aefda6e4af471",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": null,
+      "sewer_toilet": "浄化槽（水洗）",
+      "built_year": "平成10年築",
+      "repair_level": "そのまま居住可・状態良好",
+      "remaining_furniture": null,
+      "parking": "有",
+      "front_road": null,
+      "nearby_access": "病院・小学校 1km圏内",
+      "land_extras": [
+        "農地・畑",
+        "離れ・蔵"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "募集中"
+    }
+  },
+  "大洲市:3-1-008": {
+    "url": "https://www.city.ozu.ehime.jp/akiyabank/3-1-008.html",
+    "source_kind": "html",
+    "content_hash": "3df132d90cf59b28",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": null,
+      "sewer_toilet": "浄化槽（水洗）",
+      "built_year": "平成2年築",
+      "repair_level": null,
+      "remaining_furniture": "家財残置あり",
+      "parking": "有",
+      "front_road": null,
+      "nearby_access": null,
+      "land_extras": [
+        "農地・畑",
+        "山林",
+        "倉庫・物置"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "商談中・交渉中"
+    }
+  },
+  "松山市:gogo_tomari_sale_0205": {
+    "url": "https://ritou-akiya.com/house/gogo_tomari_sale_0205",
+    "source_kind": "html",
+    "content_hash": "be0b62f34caeade3",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": null,
+      "sewer_toilet": "水洗（方式要確認）",
+      "built_year": "築63年",
+      "repair_level": null,
+      "remaining_furniture": null,
+      "parking": "はありませんが、軽自動車で家の前まで入ることができるため",
+      "front_road": null,
+      "nearby_access": "港から徒歩5分 ／ 海が見えませんが、海へ行くには徒歩圏内 ／ 港から歩いて5分",
+      "land_extras": [
+        "農地・畑",
+        "倉庫・物置"
+      ],
+      "pet_policy": null,
+      "negotiation_status": "募集中"
+    }
+  },
+  "松山市:gogo_kadota_sale_0202": {
+    "url": "https://ritou-akiya.com/house/gogo_kadota_sale_0202",
+    "source_kind": "html",
+    "content_hash": "10029284304df3a0",
+    "updated_at": "2026-11-24",
+    "extraction_mode": "hybrid_ai_candidate",
+    "fields": {
+      "water_supply": null,
+      "sewer_toilet": "水洗（方式要確認）",
+      "built_year": "は40年弱。いわゆる古民家ではなく、平成初期",
+      "repair_level": null,
+      "remaining_furniture": null,
+      "parking": "・倉庫付きの非古民家住宅 | 離島の空き家 愛媛県の離島",
+      "front_road": null,
+      "nearby_access": "港から徒歩10分のところにある平成築の一 ／ 海が一望できる環境ながら、海から3〜400mの距離があります ／ 港まで2〜3分",
+      "land_extras": [
+        "農地・畑",
+        "倉庫・物置"
+      ],
+      "pet_policy": "ペット可・相談",
+      "negotiation_status": "募集中"
+    }
+  }
+}

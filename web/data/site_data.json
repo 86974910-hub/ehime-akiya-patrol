@@ -1,27 +1,27 @@
 {
   "summary": {
-    "total_count": 541,
+    "total_count": 661,
     "municipality_total": 20,
-    "covered_municipalities": 16,
-    "sale_count": 494,
-    "rent_count": 47,
+    "covered_municipalities": 19,
+    "sale_count": 590,
+    "rent_count": 71,
     "sale_min_man": 1.0,
     "sale_max_man": 8800.0,
-    "sale_median_man": 330.0,
-    "rent_min_yen": 12000,
-    "rent_max_yen": 100000,
-    "rent_median_yen": 35000,
+    "sale_median_man": 350.0,
+    "rent_min_yen": 10000,
+    "rent_max_yen": 250000,
+    "rent_median_yen": 32000,
     "recent_7days_count": 4,
     "recent_changes_7d": {
       "new_count": 3,
       "price_down_count": 1,
       "closed_count": 4
     },
-    "last_updated": "2026-11-25 05:13",
+    "last_updated": "2026-11-25 06:39",
     "region_counts": {
-      "東予": 343,
-      "中予": 35,
-      "南予": 163
+      "東予": 365,
+      "中予": 63,
+      "南予": 233
     }
   },
   "municipalities": [
@@ -232,19 +232,19 @@
     {
       "name": "新居浜市",
       "region": "東予",
-      "count": 0,
-      "sale_count": 0,
-      "rent_count": 0,
+      "count": 22,
+      "sale_count": 21,
+      "rent_count": 1,
       "price_stats": {
-        "min_man": null,
-        "max_man": null,
-        "median_man": null
+        "min_man": 100.0,
+        "max_man": 2250.0,
+        "median_man": 500.0
       },
       "tags": {
-        "under_100": 0,
+        "under_100": 1,
         "farm": 0,
-        "sea": 0,
-        "parking": 0,
+        "sea": 2,
+        "parking": 19,
         "good_cond": 0
       },
       "recent_changes_7d": {
@@ -252,10 +252,50 @@
         "price_down_count": 0,
         "closed_count": 0
       },
-      "featured": [],
-      "list_url": "https://www.homes.co.jp/akiyabank/ehime/niihama-shi/",
-      "source_type": "portal",
-      "source_notes": "公式提携の新居浜市空き家バンクナビ(akiya-navi.com)は2026-10-22より緊急メンテナンス停止中。LIFULL HOME'S(bot遮断)にも掲載"
+      "featured": [
+        {
+          "id": "No.79",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "川東地区 松の木町4",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "３K",
+          "built": "1965年7月",
+          "land_area": "102.52㎡",
+          "bldg_area": "39.66㎡",
+          "notes": "補修:大幅に必要（入居者負担） / 駐車場:有（1台まで可） / 水道:上水道 / 下水:あり / 庭あり / 物置あり",
+          "url": "https://www.akiya-navi.com/niihama_akiya_bank/content.php?id=79"
+        },
+        {
+          "id": "No.84",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "川東地区 阿島3丁目",
+          "kind": "売買",
+          "price": "520万円",
+          "layout": "10DK",
+          "built": "1972年",
+          "land_area": "415.20㎡",
+          "bldg_area": "214.55㎡",
+          "notes": "補修:多少必要（入居者負担） / 駐車場:有（2台まで可） / 水道:地下水 / 下水:なし / 庭あり / 物置あり",
+          "url": "https://www.akiya-navi.com/niihama_akiya_bank/content.php?id=84"
+        },
+        {
+          "id": "No.116",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "川東地区 新居浜市黒島2丁目",
+          "kind": "売買",
+          "price": "300万円",
+          "layout": "6DK",
+          "built": "1977年11月",
+          "land_area": "138.46㎡",
+          "bldg_area": "112.63㎡",
+          "notes": "補修:不要 / 駐車場:無 / 水道:上水道 / 下水:汲取り / 庭あり / 物置あり",
+          "url": "https://www.akiya-navi.com/niihama_akiya_bank/content.php?id=116"
+        }
+      ],
+      "list_url": "https://www.akiya-navi.com/niihama_akiya_bank/info.php",
+      "source_type": "html",
+      "source_notes": "新居浜市空き家バンクナビ（メンテナンス復旧済・募集中物件を直接取得）"
     },
     {
       "name": "四国中央市",
@@ -328,19 +368,19 @@
     {
       "name": "松山市",
       "region": "中予",
-      "count": 6,
-      "sale_count": 6,
-      "rent_count": 0,
+      "count": 32,
+      "sale_count": 13,
+      "rent_count": 19,
       "price_stats": {
         "min_man": 150.0,
-        "max_man": 400.0,
-        "median_man": 250.0
+        "max_man": 5980.0,
+        "median_man": 300.0
       },
       "tags": {
         "under_100": 0,
         "farm": 0,
-        "sea": 6,
-        "parking": 1,
+        "sea": 7,
+        "parking": 6,
         "good_cond": 0
       },
       "recent_changes_7d": {
@@ -363,35 +403,35 @@
           "url": "https://ritou-akiya.com/house/naka_obama_0203"
         },
         {
-          "id": "gogo_tomari_sale_0205",
-          "status": "新着(初回ベースライン)",
-          "district": "興居島・泊",
-          "kind": "売買",
-          "price": "1,500,000 円",
-          "layout": "8DK以上",
-          "built": "1963年（築63年）",
+          "id": "mitsu_221",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "三津浜・三津1丁目",
+          "kind": "賃貸",
+          "price": "25万円",
+          "layout": "",
+          "built": "",
           "land_area": "",
-          "bldg_area": "142.0㎡",
-          "notes": "和室×5,洋室×4, DK, 倉庫",
-          "url": "https://ritou-akiya.com/house/gogo_tomari_sale_0205"
+          "bldg_area": "",
+          "notes": "三津浜港からすぐの新築倉庫 / 駐車場:約4台 / 設備:上下水道。",
+          "url": "https://www.mitsuhamaru.com/detail/index.php?id=221"
         },
         {
-          "id": "gogo_kadota_sale_0202",
-          "status": "新着(初回ベースライン)",
-          "district": "興居島・門田",
+          "id": "mitsu_242",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "三津浜・住吉2",
           "kind": "売買",
-          "price": "4,000,000 円",
-          "layout": "5DK・5LDK",
-          "built": "1988年（築38年）",
-          "land_area": "",
-          "bldg_area": "117.0㎡",
-          "notes": "和室×4,洋室×1, DK, 倉庫",
-          "url": "https://ritou-akiya.com/house/gogo_kadota_sale_0202"
+          "price": "350万円",
+          "layout": "",
+          "built": "昭和38年",
+          "land_area": "91.43㎡",
+          "bldg_area": "1F 78.14㎡　2F65.78㎡",
+          "notes": "住吉公園からすぐ！三津浜商店街の住居物件 / 駐車場:なし / 設備:都市ガス、下水道",
+          "url": "https://www.mitsuhamaru.com/detail/index.php?id=242"
         }
       ],
       "list_url": "https://ritou-akiya.com/house",
       "source_type": "html",
-      "source_notes": "市街地は全国版(アットホーム/LIFULL HOME'S、bot遮断)。離島(忽那諸島)はritou-akiya.com、三津浜はhttp://www.mitsuhamaru.com/"
+      "source_notes": "離島(忽那諸島：ritou-akiya.com)＋三津浜町家バンク(ミツハマル：mitsuhamaru.com)の両方を自動巡回・統合取得"
     },
     {
       "name": "伊予市",
@@ -587,13 +627,13 @@
     {
       "name": "砥部町",
       "region": "中予",
-      "count": 0,
-      "sale_count": 0,
+      "count": 2,
+      "sale_count": 2,
       "rent_count": 0,
       "price_stats": {
-        "min_man": null,
-        "max_man": null,
-        "median_man": null
+        "min_man": 1600.0,
+        "max_man": 2000.0,
+        "median_man": 1800.0
       },
       "tags": {
         "under_100": 0,
@@ -607,10 +647,37 @@
         "price_down_count": 0,
         "closed_count": 0
       },
-      "featured": [],
-      "list_url": "https://www.e-iju.net/akiya/public/Top",
-      "source_type": "portal",
-      "source_notes": "町公式ページ(izyuusien.html)は404。えひめ移住ネットおよびアットホームに掲載"
+      "featured": [
+        {
+          "id": "第8７号",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "宮内",
+          "kind": "売買",
+          "price": "1600.0万円",
+          "layout": "5DK",
+          "built": "",
+          "land_area": "",
+          "bldg_area": "105.99㎡",
+          "notes": "売買物件 1600.0万円 砥部町宮内 / ５DK",
+          "url": "https://e-iju.net/property/%e7%a9%ba%e3%81%8d%e5%ae%b6%e3%83%90%e3%83%b3%e3%82%af%e7%89%a9%e4%bb%b6%e7%ac%ac8%ef%bc%97%e5%8f%b7/"
+        },
+        {
+          "id": "第86号",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "千足",
+          "kind": "売買",
+          "price": "2000.0万円",
+          "layout": "2LDK",
+          "built": "",
+          "land_area": "",
+          "bldg_area": "90.66㎡",
+          "notes": "売買物件 2000.0万円 砥部町千足 / ２LDK",
+          "url": "https://e-iju.net/property/%e7%a9%ba%e3%81%8d%e5%ae%b6%e3%83%90%e3%83%b3%e3%82%af%e7%89%a9%e4%bb%b6%e7%ac%ac86%e5%8f%b7/"
+        }
+      ],
+      "list_url": "https://e-iju.net/akiyashisetsu",
+      "source_type": "html",
+      "source_notes": "えひめ空き家情報バンク（e-iju.net/akiyashisetsu）掲載の砥部町物件をPlaywrightで自動取得"
     },
     {
       "name": "宇和島市",
@@ -819,30 +886,70 @@
     {
       "name": "西予市",
       "region": "南予",
-      "count": 0,
-      "sale_count": 0,
-      "rent_count": 0,
+      "count": 70,
+      "sale_count": 66,
+      "rent_count": 4,
       "price_stats": {
-        "min_man": null,
-        "max_man": null,
-        "median_man": null
+        "min_man": 10.0,
+        "max_man": 2900.0,
+        "median_man": 465.0
       },
       "tags": {
-        "under_100": 0,
-        "farm": 0,
-        "sea": 0,
-        "parking": 0,
-        "good_cond": 0
+        "under_100": 11,
+        "farm": 38,
+        "sea": 1,
+        "parking": 49,
+        "good_cond": 11
       },
       "recent_changes_7d": {
         "new_count": 0,
         "price_down_count": 0,
         "closed_count": 0
       },
-      "featured": [],
-      "list_url": "https://www.city.seiyo.ehime.jp/kakuka/kensetsu/kensetsu/akiya/15809.html",
-      "source_type": "portal",
-      "source_notes": "独自一覧なし。アットホーム・LIFULL HOME'S等に掲載(bot遮断)"
+      "featured": [
+        {
+          "id": "3-01",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "野村町惣川3950番地1",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "4ＤＫ",
+          "built": "平成15年",
+          "land_area": "418.87㎡",
+          "bldg_area": "79.86㎡",
+          "notes": "補修:補修は不要 / 駐車場:有(1台) / ペット:ネット回線状況 / 農地:無 / 別棟倉庫あり",
+          "url": "https://0cb21af5.viewer.kintoneapp.com/public/seiyo-akiya-bank/detail/def5020058810ec37893e211567c88facdc203703c72e26e897cfaaeebb9a67d0ff4a51a0e830f2306b74d7b326b886ff5450722a9ed15ff24dbaf46a520a3109daf5be57c2c9cd6cc29cd0913e45dfd1f135bbf58e2b3fa57dcbd6e1c87e0dfd392e4c11492a43a"
+        },
+        {
+          "id": "5-67",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "三瓶町二及2番耕地669番地",
+          "kind": "売買",
+          "price": "50万円",
+          "layout": "2ＤＫ",
+          "built": "昭和48年",
+          "land_area": "152.00㎡",
+          "bldg_area": "56.99㎡",
+          "notes": "補修:大幅な補修必 / ペット:室内可 / 農地:無 / 海の近くで、自然を感じながらのびのびと過ごせる平屋住宅です。",
+          "url": "https://0cb21af5.viewer.kintoneapp.com/public/seiyo-akiya-bank/detail/def50200ed82c86484231c3365edcbe760fc1cb80cb461f56b0de3b1c186f32706f06f8124b0f247cfeed3ab53bdffe0e4aa28b95cf9cd30026b79344e5c40d1c13e7f6c8e947d853d99aed82f6bc523e4d9891773999bebee2a697863415db6e28f65c9bbd3a989"
+        },
+        {
+          "id": "5-76",
+          "status": "新着(ソース拡充ベースライン)",
+          "district": "三瓶町周木6番耕地96番地",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "6ＤＫ",
+          "built": "昭和59年",
+          "land_area": "141.03㎡",
+          "bldg_area": "139.07㎡",
+          "notes": "補修:多少の補修必要 / ペット:室内可 / 農地:無 / 地図を表示（Googleマップ）",
+          "url": "https://0cb21af5.viewer.kintoneapp.com/public/seiyo-akiya-bank/detail/def50200e5178ddf07440bd7ef1171acb9d14d7eb46290a45ed9f73b3dd0b9754e4d850dfb336c12261e75a6d1a70944f71213932e6647125e3ca577b6211d07e94e8b4271e48864ae199dc697b02f8a1d1b8327804a48c7269286381aa3344ba501928f81ab806d"
+        }
+      ],
+      "list_url": "https://0cb21af5.viewer.kintoneapp.com/public/seiyo-akiya-bank",
+      "source_type": "html",
+      "source_notes": "西予市公式空き家バンク（kViewer公開データベース）をPlaywrightで自動取得"
     },
     {
       "name": "松前町",
