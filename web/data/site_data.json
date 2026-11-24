@@ -15,9 +15,9 @@
     "recent_changes_7d": {
       "new_count": 3,
       "price_down_count": 1,
-      "closed_count": 0
+      "closed_count": 4
     },
-    "last_updated": "2026-11-24 21:12",
+    "last_updated": "2026-11-24 21:16",
     "region_counts": {
       "東予": 343,
       "中予": 35,
@@ -46,7 +46,7 @@
       "recent_changes_7d": {
         "new_count": 0,
         "price_down_count": 1,
-        "closed_count": 0
+        "closed_count": 1
       },
       "featured": [
         {
@@ -278,7 +278,7 @@
       "recent_changes_7d": {
         "new_count": 1,
         "price_down_count": 0,
-        "closed_count": 0
+        "closed_count": 1
       },
       "featured": [
         {
@@ -769,7 +769,7 @@
       "recent_changes_7d": {
         "new_count": 1,
         "price_down_count": 0,
-        "closed_count": 0
+        "closed_count": 1
       },
       "featured": [
         {
@@ -1165,7 +1165,7 @@
       "recent_changes_7d": {
         "new_count": 0,
         "price_down_count": 0,
-        "closed_count": 0
+        "closed_count": 1
       },
       "featured": [
         {
