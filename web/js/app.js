@@ -128,8 +128,14 @@ function renderSummary(summary) {
   document.getElementById("stat-covered").textContent =
     `直接取得 ${summary.covered_municipalities}市町（全${summary.municipality_total}市町監視）`;
   document.getElementById("stat-updated").textContent = summary.last_updated || "--";
-  document.getElementById("stat-recent").textContent =
-    `直近7日新着・改定 ${formatNumber(summary.recent_7days_count)}件`;
+  const rc = summary.recent_changes_7d;
+  if (rc && (rc.new_count || rc.price_down_count || rc.closed_count)) {
+    document.getElementById("stat-recent").textContent =
+      `直近7日 新着${formatNumber(rc.new_count)} / 値下げ${formatNumber(rc.price_down_count)} / 終了${formatNumber(rc.closed_count)}件`;
+  } else {
+    document.getElementById("stat-recent").textContent =
+      `直近7日新着・改定 ${formatNumber(summary.recent_7days_count)}件`;
+  }
 }
 
 function renderMap() {
@@ -231,10 +237,16 @@ function renderDetailPanel() {
     t.good_cond > 0 ? `改修不要・良好 ${t.good_cond}件` : "",
   ].filter(Boolean);
 
+  const mc = m.recent_changes_7d || { new_count: 0, price_down_count: 0, closed_count: 0 };
+  const hasMuniChanges = mc.new_count > 0 || mc.price_down_count > 0 || mc.closed_count > 0;
+  const changeCountNote = hasMuniChanges
+    ? `<span class="teaser-counts">直近7日：新着${mc.new_count}件・値下げ${mc.price_down_count}件・終了${mc.closed_count}件</span>`
+    : `<span class="teaser-counts">直近7日の変動ログ・成約スピード集計中</span>`;
+
   let propsHtml = "";
   if (m.featured && m.featured.length > 0) {
     propsHtml = `
-      <h4 class="featured-heading">ピックアップ物件（最大5件）</h4>
+      <h4 class="featured-heading">代表物件サンプル（最大3件）</h4>
       <div class="prop-list">
         ${m.featured
           .map((p) => {
@@ -255,12 +267,38 @@ function renderDetailPanel() {
           })
           .join("")}
       </div>
+      <div class="member-teaser-box">
+        <div class="member-teaser-head">
+          <span class="lock-badge" aria-hidden="true">🔒 MEMBER ONLY</span>
+          ${changeCountNote}
+        </div>
+        <p class="member-teaser-text">
+          この市町の最新値下げ履歴・全件差分・オープンな場では書けない『地元民の本音メモ』は、noteメンバーシップ限定で配信しています →
+        </p>
+        <a class="member-teaser-link" href="${escapeHtml(EXTERNAL_LINKS.noteMembershipUrl)}" target="_blank" rel="noopener noreferrer">
+          <span>noteメンバーシップ（月額1,280円）で全件データを見る</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     `;
   } else {
     propsHtml = `
       <div class="notice-box">
         <strong>外部ポータル掲載・または調査対象外ステータス</strong><br />
         ${escapeHtml(m.source_notes || "この自治体は外部空き家ポータルへの委託またはメンテナンス等により、自動集計対象外となっています。下の公式ボタンから直接一覧をご確認ください。")}
+      </div>
+      <div class="member-teaser-box">
+        <div class="member-teaser-head">
+          <span class="lock-badge" aria-hidden="true">🔒 MEMBER ONLY</span>
+          ${changeCountNote}
+        </div>
+        <p class="member-teaser-text">
+          この市町の最新値下げ履歴・全件差分・オープンな場では書けない『地元民の本音メモ』は、noteメンバーシップ限定で配信しています →
+        </p>
+        <a class="member-teaser-link" href="${escapeHtml(EXTERNAL_LINKS.noteMembershipUrl)}" target="_blank" rel="noopener noreferrer">
+          <span>noteメンバーシップ（月額1,280円）で全件データを見る</span>
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
     `;
   }
@@ -304,7 +342,7 @@ function renderDetailPanel() {
           <span class="btn-arrow" aria-hidden="true">↗</span>
         </a>
         <button type="button" class="btn btn-mikan" id="btn-consult-area">
-          <span>このエリアの気になる物件の「現地代理下見（1万円）」を相談する</span>
+          <span>このエリアの「現地代理下見（通常1万円・会員8,000円）」を相談する</span>
           <span class="btn-arrow" aria-hidden="true">→</span>
         </button>
       </div>

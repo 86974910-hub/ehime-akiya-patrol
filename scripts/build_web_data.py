@@ -13,6 +13,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = BASE_DIR / "data" / "ehime_akiya_db.csv"
+CHANGE_HISTORY_PATH = BASE_DIR / "data" / "change_history.csv"
 SOURCES_PATH = BASE_DIR / "config" / "ehime_akiya_sources.json"
 OUT_PATH = BASE_DIR / "web" / "data" / "site_data.json"
 
@@ -166,8 +167,36 @@ def main():
         1
         for r in raw_rows
         if (r.get("取得日") or "") >= cutoff_7d
-        and ((r.get("ステータス") or "") == "新着" or str(r.get("ステータス") or "").startswith("価格改定"))
+        and (
+            (r.get("ステータス") or "") == "新着"
+            or str(r.get("ステータス") or "").startswith("価格改定")
+            or str(r.get("ステータス") or "").startswith("値下げ")
+        )
     )
+
+    # 直近7日間の変動履歴（件数のみ集計し、個別URLや値下げ額は無料Web用JSONには含めない）
+    change_7d_total = {"new_count": 0, "price_down_count": 0, "closed_count": 0}
+    change_7d_by_muni = {}
+    if CHANGE_HISTORY_PATH.exists():
+        with open(CHANGE_HISTORY_PATH, encoding="utf-8-sig") as f:
+            for ch in csv.DictReader(f):
+                d_str = (ch.get("検知日") or "")[:10]
+                if d_str < cutoff_7d:
+                    continue
+                muni = ch.get("自治体名") or ""
+                ctype = ch.get("変動種別") or ""
+                m_bucket = change_7d_by_muni.setdefault(
+                    muni, {"new_count": 0, "price_down_count": 0, "closed_count": 0}
+                )
+                if ctype == "新着":
+                    change_7d_total["new_count"] += 1
+                    m_bucket["new_count"] += 1
+                elif ctype in ("値下げ", "価格改定"):
+                    change_7d_total["price_down_count"] += 1
+                    m_bucket["price_down_count"] += 1
+                elif ctype == "募集終了":
+                    change_7d_total["closed_count"] += 1
+                    m_bucket["closed_count"] += 1
 
     all_sale_vals = [v for v in (parse_sale_man(r) for r in active_rows) if v is not None]
     all_rent_vals = [v for v in (parse_rent_yen(r) for r in active_rows) if v is not None]
@@ -184,7 +213,8 @@ def main():
         rent_cnt = sum(1 for r in rs if r.get("種別") == "賃貸")
         sale_cnt = len(rs) - rent_cnt
 
-        sorted_rs = sorted(rs, key=feature_score, reverse=True)[:5]
+        # 無料Webサイトでは各市町の代表物件サンプルを最大3件までに制限
+        sorted_rs = sorted(rs, key=feature_score, reverse=True)[:3]
         featured = []
         for r in sorted_rs:
             featured.append({
@@ -219,6 +249,9 @@ def main():
                 "parking": sum(1 for r in rs if has_parking(r)),
                 "good_cond": sum(1 for r in rs if has_good_cond(r)),
             },
+            "recent_changes_7d": change_7d_by_muni.get(
+                m, {"new_count": 0, "price_down_count": 0, "closed_count": 0}
+            ),
             "featured": featured,
             "list_url": src["list_url"],
             "source_type": src.get("source_type", "html"),
@@ -239,6 +272,7 @@ def main():
             "rent_max_yen": max(all_rent_vals) if all_rent_vals else None,
             "rent_median_yen": int(statistics.median(all_rent_vals)) if all_rent_vals else None,
             "recent_7days_count": recent_7d,
+            "recent_changes_7d": change_7d_total,
             "last_updated": datetime.now().strftime("%Y-%m-%d %H:%M"),
             "region_counts": {
                 "東予": sum(x["count"] for x in munis_out if x["region"] == "東予"),

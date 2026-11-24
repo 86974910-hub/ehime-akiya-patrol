@@ -19,6 +19,7 @@ import certifi
 BASE_DIR = Path(__file__).resolve().parent.parent
 ENV_PATH = BASE_DIR / ".env"
 DB_PATH = BASE_DIR / "data" / "ehime_akiya_db.csv"
+CHANGE_HISTORY_PATH = BASE_DIR / "data" / "change_history.csv"
 DRAFTS_DIR = BASE_DIR / "drafts"
 
 
@@ -62,34 +63,41 @@ def build_email_content(target_date: str) -> tuple[str, str]:
 
     new_cnt = 0
     chg_cnt = 0
+    closed_cnt = 0
     if json_path.exists():
         meta = json.loads(json_path.read_text(encoding="utf-8"))
         new_cnt = int(meta.get("new_count", 0))
         chg_cnt = int(meta.get("price_changed_count", 0))
+        closed_cnt = int(meta.get("closed_count", 0))
 
-    # 当日分のCSVレコードから簡易リストを構築
-    today_rows = []
-    if DB_PATH.exists():
-        with open(DB_PATH, encoding="utf-8-sig") as f:
+    # 当日分の変動履歴またはCSVレコードから簡易リストを構築
+    today_changes = []
+    if CHANGE_HISTORY_PATH.exists():
+        with open(CHANGE_HISTORY_PATH, encoding="utf-8-sig") as f:
             for r in csv.DictReader(f):
-                if r.get("取得日") == target_date and r.get("ステータス") in ("新着",) or (
-                    r.get("取得日") == target_date and str(r.get("ステータス", "")).startswith("価格改定")
-                ):
-                    today_rows.append(r)
+                if r.get("検知日") == target_date:
+                    today_changes.append(r)
 
-    if today_rows and (new_cnt == 0 and chg_cnt == 0):
-        new_cnt = sum(1 for r in today_rows if r.get("ステータス") == "新着")
-        chg_cnt = sum(1 for r in today_rows if str(r.get("ステータス", "")).startswith("価格改定"))
+    if today_changes and (new_cnt == 0 and chg_cnt == 0 and closed_cnt == 0):
+        new_cnt = sum(1 for r in today_changes if r.get("変動種別") == "新着")
+        chg_cnt = sum(1 for r in today_changes if r.get("変動種別") in ("値下げ", "価格改定"))
+        closed_cnt = sum(1 for r in today_changes if r.get("変動種別") == "募集終了")
 
-    total = new_cnt + chg_cnt
-    subject = f"【愛媛空き家パトロール】本日の新着・改定 {total}件（note下書き保存完了）"
+    total = new_cnt + chg_cnt + closed_cnt
+    subject = f"【愛媛空き家パトロール】本日の変動 {total}件｜新着{new_cnt}・値下げ{chg_cnt}・終了{closed_cnt}（note下書き保存完了）"
 
     simple_lines = []
-    for i, r in enumerate(today_rows, 1):
+    for i, r in enumerate(today_changes, 1):
         layout = r.get("間取り") or "-"
-        price = r.get("価格") or "要相談"
+        ctype = r.get("変動種別") or "-"
+        if ctype == "新着":
+            price_info = r.get("新価格") or "要相談"
+        elif ctype in ("値下げ", "価格改定"):
+            price_info = f"{r.get('旧価格')}→{r.get('新価格')} ({r.get('価格差')})"
+        else:
+            price_info = f"最終価格:{r.get('旧価格')} (経過:{r.get('経過日数')})"
         simple_lines.append(
-            f"{i}. [{r.get('ステータス')}] {r.get('自治体名')} {r.get('物件ID')}｜{price}｜間取り:{layout}\n"
+            f"{i}. [{ctype}] {r.get('自治体名')} {r.get('物件ID')}｜{price_info}｜間取り:{layout}\n"
             f"   公式URL: {r.get('詳細URL')}"
         )
     simple_list_str = "\n".join(simple_lines) if simple_lines else "（※詳細はnote下書きまたは添付ドラフトをご確認ください）"
@@ -97,13 +105,13 @@ def build_email_content(target_date: str) -> tuple[str, str]:
     body = f"""愛媛の空き家パトロール 日次レポート（{target_date}）
 
 ■ 本日の検知件数
-・合計：{total}件（新着 {new_cnt}件 / 価格改定 {chg_cnt}件）
+・合計：{total}件（新着 {new_cnt}件 / 値下げ・価格改定 {chg_cnt}件 / 募集終了 {closed_cnt}件）
 
 ■ 検知物件の簡易リスト
 {simple_list_str}
 
 ■ note記事の編集・公開
-以下の下書き一覧から該当記事を開き、「地元民リアルメモ」を1行足して公開してください！
+以下の下書き一覧から該当記事を開き、「=== ここから先はメンバーシップ限定（月額1,280円） ===」の位置に有料/メンバーシップ限定ラインを設定し、「【地元民の本音メモ（追記欄）】」を1行足して公開してください！
 https://note.com/notes
 
 ============================================================

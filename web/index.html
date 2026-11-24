@@ -327,9 +327,13 @@
           <div class="offer-panel">
             <span class="en-kicker">Pricing &amp; Coverage</span>
             <div class="offer-price-tag">
-              10,000<small>円（税込 / 1件）</small>
+              <span class="price-tier-label">通常価格</span>10,000<small>円（税込 / 1件）</small>
             </div>
-            <div style="font-size: 0.9rem; font-weight: 700; color: var(--sage);">
+            <div class="member-discount-badge">
+              <div class="member-discount-title">noteメンバーシップ会員特典：8,000円（税込）／優先日程調整</div>
+              <p class="member-discount-sub">月額1,280円のメンバーシップ加入後にご依頼いただくと、初回から実質お得になります。</p>
+            </div>
+            <div style="font-size: 0.9rem; font-weight: 700; color: var(--sage); margin-top: 10px;">
               対応エリア：愛媛県全域対応
             </div>
 
@@ -357,11 +361,95 @@
     <section class="section reveal" id="media-section">
       <div class="container">
         <div class="section-head">
-          <span class="en-kicker">Editorial &amp; Daily Updates</span>
-          <h2 class="section-title">毎日の速報は X・深い考察は note で</h2>
+          <span class="en-kicker">Membership &amp; Daily Updates</span>
+          <h2 class="section-title">無料Webマップと「noteメンバーシップ」の違い</h2>
           <p class="section-desc">
-            自動パトロールで拾い上げた新着・値下げ情報に、暮らしの視点を重ねて発信しています。
+            全体相場と代表サンプルは当サイトで無料公開。全20市町の値下げ履歴・成約スピード・公開サイトでは書けない地元民の本音メモは、noteメンバーシップ（月額1,280円）でお届けしています。
           </p>
+        </div>
+
+        <div class="tier-showcase">
+          <div class="tier-compare-card">
+            <div class="tier-compare-header">
+              <span class="en-kicker" style="margin-bottom:2px;">Plan Comparison</span>
+              <h3>無料Webサイト vs 有料noteメンバーシップ（月額1,280円）</h3>
+            </div>
+            <div class="tier-table-wrap">
+              <table class="tier-table" aria-label="無料Webサイトと有料noteメンバーシップの比較表">
+                <thead>
+                  <tr>
+                    <th>提供機能・データ</th>
+                    <th>無料Webサイト</th>
+                    <th class="is-member-col">noteメンバーシップ<br /><span class="th-price">月額 1,280円</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>全20市町の募集件数・価格相場マップ</td>
+                    <td>◯（毎日更新）</td>
+                    <td class="is-member-col"><strong>◯（毎日更新）</strong></td>
+                  </tr>
+                  <tr>
+                    <td>各市町の物件ピックアップ閲覧</td>
+                    <td>代表サンプル最大3件</td>
+                    <td class="is-member-col"><strong>新着・変動の全件リスト＋公式URL</strong></td>
+                  </tr>
+                  <tr>
+                    <td>値下げ履歴（旧価格→新価格・差額）</td>
+                    <td>件数のみ表示</td>
+                    <td class="is-member-col"><strong>◯（値下げ幅・価格推移を全件公開）</strong></td>
+                  </tr>
+                  <tr>
+                    <td>募集終了・成約スピード（掲載経過日数）</td>
+                    <td>件数のみ表示</td>
+                    <td class="is-member-col"><strong>◯（何日で成約・終了したか全件記録）</strong></td>
+                  </tr>
+                  <tr>
+                    <td>地元民のリアルな本音メモ</td>
+                    <td>―</td>
+                    <td class="is-member-col"><strong>◯（道幅・周辺環境・割安判定を追記）</strong></td>
+                  </tr>
+                  <tr>
+                    <td>現地代理下見レポート料金</td>
+                    <td>通常 10,000円/件</td>
+                    <td class="is-member-col"><strong>会員価格 8,000円/件（毎回2,000円OFF＆優先対応）</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="member-benefits-card">
+            <span class="member-pill-tag">MONTHLY 1,280 JPY</span>
+            <h3>noteメンバーシップ 3つのコア特典</h3>
+            <ul class="benefit-list">
+              <li>
+                <span class="benefit-num">1</span>
+                <div>
+                  <strong>全20市町の新着・値下げ額・成約スピードを毎週逃さず配信</strong>
+                  <p>どの物件がいくら値下げされたか、人気物件が何日で募集終了になったかを独自ログから網羅。</p>
+                </div>
+              </li>
+              <li>
+                <span class="benefit-num">2</span>
+                <div>
+                  <strong>公開サイトでは書けない「地元民のリアルな本音メモ」</strong>
+                  <p>前面道路の狭さ、冬の凍結、スーパーや病院までの距離感、価格の割安度などクローズドならではの所見。</p>
+                </div>
+              </li>
+              <li>
+                <span class="benefit-num">3</span>
+                <div>
+                  <strong>現地代理下見が毎回2,000円OFF（通常10,000円 → 会員8,000円）＆優先対応</strong>
+                  <p>1回下見を依頼するだけで月額会費（1,280円）以上の割引になり、初回から実質お得にご利用いただけます。</p>
+                </div>
+              </li>
+            </ul>
+            <a class="btn btn-mikan" style="width:100%;" id="link-note-membership" href="https://note.com/" target="_blank" rel="noopener noreferrer">
+              <span>noteメンバーシップ（月額1,280円）を見る</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
 
         <div class="media-columns">
@@ -372,17 +460,6 @@
             </div>
             <a class="btn btn-ghost" id="link-note-welcome" href="https://note.com/" target="_blank" rel="noopener noreferrer">
               <span>noteでまとめ記事を読む</span>
-              <span class="btn-arrow" aria-hidden="true">↗</span>
-            </a>
-          </article>
-
-          <article class="media-col">
-            <div>
-              <h3>週間レポート＆地元民メモ（note）</h3>
-              <p>毎週日曜に、その週の新着・価格改定物件を一覧化し、地元民のリアルメモを添えてお届けするメンバーシップを準備中です。</p>
-            </div>
-            <a class="btn btn-navy" id="link-note-membership" href="https://note.com/" target="_blank" rel="noopener noreferrer">
-              <span>noteアカウントを開く</span>
               <span class="btn-arrow" aria-hidden="true">↗</span>
             </a>
           </article>

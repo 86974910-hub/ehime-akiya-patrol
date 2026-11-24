@@ -21,8 +21,8 @@ cd "${BASE_DIR}"
 
   # Gitリポジトリ & originリモートが設定されている場合のみ自動push
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git remote get-url origin >/dev/null 2>&1; then
-    if [[ -n "$(git status --porcelain web/data/site_data.json data/ehime_akiya_db.csv config/ehime_akiya_sources.json)" ]]; then
-      git add web/data/site_data.json data/ehime_akiya_db.csv config/ehime_akiya_sources.json
+    if [[ -n "$(git status --porcelain web/data/site_data.json data/ehime_akiya_db.csv data/change_history.csv config/ehime_akiya_sources.json)" ]]; then
+      git add web/data/site_data.json data/ehime_akiya_db.csv data/change_history.csv config/ehime_akiya_sources.json
       git commit -m "chore: update akiya data"
       git push origin main
       echo "[$(date '+%Y-%m-%d %H:%M:%S')] GitHub/Cloudflare Pages向けデータpush完了"

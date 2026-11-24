@@ -25,6 +25,7 @@ from pypdf import PdfReader
 BASE_DIR = Path(__file__).resolve().parent.parent
 CONFIG_PATH = BASE_DIR / "config" / "ehime_akiya_sources.json"
 DB_PATH = BASE_DIR / "data" / "ehime_akiya_db.csv"
+CHANGE_HISTORY_PATH = BASE_DIR / "data" / "change_history.csv"
 DRAFTS_DIR = BASE_DIR / "drafts"
 LOGS_DIR = BASE_DIR / "logs"
 
@@ -36,6 +37,12 @@ FIELDS = [
     "取得日", "ステータス", "自治体名", "地区名", "種別", "価格",
     "間取り", "築年数", "土地面積", "建物面積", "特記事項",
     "物件ID", "詳細URL", "掲載元",
+]
+
+CHANGE_HISTORY_FIELDS = [
+    "検知日", "変動種別", "自治体名", "地区名", "物件ID",
+    "旧価格", "新価格", "価格差", "初回取得日", "経過日数",
+    "間取り", "特記事項", "詳細URL",
 ]
 
 TOYO = {"四国中央市", "新居浜市", "西条市", "今治市", "上島町"}
@@ -768,15 +775,64 @@ def norm_price(p: str) -> str:
     return s
 
 
+def parse_price_yen(p: str) -> float:
+    """価格文字列を円単位の数値に変換する（比較・差額計算用）。不明時は 0.0"""
+    s = norm_price(p).replace(",", "")
+    if not s:
+        return 0.0
+    m_man = re.search(r"(\d+(?:\.\d+)?)万", s)
+    if m_man:
+        return float(m_man.group(1)) * 10000.0
+    m_yen = re.search(r"(\d+(?:\.\d+)?)円", s)
+    if m_yen:
+        val = float(m_yen.group(1))
+        return val
+    return 0.0
+
+
+def compute_price_diff(old_p: str, new_p: str) -> tuple[str, str]:
+    """
+    旧価格と新価格から (変動種別, 価格差文字列) を返す。
+    値下げの場合は ('値下げ', '-50万円') 等、値上げや賃貸/売買変更等は ('価格改定', '+20万円' or '条件改定')。
+    """
+    old_val = parse_price_yen(old_p)
+    new_val = parse_price_yen(new_p)
+    if old_val > 0 and new_val > 0 and old_val != new_val:
+        diff_yen = new_val - old_val
+        sign = "-" if diff_yen < 0 else "+"
+        abs_yen = abs(diff_yen)
+        if abs_yen >= 10000:
+            man = abs_yen / 10000.0
+            man_str = f"{int(man):,}" if man.is_integer() else f"{man:.1f}"
+            diff_str = f"{sign}{man_str}万円"
+        else:
+            diff_str = f"{sign}{int(abs_yen):,}円"
+        change_type = "値下げ" if diff_yen < 0 else "価格改定"
+        return change_type, diff_str
+    return "価格改定", f"{old_p}→{new_p}"
+
+
+def calc_elapsed_days(first_date_str: str, today_str: str) -> str:
+    if not first_date_str:
+        return "0日"
+    try:
+        d0 = date.fromisoformat(first_date_str[:10])
+        d1 = date.fromisoformat(today_str[:10])
+        return f"{max(0, (d1 - d0).days)}日"
+    except Exception:
+        return "0日"
+
+
 def make_sns_post(r: dict) -> str:
     muni = r["自治体名"]
     area = r["地区名"].split()[0] if r["地区名"] else ""
     loc_tag = f"{muni}({area})" if area and area != muni else muni
     price = r["価格"] or "要相談"
     layout = f"・{r['間取り']}" if r["間取り"] else ""
-    prefix = "【愛媛・空き家値下げ】" if "価格改定" in r["ステータス"] else "【愛媛・空き家速報】"
+    status = str(r.get("ステータス", ""))
+    prefix = "【愛媛・空き家値下げ】" if ("値下げ" in status or "価格改定" in status) else "【愛媛・空き家速報】"
     tags = "#空き家バンク #古民家暮らし #地方移住 #愛媛移住"
-    feat = r["特記事項"].replace("\n", " ").strip()
+    feat = (r.get("特記事項") or "").replace("\n", " ").strip()
     url = r["詳細URL"]
 
     # X仕様: URLは23文字換算で140字以内に収める
@@ -794,80 +850,194 @@ def make_sns_post(r: dict) -> str:
     return f"{fixed_head}{body_msg}{fixed_tail}"
 
 
-def generate_drafts(diff_rows: list, today_str: str):
+def build_free_public_summary(change_rows: list[dict], today_str: str) -> list[str]:
+    """
+    無料公開パート：市町名と件数のみを開示し、物件URL・詳細・値下げ額は伏せる。
+    """
+    parts = []
+    # 市町×変動種別で集計
+    by_muni_type = Counter()
+    muni_order = []
+    for c in change_rows:
+        m = c["自治体名"]
+        t = c["変動種別"]
+        if m not in muni_order:
+            muni_order.append(m)
+        by_muni_type[(m, t)] += 1
+
+    for m in muni_order:
+        for t in ("新着", "値下げ", "価格改定", "募集終了"):
+            cnt = by_muni_type.get((m, t), 0)
+            if cnt > 0:
+                parts.append(f"{m}で{t}{cnt}件")
+
+    summary_sentence = (
+        f"本日は{'、'.join(parts)}を確認しました。"
+        if parts
+        else "本日の巡回では変動物件はありませんでした。"
+    )
+
+    return [
+        "【無料公開パート】",
+        "こんにちは、「愛媛の空き家パトロール」です。",
+        f"{today_str}の愛媛県内全20市町・空き家バンク巡回サマリーをお届けします。",
+        "",
+        f"■ 本日の巡回サマリー",
+        summary_sentence,
+        "（※無料パートでは市町名と件数のみ公開しています。具体的な物件URL・値下げ額・成約までの経過日数・地元民の本音メモはメンバーシップ限定パートにて公開中です）",
+        "",
+        "■ 愛媛県全20市町の空き家相場マップ＆代表物件サンプル（無料Webサイト）",
+        "https://ehime-akiya-patrol.pages.dev/",
+        "",
+    ]
+
+
+def build_membership_section(change_rows: list[dict]) -> list[str]:
+    """
+    メンバーシップ限定パート：新着・値下げ・募集終了の全件詳細と【地元民の本音メモ】、会員特典案内を出力。
+    """
+    lines = [
+        "=== ここから先はメンバーシップ限定（月額1,280円） ===",
+        "",
+        "【メンバーシップ限定パート】",
+        "いつもメンバーシップをご利用いただきありがとうございます。",
+        "本日検知した「新着」「値下げ（価格改定）」「募集終了（成約・取下げスピード）」の全件詳細データと、公開サイトでは書けない地元民の本音メモをお届けします。",
+        "",
+    ]
+
+    sections = [
+        ("新着", "■ 1. 本日の新着物件"),
+        ("値下げ", "■ 2. 本日の値下げ・価格改定物件（旧価格→新価格・差額）"),
+        ("募集終了", "■ 3. 本日の募集終了・成約確認物件（初回取得からの経過日数）"),
+    ]
+
+    for key_type, heading in sections:
+        if key_type == "値下げ":
+            subset = [c for c in change_rows if c["変動種別"] in ("値下げ", "価格改定")]
+        else:
+            subset = [c for c in change_rows if c["変動種別"] == key_type]
+
+        lines.append(f"{heading}（{len(subset)}件）")
+        lines.append("")
+        if not subset:
+            lines.append("・該当なし")
+            lines.append("")
+            continue
+
+        for c in subset:
+            muni = c["自治体名"]
+            region = get_region(muni)
+            pid = c["物件ID"] or "IDなし"
+            area = c["地区名"] or "地区要確認"
+            layout = c["間取り"] or "間取り要確認"
+            feat = c["特記事項"] or "特記なし"
+            url = c["詳細URL"]
+
+            if c["変動種別"] == "新着":
+                price_line = f"  価格：{c['新価格'] or '要相談'}（初回取得日：{c['初回取得日']}）"
+            elif c["変動種別"] in ("値下げ", "価格改定"):
+                price_line = (
+                    f"  価格推移：{c['旧価格']} → {c['新価格']}（差額：{c['価格差']}｜初回取得日：{c['初回取得日']}・経過：{c['経過日数']}）"
+                )
+            else:
+                price_line = (
+                    f"  最終確認価格：{c['旧価格'] or '-'}（初回取得日：{c['初回取得日']} → 募集終了までの経過日数：{c['経過日数']}）"
+                )
+
+            lines.extend([
+                f"・【{c['変動種別']}】[{region}] {muni} {pid}（{area}）",
+                price_line,
+                f"  間取り・特徴：{layout} ／ {feat}",
+                f"  公式詳細URL：{url}",
+                "> 【地元民の本音メモ（追記欄）】道幅・周辺環境・割安度：",
+                "",
+            ])
+
+    lines.extend([
+        "---",
+        "■ メンバーシップ会員特典のご案内",
+        "【メンバーシップ会員特典：現地代理下見が通常10,000円→8,000円（2,000円OFF）＆優先対応】",
+        "遠方からいきなり現地へ行く前に、地元民が「周辺の道幅・日当たり・騒音・近隣スーパーや病院までの実測感」を写真30枚以上＋動画で調査する現地代理下見レポートを、会員様限定で毎回2,000円OFF（税込8,000円・優先日程調整）にて承っております。",
+        "お申し込みはWebサイトの専用フォーム（https://ehime-akiya-patrol.pages.dev/#inspection-section）より「noteメンバーシップ会員」にチェックを入れてご依頼ください。",
+        "",
+        "※本記事は自動パトロールで抽出した一次情報をもとに作成しています。最新の募集状況や内見申込は各自治体の公式窓口にてご確認ください。",
+        "",
+        "#空き家バンク #古民家暮らし #地方移住 #愛媛移住",
+    ])
+    return lines
+
+
+def generate_drafts(diff_rows: list, change_rows: list, today_str: str):
     DRAFTS_DIR.mkdir(parents=True, exist_ok=True)
     ymd = today_str.replace("-", "")
     md_path = DRAFTS_DIR / f"daily_{ymd}.md"
     json_path = DRAFTS_DIR / f"daily_{ymd}_note.json"
 
-    new_cnt = sum(1 for r in diff_rows if r["ステータス"] == "新着")
-    chg_cnt = sum(1 for r in diff_rows if r["ステータス"].startswith("価格改定"))
-    title = f"【{today_str}】愛媛の空き家パトロール速報｜新着{new_cnt}件・価格改定{chg_cnt}件"
+    new_cnt = sum(1 for c in change_rows if c["変動種別"] == "新着")
+    down_cnt = sum(1 for c in change_rows if c["変動種別"] in ("値下げ", "価格改定"))
+    closed_cnt = sum(1 for c in change_rows if c["変動種別"] == "募集終了")
+    title = f"【{today_str}】愛媛の空き家パトロール速報｜新着{new_cnt}件・値下げ{down_cnt}件・募集終了{closed_cnt}件"
 
-    # 1. SNSドラフト
+    # 1. SNSドラフト（新着・値下げ物件を140字以内で出力）
     sns_lines = ["## 1. X・Threads投稿案（1件140字以内）\n"]
-    for i, r in enumerate(diff_rows, 1):
-        sns_lines.append(f"### {i}. {r['自治体名']} {r['物件ID']}（{r['ステータス']}）")
-        sns_lines.append(make_sns_post(r))
+    if diff_rows:
+        for i, r in enumerate(diff_rows, 1):
+            sns_lines.append(f"### {i}. {r['自治体名']} {r['物件ID']}（{r['ステータス']}）")
+            sns_lines.append(make_sns_post(r))
+            sns_lines.append("")
+    else:
+        sns_lines.append(f"### 1. 本日の募集終了速報（{closed_cnt}件）")
+        sns_lines.append(
+            f"【愛媛・空き家動向】\n本日の巡回で{closed_cnt}件の募集終了（成約・取下げ）を確認しました。条件の良い物件は動きが早くなっています。\n全20市町の最新相場マップ👇\nhttps://ehime-akiya-patrol.pages.dev/\n#空き家バンク #愛媛移住"
+        )
         sns_lines.append("")
 
-    # 2. note本文（そのままnoteエディタへ投入する部分）
-    note_lines = [
-        f"こんにちは、愛媛県移住・古民家メディアです。",
-        f"{today_str}の愛媛県内空き家バンク巡回で確認できた「新着物件（{new_cnt}件）」および「価格改定物件（{chg_cnt}件）」をエリア別にまとめました。",
-        "※画像は転載せず、公式ページの一次情報のみを整理しています。最新状況や内見申込は各公式URLをご確認ください。",
-        "",
-    ]
-    for area_name in ("東予", "中予", "南予"):
-        subset = [r for r in diff_rows if get_region(r["自治体名"]) == area_name]
-        if not subset:
-            continue
-        note_lines.append(f"■ {area_name}エリア（{len(subset)}件）")
-        note_lines.append("")
-        for r in subset:
-            spec_parts = [x for x in (
-                f"間取り: {r['間取り']}" if r["間取り"] else "",
-                f"築年: {r['築年数']}" if r["築年数"] else "",
-                f"土地: {r['土地面積']}" if r["土地面積"] else "",
-                f"建物: {r['建物面積']}" if r["建物面積"] else "",
-            ) if x]
-            note_lines.extend([
-                f"・【{r['ステータス']}】{r['自治体名']} {r['物件ID']}（{r['地区名'] or '地区要確認'}）",
-                f"  種別／価格：{r['種別']} ／ {r['価格'] or '要相談'}",
-                f"  スペック：{' / '.join(spec_parts) if spec_parts else '公式ページ参照'}",
-                f"  特徴：{r['特記事項'] or '特記なし'}",
-                f"  公式URL：{r['詳細URL']}",
-                "  【地元民リアルメモ追記欄】：（周辺環境・生活利便性・注意点などを追記）",
-                "",
-            ])
-
-    note_lines.extend([
-        "---",
-        "※本記事は自動パトロールで抽出した速報をもとに作成しています。商談中・成約済に切り替わっている場合もあるため、最新情報はリンク先の自治体公式窓口にてご確認ください。",
-        "",
-        "#空き家バンク #古民家暮らし #地方移住 #愛媛移住",
-    ])
+    # 2. note本文（無料公開パート ＋ ペイウォール区切り ＋ メンバーシップ限定パート）
+    note_lines = build_free_public_summary(change_rows, today_str) + build_membership_section(change_rows)
     note_body = "\n".join(note_lines)
 
     # Markdownテーブルも保存用MDには付加
     table_lines = [
-        "### 週間まとめ表追記用テーブル",
-        "| エリア | 自治体 | ステータス | 価格 | スペック | 公式URL | 地元民リアルメモ |",
-        "|---|---|---|---|---|---|---|",
+        "### 変動履歴サマリーテーブル",
+        "| 検知日 | 変動種別 | エリア | 自治体 | 物件ID | 旧価格 | 新価格 | 価格差 | 経過日数 | 公式URL |",
+        "|---|---|---|---|---|---|---|---|---|---|",
     ]
-    for r in diff_rows:
-        spec = " / ".join(x for x in (r["間取り"], r["築年数"], r["土地面積"], r["建物面積"]) if x) or "-"
+    for c in change_rows:
         table_lines.append(
-            f"| {get_region(r['自治体名'])} | {r['自治体名']} | {r['ステータス']} | {r['価格'] or '要相談'} | {spec} | {r['詳細URL']} | 【地元民リアルメモ追記欄】 |"
+            f"| {c['検知日']} | {c['変動種別']} | {get_region(c['自治体名'])} | {c['自治体名']} | {c['物件ID']} | {c['旧価格'] or '-'} | {c['新価格'] or '-'} | {c['価格差'] or '-'} | {c['経過日数'] or '-'} | {c['詳細URL']} |"
         )
 
     md_full = f"# {title}\n\n" + "\n".join(sns_lines) + "\n---\n\n## 2. note記事用本文（下書き保存対象）\n\n" + note_body + "\n\n" + "\n".join(table_lines) + "\n"
     md_path.write_text(md_full, encoding="utf-8")
     json_path.write_text(
-        json.dumps({"title": title, "body": note_body, "date": today_str, "new_count": new_cnt, "price_changed_count": chg_cnt, "md_path": str(md_path)}, ensure_ascii=False, indent=2),
+        json.dumps(
+            {
+                "title": title,
+                "body": note_body,
+                "date": today_str,
+                "new_count": new_cnt,
+                "price_changed_count": down_cnt,
+                "closed_count": closed_cnt,
+                "md_path": str(md_path),
+            },
+            ensure_ascii=False,
+            indent=2,
+        ),
         encoding="utf-8",
     )
     return md_path, json_path
+
+
+def append_change_history(change_rows: list[dict]):
+    if not change_rows:
+        return
+    CHANGE_HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
+    need_header = not CHANGE_HISTORY_PATH.exists() or CHANGE_HISTORY_PATH.stat().st_size == 0
+    with open(CHANGE_HISTORY_PATH, "a", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, CHANGE_HISTORY_FIELDS)
+        if need_header:
+            w.writeheader()
+        w.writerows(change_rows)
 
 
 def run_patrol(dry_run: bool = False, test_sample_draft: bool = False):
@@ -875,7 +1045,7 @@ def run_patrol(dry_run: bool = False, test_sample_draft: bool = False):
     sources = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
     sources_changed = False
 
-    # 既存DB読み込み
+    # 既存DB読み込み（初回取得日と最新レコードを両方保持）
     existing_rows = []
     if DB_PATH.exists():
         with open(DB_PATH, encoding="utf-8-sig") as f:
@@ -883,13 +1053,40 @@ def run_patrol(dry_run: bool = False, test_sample_draft: bool = False):
 
     by_url = {}
     by_key = {}
+    first_date_by_url = {}
+    first_date_by_key = {}
     for r in existing_rows:
-        if r.get("詳細URL"):
-            by_url[r["詳細URL"]] = r
+        u = r.get("詳細URL", "")
+        d = r.get("取得日", "") or today_str
+        if u:
+            by_url[u] = r
+            if u not in first_date_by_url:
+                first_date_by_url[u] = d
         if r.get("物件ID"):
-            by_key[(r["自治体名"], r["物件ID"], r["種別"])] = r
+            k = (r["自治体名"], r["物件ID"], r["種別"])
+            by_key[k] = r
+            if k not in first_date_by_key:
+                first_date_by_key[k] = d
+
+    # 既に募集終了として記録済みの物件を読み込み（二重計上防止）
+    already_closed_urls = set()
+    already_closed_keys = set()
+    if CHANGE_HISTORY_PATH.exists():
+        with open(CHANGE_HISTORY_PATH, encoding="utf-8-sig") as f:
+            for ch in csv.DictReader(f):
+                u = ch.get("詳細URL", "")
+                k = (ch.get("自治体名", ""), ch.get("物件ID", ""))
+                if ch.get("変動種別") == "募集終了":
+                    if u:
+                        already_closed_urls.add(u)
+                    if k[1]:
+                        already_closed_keys.add(k)
+                elif ch.get("変動種別") in ("新着", "値下げ", "価格改定"):
+                    already_closed_urls.discard(u)
+                    already_closed_keys.discard(k)
 
     scraped_all = []
+    healthy_munis = set()
     for src in sources:
         muni = src["municipality"]
         url = src["list_url"]
@@ -925,65 +1122,208 @@ def run_patrol(dry_run: bool = False, test_sample_draft: bool = False):
         if items:
             src["last_verified"] = today_str
             sources_changed = True
+            healthy_munis.add(muni)
         log(f"巡回完了: {muni} -> {len(items)}件取得")
         scraped_all.extend(items)
 
     # 取得分内の重複排除
     deduped = []
     seen_now = set()
+    current_urls = set()
+    current_muni_pids = set()
     for r in scraped_all:
         k = (r["自治体名"], r["物件ID"], r["種別"]) if r.get("物件ID") else r["詳細URL"]
         if k in seen_now:
             continue
         seen_now.add(k)
         deduped.append(r)
+        if r.get("詳細URL"):
+            current_urls.add(r["詳細URL"])
+        if r.get("物件ID"):
+            current_muni_pids.add((r["自治体名"], r["物件ID"]))
 
-    # 差分・価格改定抽出
+    # 差分・値下げ・募集終了の抽出
     diff_rows = []
+    change_rows = []
     for item in deduped:
-        prev = by_url.get(item["詳細URL"]) or (by_key.get((item["自治体名"], item["物件ID"], item["種別"])) if item.get("物件ID") else None)
+        u = item.get("詳細URL", "")
+        k = (item["自治体名"], item["物件ID"], item["種別"]) if item.get("物件ID") else None
+        prev = by_url.get(u) or (by_key.get(k) if k else None)
         if prev is None:
             row = {x: "" for x in FIELDS}
             row.update(item)
             row["取得日"] = today_str
             row["ステータス"] = "新着"
             diff_rows.append(row)
+            change_rows.append({
+                "検知日": today_str,
+                "変動種別": "新着",
+                "自治体名": item.get("自治体名", ""),
+                "地区名": item.get("地区名", ""),
+                "物件ID": item.get("物件ID", ""),
+                "旧価格": "",
+                "新価格": item.get("価格", ""),
+                "価格差": "",
+                "初回取得日": today_str,
+                "経過日数": "0日",
+                "間取り": item.get("間取り", ""),
+                "特記事項": item.get("特記事項", ""),
+                "詳細URL": u,
+            })
         else:
             old_p = norm_price(prev.get("価格", ""))
             new_p = norm_price(item.get("価格", ""))
             if old_p and new_p and old_p != new_p:
+                change_type, diff_str = compute_price_diff(prev.get("価格", ""), item.get("価格", ""))
+                first_d = first_date_by_url.get(u) or (first_date_by_key.get(k) if k else None) or prev.get("取得日", today_str)
+                elapsed = calc_elapsed_days(first_d, today_str)
                 row = {x: "" for x in FIELDS}
                 row.update(item)
                 row["取得日"] = today_str
-                row["ステータス"] = f"価格改定({prev['価格']}→{item['価格']})"
+                row["ステータス"] = f"{change_type}({prev['価格']}→{item['価格']})"
                 diff_rows.append(row)
+                change_rows.append({
+                    "検知日": today_str,
+                    "変動種別": change_type,
+                    "自治体名": item.get("自治体名", ""),
+                    "地区名": item.get("地区名", ""),
+                    "物件ID": item.get("物件ID", ""),
+                    "旧価格": prev.get("価格", ""),
+                    "新価格": item.get("価格", ""),
+                    "価格差": diff_str,
+                    "初回取得日": first_d,
+                    "経過日数": elapsed,
+                    "間取り": item.get("間取り", "") or prev.get("間取り", ""),
+                    "特記事項": item.get("特記事項", "") or prev.get("特記事項", ""),
+                    "詳細URL": u,
+                })
 
-    log(f"差分結果: 取得総数={len(deduped)} / 新着・価格改定={len(diff_rows)}")
+    # 募集終了（前回まで存在していたが今回の正常巡回市町で消えた物件）の抽出
+    seen_prev_checked = set()
+    for prev in existing_rows:
+        muni = prev.get("自治体名", "")
+        if muni not in healthy_munis:
+            continue
+        u = prev.get("詳細URL", "")
+        pid = prev.get("物件ID", "")
+        k = (muni, pid, prev.get("種別", "")) if pid else u
+        if k in seen_prev_checked:
+            continue
+        seen_prev_checked.add(k)
+        # 最新状態のレコードを参照
+        latest_prev = by_url.get(u) or (by_key.get((muni, pid, prev.get("種別", ""))) if pid else prev)
+        latest_u = latest_prev.get("詳細URL", "")
+        latest_pid = latest_prev.get("物件ID", "")
+
+        still_exists = (latest_u and latest_u in current_urls) or (latest_pid and (muni, latest_pid) in current_muni_pids)
+        if still_exists:
+            continue
+        if (latest_u and latest_u in already_closed_urls) or (latest_pid and (muni, latest_pid) in already_closed_keys):
+            continue
+
+        first_d = (
+            first_date_by_url.get(latest_u)
+            or (first_date_by_key.get((muni, latest_pid, latest_prev.get("種別", ""))) if latest_pid else None)
+            or latest_prev.get("取得日", today_str)
+        )
+        elapsed = calc_elapsed_days(first_d, today_str)
+        change_rows.append({
+            "検知日": today_str,
+            "変動種別": "募集終了",
+            "自治体名": muni,
+            "地区名": latest_prev.get("地区名", ""),
+            "物件ID": latest_pid,
+            "旧価格": latest_prev.get("価格", ""),
+            "新価格": "-",
+            "価格差": "-",
+            "初回取得日": first_d,
+            "経過日数": elapsed,
+            "間取り": latest_prev.get("間取り", ""),
+            "特記事項": latest_prev.get("特記事項", ""),
+            "詳細URL": latest_u,
+        })
+
+    log(f"差分結果: 取得総数={len(deduped)} / 新着・価格改定={len(diff_rows)} / 全変動ログ={len(change_rows)}")
 
     if sources_changed and not dry_run:
         CONFIG_PATH.write_text(json.dumps(sources, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    if diff_rows and not dry_run:
-        with open(DB_PATH, "a", newline="", encoding="utf-8-sig") as f:
-            w = csv.DictWriter(f, FIELDS)
-            w.writerows(diff_rows)
-        md_path, json_path = generate_drafts(diff_rows, today_str)
+    if (diff_rows or change_rows) and not dry_run:
+        if diff_rows:
+            with open(DB_PATH, "a", newline="", encoding="utf-8-sig") as f:
+                w = csv.DictWriter(f, FIELDS)
+                w.writerows(diff_rows)
+        if change_rows:
+            append_change_history(change_rows)
+        md_path, json_path = generate_drafts(diff_rows, change_rows, today_str)
         log(f"CSV追記 & ドラフト生成完了: {md_path}")
         print(f"DRAFT_JSON={json_path}")
     elif dry_run:
-        for r in diff_rows:
-            log(f"[DRY-RUN 差分] {r['ステータス']} | {r['自治体名']} {r['物件ID']} | {r['価格']} | {r['詳細URL']}")
+        for c in change_rows:
+            log(f"[DRY-RUN 変動] {c['変動種別']} | {c['自治体名']} {c['物件ID']} | 旧:{c['旧価格']} 新:{c['新価格']} ({c['価格差']}) | 経過:{c['経過日数']} | {c['詳細URL']}")
     elif test_sample_draft:
         # パイプライン動作確認用（DBには書き込まない）
-        sample = existing_rows[:3]
-        for s in sample:
-            s = dict(s)
-            s["ステータス"] = "新着(動作確認サンプル)"
-        md_path, json_path = generate_drafts([dict(r, ステータス="新着(テスト)") for r in existing_rows[:3]], today_str)
+        sample_diffs = []
+        sample_changes = []
+        for idx, r in enumerate(existing_rows[:3]):
+            r_copy = dict(r)
+            if idx == 0:
+                r_copy["ステータス"] = "新着"
+                sample_diffs.append(r_copy)
+                sample_changes.append({
+                    "検知日": today_str,
+                    "変動種別": "新着",
+                    "自治体名": r["自治体名"],
+                    "地区名": r["地区名"],
+                    "物件ID": r["物件ID"],
+                    "旧価格": "",
+                    "新価格": r["価格"],
+                    "価格差": "",
+                    "初回取得日": today_str,
+                    "経過日数": "0日",
+                    "間取り": r["間取り"],
+                    "特記事項": r["特記事項"],
+                    "詳細URL": r["詳細URL"],
+                })
+            elif idx == 1:
+                r_copy["ステータス"] = "値下げ(350万円→280万円)"
+                sample_diffs.append(r_copy)
+                sample_changes.append({
+                    "検知日": today_str,
+                    "変動種別": "値下げ",
+                    "自治体名": r["自治体名"],
+                    "地区名": r["地区名"],
+                    "物件ID": r["物件ID"],
+                    "旧価格": "350万円",
+                    "新価格": "280万円",
+                    "価格差": "-70万円",
+                    "初回取得日": r.get("取得日", today_str),
+                    "経過日数": "14日",
+                    "間取り": r["間取り"],
+                    "特記事項": r["特記事項"],
+                    "詳細URL": r["詳細URL"],
+                })
+            else:
+                sample_changes.append({
+                    "検知日": today_str,
+                    "変動種別": "募集終了",
+                    "自治体名": r["自治体名"],
+                    "地区名": r["地区名"],
+                    "物件ID": r["物件ID"],
+                    "旧価格": r["価格"],
+                    "新価格": "-",
+                    "価格差": "-",
+                    "初回取得日": r.get("取得日", today_str),
+                    "経過日数": "21日",
+                    "間取り": r["間取り"],
+                    "特記事項": r["特記事項"],
+                    "詳細URL": r["詳細URL"],
+                })
+        md_path, json_path = generate_drafts(sample_diffs, sample_changes, today_str)
         log(f"テスト用ドラフト生成完了: {md_path}")
         print(f"DRAFT_JSON={json_path}")
     else:
-        log("新着・価格改定がないため、CSV追記・ドラフト生成はスキップしました。")
+        log("新着・価格改定・募集終了がないため、CSV追記・ドラフト生成はスキップしました。")
 
 
 if __name__ == "__main__":

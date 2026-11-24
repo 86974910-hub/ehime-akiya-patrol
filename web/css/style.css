@@ -803,6 +803,69 @@ button:focus-visible {
   margin-bottom: 18px;
 }
 
+/* Lock-style Membership Teaser Box in Detail Panel */
+.member-teaser-box {
+  position: relative;
+  background: linear-gradient(155deg, #FCFBF7 0%, #F4EFE4 100%);
+  border: 1px solid rgba(217, 99, 38, 0.32);
+  border-left: 4px solid var(--mikan);
+  border-radius: 12px;
+  padding: 15px 16px;
+  margin-bottom: 18px;
+}
+
+.member-teaser-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+.lock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--navy);
+  color: var(--washi);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.teaser-counts {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--mikan-dark);
+}
+
+.member-teaser-text {
+  margin: 0 0 10px;
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: var(--navy);
+  font-weight: 500;
+}
+
+.member-teaser-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--mikan-dark);
+  border-bottom: 1.5px solid var(--mikan);
+  padding-bottom: 1px;
+}
+
+.member-teaser-link:hover {
+  color: var(--navy);
+  border-bottom-color: var(--navy);
+}
+
 .detail-actions {
   display: flex;
   flex-direction: column;
@@ -870,7 +933,20 @@ button:focus-visible {
   letter-spacing: 0.02em;
   color: var(--navy);
   line-height: 1.25;
-  margin: 6px 0 4px;
+  margin: 6px 0 8px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.price-tier-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy-soft);
+  background: var(--sand);
+  padding: 3px 9px;
+  border-radius: 6px;
 }
 
 .offer-price-tag small {
@@ -878,6 +954,28 @@ button:focus-visible {
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--muted);
+}
+
+.member-discount-badge {
+  background: var(--mikan-soft);
+  border: 1.5px solid rgba(217, 99, 38, 0.45);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 10px 0 12px;
+}
+
+.member-discount-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--mikan-dark);
+  margin-bottom: 3px;
+}
+
+.member-discount-sub {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--navy-soft);
 }
 
 .travel-policy {
@@ -907,6 +1005,145 @@ button:focus-visible {
   font-size: 0.96rem;
   color: var(--navy);
   margin-bottom: 4px;
+}
+
+/* Membership Comparison & Benefits Showcase */
+.tier-showcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.tier-compare-card {
+  background: var(--washi-pure);
+  border: 1px solid var(--hairline-strong);
+  border-radius: 16px;
+  padding: 22px 20px;
+}
+
+.tier-compare-header h3 {
+  margin: 0 0 14px;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.tier-table-wrap {
+  overflow-x: auto;
+}
+
+.tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.tier-table th,
+.tier-table td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--hairline);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tier-table thead th {
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--washi);
+  border-bottom: 2px solid var(--hairline-strong);
+}
+
+.tier-table .is-member-col {
+  background: var(--mikan-soft);
+  color: var(--navy);
+}
+
+.tier-table thead .is-member-col {
+  background: #F7E1D3;
+  color: var(--mikan-dark);
+}
+
+.th-price {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.member-benefits-card {
+  background: linear-gradient(155deg, #142330 0%, #1D3547 100%);
+  color: var(--washi);
+  border-radius: 16px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.member-pill-tag {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(217, 99, 38, 0.25);
+  border: 1px solid rgba(243, 165, 120, 0.45);
+  color: #F7C2A3;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.member-benefits-card h3 {
+  margin: 0 0 16px;
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--washi);
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.benefit-list li {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.benefit-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--mikan);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.benefit-list strong {
+  display: block;
+  font-size: 0.92rem;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.benefit-list p {
+  margin: 0;
+  font-size: 0.81rem;
+  line-height: 1.6;
+  color: rgba(248, 246, 240, 0.8);
 }
 
 /* Media Strip */
@@ -1085,8 +1322,12 @@ button:focus-visible {
     grid-template-columns: 1.15fr 0.85fr;
     gap: 40px;
   }
+  .tier-showcase {
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 28px;
+  }
   .media-columns {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 28px;
     border-bottom: 1px solid var(--hairline);
   }
