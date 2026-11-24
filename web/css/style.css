@@ -523,59 +523,87 @@ button:focus-visible {
 
 .muni-shape {
   stroke: #F8F6F0;
-  stroke-width: 1.7;
+  stroke-width: 1.05;
   stroke-linejoin: round;
-  transition: fill 0.35s var(--ease-out-expo), stroke 0.25s var(--ease-out-expo), stroke-width 0.25s var(--ease-out-expo);
-}
-
-.muni-group:hover {
-  transform: translateY(-2px);
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.3s var(--ease-out-expo), stroke 0.25s var(--ease-out-expo), stroke-width 0.25s var(--ease-out-expo);
 }
 
 .muni-group:hover .muni-shape {
   stroke: var(--mikan);
-  stroke-width: 2.5;
+  stroke-width: 2.1;
 }
 
 .muni-group.selected .muni-shape {
   stroke: var(--mikan);
-  stroke-width: 3.2;
-  filter: drop-shadow(0 5px 10px rgba(20, 35, 48, 0.22));
+  stroke-width: 2.6;
+  filter: drop-shadow(0 4px 10px rgba(20, 35, 48, 0.24));
 }
 
-.muni-group.dimmed {
+.muni-group.dimmed,
+.muni-label-node.dimmed {
   opacity: 0.22;
+}
+
+.muni-leader-line {
+  stroke: var(--navy);
+  stroke-width: 1.1;
+  stroke-dasharray: 2 2;
+  opacity: 0.72;
+  pointer-events: none;
+}
+
+.muni-leader-dot {
+  fill: var(--mikan);
+  stroke: #FCFBF7;
+  stroke-width: 0.9;
+  pointer-events: none;
 }
 
 .muni-label {
   font-family: var(--font-base);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 0.02em;
   fill: var(--navy);
   text-anchor: middle;
+  paint-order: stroke fill;
+  stroke: rgba(252, 251, 247, 0.92);
+  stroke-width: 3px;
+  stroke-linejoin: round;
   pointer-events: none;
 }
 
 .muni-label.light-text {
   fill: #FCFBF7;
+  stroke: rgba(16, 35, 50, 0.88);
+  stroke-width: 3px;
 }
 
 .muni-count-bg {
-  fill: rgba(252, 251, 247, 0.94);
-  stroke: rgba(20, 35, 48, 0.18);
-  stroke-width: 0.8;
-  pointer-events: none;
+  fill: rgba(252, 251, 247, 0.95);
+  stroke: rgba(20, 35, 48, 0.24);
+  stroke-width: 0.9;
+}
+
+.muni-count-bg.selected-pill {
+  fill: var(--mikan);
+  stroke: #FCFBF7;
+  stroke-width: 1.2;
 }
 
 .muni-count-pill {
   font-family: var(--font-base);
   font-variant-numeric: tabular-nums;
-  font-size: 10px;
+  font-size: 9.8px;
   font-weight: 700;
   fill: var(--navy);
   text-anchor: middle;
   pointer-events: none;
+}
+
+.muni-count-pill.selected-pill-text {
+  fill: #FFFFFF;
 }
 
 .muni-chips {

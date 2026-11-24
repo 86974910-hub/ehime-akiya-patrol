@@ -142,11 +142,27 @@ function renderMap() {
   if (!SITE_DATA) return;
   const mapByName = new Map(SITE_DATA.municipalities.map((m) => [m.name, m]));
   const svgNS = "http://www.w3.org/2000/svg";
+  const svgRoot = document.getElementById("ehime-map");
+  if (!svgRoot) return;
+
+  // 既存の動的ラベルレイヤーをクリアし、すべてのポリゴンの最前面に再描画する
+  svgRoot.querySelectorAll(".dyn-svg-ui, #map-labels-layer").forEach((el) => el.remove());
+  const labelsLayer = document.createElementNS(svgNS, "g");
+  labelsLayer.setAttribute("id", "map-labels-layer");
+  const hud = svgRoot.querySelector(".map-carto-hud");
+  if (hud) {
+    svgRoot.insertBefore(labelsLayer, hud);
+  } else {
+    svgRoot.appendChild(labelsLayer);
+  }
 
   document.querySelectorAll(".muni-group").forEach((group) => {
     const name = group.getAttribute("data-muni");
     const cx = parseFloat(group.getAttribute("data-cx") || "0");
     const cy = parseFloat(group.getAttribute("data-cy") || "0");
+    const hasAnchor = group.hasAttribute("data-ax") && group.hasAttribute("data-ay");
+    const ax = parseFloat(group.getAttribute("data-ax") || String(cx));
+    const ay = parseFloat(group.getAttribute("data-ay") || String(cy));
     const info = mapByName.get(name);
     const count = info ? info.count : 0;
     const region = info ? info.region : "";
@@ -157,34 +173,68 @@ function renderMap() {
     }
 
     const matchRegion = ACTIVE_REGION === "all" || region === ACTIVE_REGION;
+    const isSelected = name === SELECTED_MUNI;
     group.classList.toggle("dimmed", !matchRegion);
-    group.classList.toggle("selected", name === SELECTED_MUNI);
+    group.classList.toggle("selected", isSelected);
 
-    group.querySelectorAll(".dyn-svg-ui").forEach((el) => el.remove());
+    // 選択中の市町ポリゴンを最前面（ラベルレイヤーの直前）へ移動して境界線を際立たせる
+    if (isSelected && group.parentNode === svgRoot) {
+      svgRoot.insertBefore(group, labelsLayer);
+    }
 
+    const labelGroup = document.createElementNS(svgNS, "g");
+    labelGroup.setAttribute(
+      "class",
+      `muni-label-node dyn-svg-ui ${!matchRegion ? "dimmed" : ""} ${isSelected ? "selected" : ""}`
+    );
+    labelGroup.setAttribute("data-muni", name);
+    labelGroup.style.cursor = "pointer";
+    labelGroup.addEventListener("click", () => selectMunicipality(name, true));
+
+    // 小面積・半島・離島市町の引き出し線（Leader Line）
+    if (hasAnchor) {
+      const line = document.createElementNS(svgNS, "line");
+      line.setAttribute("x1", String(ax));
+      line.setAttribute("y1", String(ay));
+      line.setAttribute("x2", String(cx));
+      line.setAttribute("y2", String(cy + 2));
+      line.setAttribute("class", "muni-leader-line");
+      labelGroup.appendChild(line);
+
+      const dot = document.createElementNS(svgNS, "circle");
+      dot.setAttribute("cx", String(ax));
+      dot.setAttribute("cy", String(ay));
+      dot.setAttribute("r", "2.4");
+      dot.setAttribute("class", "muni-leader-dot");
+      labelGroup.appendChild(dot);
+    }
+
+    const dark = !hasAnchor && isDarkFill(count);
     const label = document.createElementNS(svgNS, "text");
     label.setAttribute("x", String(cx));
     label.setAttribute("y", String(cy - 3));
-    label.setAttribute("class", `muni-label dyn-svg-ui ${isDarkFill(count) ? "light-text" : ""}`);
+    label.setAttribute("class", `muni-label ${dark ? "light-text" : ""}`);
     label.textContent = name;
-    group.appendChild(label);
+    labelGroup.appendChild(label);
 
-    const pillW = count >= 100 ? 38 : count >= 10 ? 32 : 24;
+    const pillW = count >= 100 ? 36 : count >= 10 ? 30 : 22;
     const rect = document.createElementNS(svgNS, "rect");
     rect.setAttribute("x", String(cx - pillW / 2));
-    rect.setAttribute("y", String(cy + 3));
+    rect.setAttribute("y", String(cy + 2.5));
     rect.setAttribute("width", String(pillW));
-    rect.setAttribute("height", "16");
-    rect.setAttribute("rx", "8");
-    rect.setAttribute("class", "muni-count-bg dyn-svg-ui");
-    group.appendChild(rect);
+    rect.setAttribute("height", "15");
+    rect.setAttribute("rx", "7.5");
+    rect.setAttribute("class", `muni-count-bg ${isSelected ? "selected-pill" : ""}`);
+    labelGroup.appendChild(rect);
 
     const cntText = document.createElementNS(svgNS, "text");
     cntText.setAttribute("x", String(cx));
-    cntText.setAttribute("y", String(cy + 14.5));
-    cntText.setAttribute("class", "muni-count-pill dyn-svg-ui");
+    cntText.setAttribute("y", String(cy + 13.3));
+    cntText.setAttribute("class", `muni-count-pill ${isSelected ? "selected-pill-text" : ""}`);
     cntText.textContent = `${count}`;
-    group.appendChild(cntText);
+    labelGroup.appendChild(cntText);
+
+    labelsLayer.appendChild(labelGroup);
   });
 }
 
