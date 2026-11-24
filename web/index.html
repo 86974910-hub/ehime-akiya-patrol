@@ -62,16 +62,26 @@
             </div>
           </div>
 
-          <aside class="hero-visual" aria-label="パトロールノート">
-            <div class="hero-visual-kicker">Daily Field Dispatch</div>
-            <p class="hero-visual-quote">
-              島の路地、山の朝霧、みかん畑の向こうの海。<br />
-              自治体の更新を毎日見守り、<br />
-              まだ誰も見つけていない一軒をお届けします。
-            </p>
-            <div class="hero-visual-meta">
-              <span>対象：東予・中予・南予 20市町</span>
-              <span class="num">05:10 JST Patrol</span>
+          <aside class="hero-visual hero-visual-illustrated" aria-label="愛媛の空き家パトロール隊カバーイラスト">
+            <div class="hero-illust-frame">
+              <img
+                src="assets/hero_illustration.png"
+                alt="みかんの段々畑・キウイ棚・宇和海の養殖いけすが広がる愛媛の風景の中をパトロールする愛犬3兄弟（みろく・JIN・ハク）"
+                class="hero-illust-img"
+                width="960"
+                height="760"
+              />
+            </div>
+            <div class="hero-illust-caption">
+              <div class="hero-illust-tags">
+                <span class="illust-tag">🍊 柑橘の段々畑</span>
+                <span class="illust-tag">🥝 キウイ日本一</span>
+                <span class="illust-tag">🐟 宇和海の真鯛・シマアジ養殖</span>
+              </div>
+              <div class="hero-visual-meta">
+                <span>東予・中予・南予 全20市町を毎日巡回</span>
+                <span class="num">05:10 JST Patrol</span>
+              </div>
             </div>
           </aside>
         </div>
@@ -105,12 +115,28 @@
     <!-- Interactive Map Section -->
     <section class="section reveal" id="map-section">
       <div class="container">
-        <div class="section-head">
-          <span class="en-kicker">Interactive Atlas</span>
-          <h2 class="section-title">愛媛県全20市町 空き家マップ</h2>
-          <p class="section-desc">
-            島しょ部から山間部、佐田岬半島まで。気になる市町に触れると、今の募集件数と相場、注目物件が開きます。
-          </p>
+        <div class="section-head map-section-head">
+          <div>
+            <span class="en-kicker">Interactive Atlas</span>
+            <h2 class="section-title">愛媛県全20市町 空き家マップ</h2>
+            <p class="section-desc">
+              島しょ部から山間部、佐田岬半島まで。気になる市町に触れると、今の募集件数と相場、注目物件が開きます。
+            </p>
+          </div>
+          <div class="map-haku-guide" aria-label="新人隊員ハクのマップ案内">
+            <img
+              src="assets/dogs/haku_web.webp"
+              alt="新人隊員 ハク"
+              class="map-haku-avatar"
+              loading="lazy"
+              width="88"
+              height="88"
+            />
+            <div class="map-haku-bubble">
+              <span class="map-haku-tag">🐾 HAKU'S NAVI</span>
+              <p>3兄弟がパトロール中！気になるまちをタップしてね</p>
+            </div>
+          </div>
         </div>
 
         <div class="atlas-toolbar">
@@ -254,6 +280,149 @@
                   <path class="muni-shape" d="M262.2,658.4L261.6,659.3L261.7,662.1L261.2,663.8L262.9,663.1L262.1,662.4L262.4,660.8L262.2,658.4Z M281.0,655.7L280.4,657.2L279.2,658.0L278.0,657.6L276.0,659.5L273.7,659.9L274.2,660.9L277.1,661.0L277.9,659.8L279.2,659.5L281.1,659.9L282.3,658.3L282.2,656.7L281.0,655.7Z M252.1,623.7L253.9,625.8L255.2,624.7L257.8,625.0L258.1,627.7L259.1,627.5L258.5,625.9L259.1,623.9L260.1,623.6L259.9,622.4L260.7,621.4L262.0,620.9L262.9,621.6L264.2,621.9L261.8,618.4L263.5,615.8L263.9,613.3L263.0,612.3L263.5,611.2L263.1,609.2L264.7,608.4L265.6,609.2L267.0,607.7L268.9,609.4L269.6,609.0L271.3,610.1L271.0,611.6L272.2,612.5L272.3,611.0L274.3,610.7L276.4,612.3L276.4,615.1L277.4,614.9L279.2,616.2L279.9,618.1L281.2,616.4L279.4,615.3L278.9,614.1L278.9,612.3L280.4,612.5L281.4,611.8L282.9,613.1L283.4,612.4L285.1,611.5L286.9,611.7L286.2,613.5L286.2,615.6L288.3,615.0L288.4,613.0L290.6,611.6L292.4,613.0L292.6,614.9L291.7,619.2L290.9,620.2L291.0,621.4L292.0,623.0L292.3,629.2L294.4,629.1L294.3,627.3L296.1,625.7L296.4,628.6L298.8,630.2L300.2,631.8L300.2,632.8L299.1,633.2L298.9,634.2L299.3,636.0L298.2,636.9L299.5,639.6L300.9,641.4L301.5,641.7L302.2,644.6L303.3,645.0L305.9,644.8L307.3,644.3L306.9,646.0L307.4,646.9L309.1,646.8L310.2,646.0L312.0,648.3L313.0,647.3L313.9,647.6L315.0,649.8L317.3,650.5L318.3,652.1L317.8,653.3L316.9,653.6L315.9,652.6L314.7,652.2L313.7,651.2L312.0,650.3L309.7,649.6L308.5,651.2L308.5,652.2L306.8,651.5L306.4,650.0L305.2,651.5L304.2,651.8L303.7,649.3L303.1,648.9L301.0,648.7L300.0,649.2L300.2,650.5L297.8,649.9L298.4,648.2L298.5,646.2L296.6,645.2L296.5,644.4L298.3,643.3L296.3,640.5L295.3,641.0L293.5,642.8L292.3,642.8L292.9,646.1L289.9,646.8L287.9,646.7L287.3,648.3L289.5,647.9L290.8,648.6L291.5,650.2L291.0,651.5L292.8,651.6L294.1,652.4L296.2,652.9L299.0,654.0L298.3,655.1L297.9,657.4L295.8,657.6L296.4,659.5L295.6,660.9L294.4,661.2L293.2,660.4L291.0,662.1L289.4,662.2L289.2,661.2L286.2,661.3L285.0,660.1L283.8,660.6L283.1,662.1L283.9,663.0L286.0,662.9L287.1,663.7L287.5,665.2L287.9,668.8L289.5,669.3L289.6,670.8L288.5,672.5L289.2,673.4L289.4,675.0L287.5,675.9L289.0,677.2L292.2,677.3L293.9,678.4L296.6,677.8L297.7,676.9L299.8,677.2L300.5,677.7L302.6,678.1L303.7,677.9L304.5,676.7L306.1,675.6L305.1,674.7L306.1,673.2L307.7,673.2L308.2,670.4L305.6,670.4L303.7,671.0L302.4,671.9L299.8,672.7L298.2,672.6L296.9,670.5L300.3,667.6L301.9,667.2L304.0,664.8L306.2,665.0L307.1,664.1L304.6,662.6L303.6,660.6L302.8,661.3L301.4,661.1L299.6,659.9L299.8,658.1L300.8,658.0L302.7,656.6L304.1,657.4L305.0,656.8L307.5,657.3L307.5,658.7L308.5,658.7L309.7,657.4L311.6,657.4L312.2,658.0L311.9,660.2L311.3,660.9L313.1,661.6L313.0,663.0L315.3,663.6L316.7,664.5L318.1,664.0L319.2,664.2L321.2,665.4L322.8,665.6L323.2,664.7L321.6,664.2L320.2,662.6L318.7,662.3L318.5,661.6L316.8,661.8L316.7,660.2L316.1,659.0L317.3,658.0L318.5,659.2L319.5,658.2L321.5,659.2L322.1,658.0L325.1,658.4L326.3,659.1L326.0,660.2L327.2,661.6L328.1,660.4L331.2,660.1L333.1,658.6L335.4,658.9L334.5,659.7L332.5,660.7L331.8,661.6L330.9,661.8L330.4,663.7L331.2,666.1L332.1,666.6L332.0,667.7L332.8,668.5L334.0,668.1L335.2,669.0L335.3,670.3L334.2,671.6L334.6,673.2L335.3,673.6L338.0,672.2L339.0,672.3L341.1,671.1L343.5,670.2L346.2,668.5L347.3,668.5L353.5,666.6L355.0,666.8L356.4,667.7L356.9,664.7L355.5,661.6L356.5,660.8L357.8,661.2L358.6,660.1L360.5,660.4L361.4,659.9L362.5,660.2L364.3,659.4L365.2,659.9L367.1,658.1L367.6,656.9L366.6,654.0L367.2,650.8L368.5,650.1L368.2,648.6L370.2,646.0L370.0,645.1L368.7,645.0L368.5,642.1L367.4,640.3L367.4,638.8L366.4,636.9L368.4,635.3L367.3,632.2L366.0,630.2L364.7,629.0L365.3,627.9L364.2,626.5L364.2,623.9L364.9,622.7L365.4,620.7L365.1,616.8L363.8,615.6L362.5,613.3L360.6,612.0L358.7,609.0L357.4,608.2L355.2,608.3L349.8,605.3L347.5,606.7L346.1,608.3L342.7,611.0L340.0,610.6L338.4,609.5L337.0,609.7L334.8,609.3L333.9,610.8L332.1,611.2L330.6,612.5L329.1,613.0L327.7,612.5L326.9,613.5L326.8,614.7L323.1,615.8L321.8,615.9L319.4,615.1L317.2,615.0L315.0,614.4L314.0,614.9L313.3,616.0L310.6,617.9L308.8,616.4L307.0,616.7L305.2,615.3L303.8,615.7L302.8,615.4L300.4,616.4L299.3,614.9L297.5,614.1L295.6,613.9L293.7,612.1L290.9,610.0L289.8,610.4L288.3,610.0L286.7,608.9L283.9,608.9L282.7,610.2L282.0,610.1L279.7,610.7L275.6,609.7L273.1,610.4L269.0,608.2L268.6,606.9L265.9,606.5L264.0,606.8L261.5,608.6L261.7,610.3L262.2,610.8L262.5,614.0L262.2,616.2L260.4,618.1L260.0,620.9L259.1,622.6L257.7,623.8L252.1,623.7Z" />
                 </g>
 
+                <!-- ========================================================= -->
+                <!-- 愛媛の一次産業（みかん段々畑・キウイ・真鯛/シマアジ養殖いけす）＆パトロール隊デコレーション -->
+                <!-- ========================================================= -->
+                <g class="ehime-map-decorations" aria-hidden="true" pointer-events="none">
+
+                  <!-- 1. 市町をめぐる「愛犬パトロール隊の足跡（肉球）点線ルート」 -->
+                  <!-- しまなみ海道〜松山沖〜佐田岬〜宇和海をめぐる海上・沿岸パトロール軌跡 -->
+                  <path d="M 480 42 Q 405 110 340 165 Q 250 250 155 362 Q 70 425 115 495 Q 175 565 235 645"
+                        fill="none" stroke="rgba(217, 99, 38, 0.34)" stroke-width="1.8" stroke-dasharray="4 7" stroke-linecap="round" />
+
+                  <!-- トコトコ歩く小さな肉球スタンプ群 -->
+                  <g fill="#D96326" opacity="0.62">
+                    <g transform="translate(432, 82) rotate(-38) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(362, 142) rotate(-42) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(268, 226) rotate(-45) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(198, 305) rotate(-48) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(132, 512) rotate(32) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(192, 588) rotate(35) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                  </g>
+
+                  <!-- 2. 南予（宇和海：宇和島・愛南沖）の「丸い養殖いけす群（真鯛・シマアジ養殖日本一！）」 -->
+                  <g transform="translate(178, 592)">
+                    <!-- 丸いいけす3基＋波紋 -->
+                    <ellipse cx="0" cy="0" rx="18" ry="8" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="0" cy="0" rx="14" ry="6" fill="#2A6B84" stroke="#E87A2E" stroke-width="2" />
+                    <path d="M -5 0 Q 0 -3 5 0 Q 0 2 -5 0 Z" fill="#F48272" />
+
+                    <ellipse cx="34" cy="-9" rx="17" ry="7.5" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="34" cy="-9" rx="13" ry="5.5" fill="#2A6B84" stroke="#E87A2E" stroke-width="1.8" />
+                    <path d="M 29 -9 Q 34 -12 39 -9 Q 34 -7 29 -9 Z" fill="#92D6E8" />
+
+                    <ellipse cx="22" cy="12" rx="18" ry="8" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="22" cy="12" rx="14" ry="6" fill="#2A6B84" stroke="#E87A2E" stroke-width="2" />
+                    <path d="M 17 12 Q 22 9 27 12 Q 22 14 17 12 Z" fill="#F48272" />
+
+                    <!-- 手書き風極小ラベル -->
+                    <rect x="-56" y="25" width="154" height="20" rx="10" fill="rgba(252,251,247,0.9)" stroke="rgba(42,107,132,0.35)" stroke-width="1" />
+                    <text x="21" y="38.5" text-anchor="middle" fill="#184C63" font-size="9.2" font-weight="700">🐟 真鯛・シマアジ養殖日本一！</text>
+                  </g>
+
+                  <!-- 3. 東予（今治・しまなみ＆燧灘沖）の養殖いけすと白い渡り船・漁船 -->
+                  <g transform="translate(592, 166)">
+                    <ellipse cx="0" cy="0" rx="15" ry="6.5" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="0" cy="0" rx="11.5" ry="4.8" fill="#2A6B84" stroke="#E87A2E" stroke-width="1.7" />
+                    <ellipse cx="26" cy="7" rx="14" ry="6" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="26" cy="7" rx="10.5" ry="4.4" fill="#2A6B84" stroke="#E87A2E" stroke-width="1.7" />
+                    <text x="14" y="24" text-anchor="middle" fill="#23576E" font-size="8.6" font-weight="700" paint-order="stroke fill" stroke="rgba(248,246,240,0.85)" stroke-width="2.5">燧灘の養殖いけす</text>
+                  </g>
+
+                  <!-- しまなみ海道の島々のそばを進む小さな渡り船・漁船 -->
+                  <g transform="translate(415, 92)">
+                    <path d="M -24 5 Q -10 3 2 3" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2 2" />
+                    <polygon points="0,2 18,2 22,-3 -3,-3" fill="#FFFDF8" stroke="#1E3B4D" stroke-width="1.1" />
+                    <rect x="4" y="-8" width="8" height="5" rx="1" fill="#FFFDF8" stroke="#1E3B4D" stroke-width="1" />
+                    <polygon points="8,-12 15,-10 8,-8" fill="#D96326" />
+                  </g>
+
+                  <!-- 伊予灘を進む小さな白い漁船 -->
+                  <g transform="translate(235, 252)">
+                    <path d="M 24 4 Q 36 3 46 4" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-dasharray="2 2" />
+                    <polygon points="0,2 18,2 21,-2 -3,-2" fill="#FFFDF8" stroke="#1E3B4D" stroke-width="1.1" />
+                    <rect x="5" y="-7" width="7" height="5" rx="1" fill="#FFFDF8" stroke="#1E3B4D" stroke-width="1" />
+                    <polygon points="8,-11 2,-9 8,-7" fill="#D96326" />
+                  </g>
+
+                  <!-- 4. 八幡浜・伊方・西予沿岸の「みかん・柑橘の段々畑🍊」ミニイラスト -->
+                  <g transform="translate(212, 352)">
+                    <!-- 段々畑のグリーン＆石垣アーチ -->
+                    <path d="M -22 8 Q 0 -2 22 8" fill="none" stroke="#5B8746" stroke-width="3" stroke-linecap="round" />
+                    <path d="M -18 14 Q 0 5 18 14" fill="none" stroke="#789E54" stroke-width="2.6" stroke-linecap="round" />
+                    <!-- オレンジのみかんの実 -->
+                    <circle cx="-12" cy="3" r="4" fill="#F27924" stroke="#FFF8EB" stroke-width="0.8" />
+                    <circle cx="0" cy="0" r="4.3" fill="#FF9838" stroke="#FFF8EB" stroke-width="0.8" />
+                    <circle cx="12" cy="3" r="4" fill="#F27924" stroke="#FFF8EB" stroke-width="0.8" />
+                    <circle cx="-6" cy="9" r="3.8" fill="#FF9838" stroke="#FFF8EB" stroke-width="0.8" />
+                    <circle cx="7" cy="9" r="3.8" fill="#F27924" stroke="#FFF8EB" stroke-width="0.8" />
+                    <rect x="-54" y="-22" width="108" height="19" rx="9.5" fill="rgba(252,251,247,0.92)" stroke="rgba(217,99,38,0.4)" stroke-width="1" />
+                    <text x="0" y="-9.5" text-anchor="middle" fill="#B54B16" font-size="9" font-weight="700">🍊 みかんの段々畑</text>
+                  </g>
+
+                  <!-- 5. 中予〜東予（伊予・東温・西条・山沿い）の「キウイ王国🥝」ミニイラスト -->
+                  <g transform="translate(546, 378)">
+                    <!-- キウイのつる棚とグリーンの実 -->
+                    <path d="M -24 0 Q 0 -7 24 0" fill="none" stroke="#6E4E35" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="-14" cy="5" r="4.5" fill="#75B848" stroke="#4D3620" stroke-width="1" />
+                    <circle cx="-3" cy="6" r="4.5" fill="#9E7B46" stroke="#4D3620" stroke-width="1" />
+                    <circle cx="8" cy="5" r="4.8" fill="#8CD156" stroke="#4D3620" stroke-width="1" />
+                    <circle cx="8" cy="5" r="1.8" fill="#EAF7D5" />
+                    <circle cx="19" cy="6" r="4.5" fill="#9E7B46" stroke="#4D3620" stroke-width="1" />
+                    <rect x="-52" y="15" width="108" height="19" rx="9.5" fill="rgba(252,251,247,0.92)" stroke="rgba(74,107,93,0.4)" stroke-width="1" />
+                    <text x="2" y="27.5" text-anchor="middle" fill="#3A6347" font-size="9" font-weight="700">🥝 キウイ生産日本一</text>
+                  </g>
+
+                  <!-- 6. パトロール隊のミニ犬イラスト（しまなみ海道入口 ＆ 佐田岬半島先端） -->
+                  <!-- (A) しまなみ海道入口で見守る「隊長みろく」ミニイラスト -->
+                  <g transform="translate(476, 34)">
+                    <circle cx="0" cy="0" r="15" fill="#FCFBF7" stroke="#D96326" stroke-width="1.8" />
+                    <!-- 柴犬の三角耳と顔 -->
+                    <polygon points="-9,-5 -11,-14 -3,-9" fill="#D88C4A" stroke="#4A2E1B" stroke-width="1.2" />
+                    <polygon points="9,-5 11,-14 3,-9" fill="#D88C4A" stroke="#4A2E1B" stroke-width="1.2" />
+                    <ellipse cx="0" cy="1" rx="10" ry="8.5" fill="#D88C4A" stroke="#4A2E1B" stroke-width="1.2" />
+                    <path d="M -8 2 Q 0 -1 8 2 C 7 7, -7 7, -8 2 Z" fill="#FCF6EA" />
+                    <circle cx="-3.8" cy="-1" r="1.3" fill="#231815" />
+                    <circle cx="3.8" cy="-1" r="1.3" fill="#231815" />
+                    <ellipse cx="0" cy="2" rx="2" ry="1.4" fill="#231815" />
+                    <path d="M -2 5 L -2 8.5 C -2 10, 2 10, 2 8.5 L 2 5 Z" fill="#F08A99" />
+                    <rect x="18" y="-9" width="96" height="18" rx="9" fill="#142330" />
+                    <text x="66" y="3" text-anchor="middle" fill="#FCFBF7" font-size="8.5" font-weight="700">しまなみ巡回中🐾</text>
+                  </g>
+
+                  <!-- (B) 佐田岬半島の先頭を走る「副隊長JIN＆ハク」ミニシルエット -->
+                  <g transform="translate(68, 434)">
+                    <circle cx="0" cy="0" r="14" fill="#FCFBF7" stroke="#4A6B5D" stroke-width="1.6" />
+                    <!-- 垂れ耳チワックスJINの顔 -->
+                    <path d="M -7 -5 C -13 -5, -14 3, -9 6 Z" fill="#A6612A" />
+                    <path d="M 7 -5 C 13 -5, 14 3, 9 6 Z" fill="#A6612A" />
+                    <ellipse cx="0" cy="0" rx="8.5" ry="7.5" fill="#D48C4B" stroke="#4A2E1B" stroke-width="1.1" />
+                    <circle cx="-3.2" cy="-1" r="1.4" fill="#1E1410" />
+                    <circle cx="3.2" cy="-1" r="1.4" fill="#1E1410" />
+                    <ellipse cx="0" cy="2" rx="1.8" ry="1.3" fill="#1E1410" />
+                    <rect x="-36" y="17" width="92" height="17" rx="8.5" fill="rgba(252,251,247,0.92)" stroke="#4A6B5D" stroke-width="1" />
+                    <text x="10" y="28.5" text-anchor="middle" fill="#142330" font-size="8.3" font-weight="700">佐田岬パトロール🐾</text>
+                  </g>
+                </g>
+
                 <!-- 方位記号（コンパスローズ）＆ 20km縮尺スケールバー（国土地理院・地図帳スタイル） -->
                 <g class="map-carto-hud" transform="translate(755, 628)" aria-hidden="true">
                   <rect x="-52" y="-36" width="142" height="76" rx="8" fill="rgba(252,251,247,0.88)" stroke="rgba(20,35,48,0.16)" stroke-width="1" />
@@ -287,6 +456,13 @@
         </div>
       </div>
     </section>
+
+    <!-- Playful Ehime Motif Divider (Paws, Mikan, Kiwi, Sea Bream) -->
+    <div class="ehime-motif-divider" aria-hidden="true">
+      <span class="motif-line"></span>
+      <span class="motif-icons">🐾 🍊 🐾 🥝 🐾 🐟 🐾</span>
+      <span class="motif-line"></span>
+    </div>
 
     <!-- Patrol Team: 3 Dogs Section -->
     <section class="section section-paper reveal" id="patrol-dogs-section">
@@ -425,23 +601,71 @@
               </div>
             </div>
 
-            <!-- みろく隊長のひとこと吹き出しアクセント -->
-            <div class="captain-speech-box" aria-label="パトロール隊長みろくからのひとこと">
-              <div class="captain-avatar-wrap">
-                <img
-                  src="assets/dogs/miroku_web.webp"
-                  alt="パトロール隊長 みろく"
-                  class="captain-avatar"
-                  loading="lazy"
-                  width="120"
-                  height="120"
-                />
-                <span class="captain-avatar-name">隊長 みろく</span>
+            <!-- 愛犬3兄弟の掛け合い吹き出し（現地代理下見のメリット） -->
+            <div class="patrol-chat-stage" aria-label="パトロール隊3兄弟の下見ポイント掛け合い">
+              <div class="patrol-chat-header">🐾 パトロール隊3兄弟の「ここを見てくるよ！」会議</div>
+
+              <!-- 1. 長男：みろく -->
+              <div class="captain-speech-box">
+                <div class="captain-avatar-wrap">
+                  <img
+                    src="assets/dogs/miroku_web.webp"
+                    alt="パトロール隊長 みろく"
+                    class="captain-avatar"
+                    loading="lazy"
+                    width="120"
+                    height="120"
+                  />
+                  <span class="captain-avatar-name">隊長 みろく</span>
+                </div>
+                <div class="captain-bubble">
+                  <span class="bubble-kicker">みろく隊長のチェック：道幅・お散歩環境</span>
+                  <p>
+                    「臆病な僕でも安心して歩ける道幅か、お散歩しやすい周辺環境かも、地元で犬と暮らす目線でしっかり見てくるよ！」
+                  </p>
+                </div>
               </div>
-              <div class="captain-bubble">
-                <p>
-                  「臆病な僕でも安心して歩ける道幅か、お散歩しやすい周辺環境かも、地元で犬と暮らす目線でしっかり見てくるよ！」
-                </p>
+
+              <!-- 2. 次男：JIN -->
+              <div class="captain-speech-box is-right is-jin">
+                <div class="captain-avatar-wrap">
+                  <img
+                    src="assets/dogs/jin_web.webp"
+                    alt="パトロール副隊長 JIN"
+                    class="captain-avatar"
+                    loading="lazy"
+                    width="120"
+                    height="120"
+                  />
+                  <span class="captain-avatar-name">副隊長 JIN</span>
+                </div>
+                <div class="captain-bubble">
+                  <span class="bubble-kicker">JINのひと言：ご近所の空気感・旬の直売所</span>
+                  <p>
+                    「甘え上手な僕からは、お隣さんとの距離感や日当たりの心地よさ、それに新鮮なみかん・キウイ・お魚が買える近くの産直市やスーパーまでの道のりもチェックしておくね！」
+                  </p>
+                </div>
+              </div>
+
+              <!-- 3. 三男：ハク -->
+              <div class="captain-speech-box is-haku">
+                <div class="captain-avatar-wrap">
+                  <img
+                    src="assets/dogs/haku_web.webp"
+                    alt="新人パトロール隊員 ハク"
+                    class="captain-avatar"
+                    loading="lazy"
+                    width="120"
+                    height="120"
+                  />
+                  <span class="captain-avatar-name">新人 ハク</span>
+                </div>
+                <div class="captain-bubble">
+                  <span class="bubble-kicker">新人のハクも勉強中！：お庭とペット暮らし</span>
+                  <p>
+                    「わんこと一緒に移住したい方が『ここなら安心！』って思えるように、お庭の広さやフェンスの有無も先輩たちと一緒にお勉強しながら調査します🐾」
+                  </p>
+                </div>
               </div>
             </div>
           </div>

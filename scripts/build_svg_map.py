@@ -228,6 +228,151 @@ def generate_svg() -> str:
     neighbor_combined = " ".join(neighbor_paths)
     ehime_outline_combined = " ".join(ehime_all_subpaths)
 
+    # 愛媛の一次産業＆愛犬パトロール隊のイラストデコレーションレイヤー（海・山・肉球ルート）
+    decorations_svg = """
+                <!-- ========================================================= -->
+                <!-- 愛媛の一次産業（みかん段々畑・キウイ・真鯛/シマアジ養殖いけす）＆パトロール隊デコレーション -->
+                <!-- ========================================================= -->
+                <g class="ehime-map-decorations" aria-hidden="true" pointer-events="none">
+
+                  <!-- 1. 市町をめぐる「愛犬パトロール隊の足跡（肉球）点線ルート」 -->
+                  <!-- しまなみ海道〜松山沖〜佐田岬〜宇和海をめぐる海上・沿岸パトロール軌跡 -->
+                  <path d="M 480 42 Q 405 110 340 165 Q 250 250 155 362 Q 70 425 115 495 Q 175 565 235 645"
+                        fill="none" stroke="rgba(217, 99, 38, 0.34)" stroke-width="1.8" stroke-dasharray="4 7" stroke-linecap="round" />
+
+                  <!-- トコトコ歩く小さな肉球スタンプ群 -->
+                  <g fill="#D96326" opacity="0.62">
+                    <g transform="translate(432, 82) rotate(-38) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(362, 142) rotate(-42) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(268, 226) rotate(-45) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(198, 305) rotate(-48) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(132, 512) rotate(32) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                    <g transform="translate(192, 588) rotate(35) scale(0.55)">
+                      <circle cx="6.5" cy="7.5" r="2.2"/><circle cx="10.2" cy="5.2" r="2.2"/><circle cx="14.3" cy="5.2" r="2.2"/><circle cx="17.8" cy="7.5" r="2.2"/>
+                      <path d="M12.2 9.4c-3.1 0-5.6 2.6-5.6 5.4 0 2.1 1.7 3.5 3.6 3.5.9 0 1.4-.3 2-.3s1.1.3 2 .3c1.9 0 3.6-1.4 3.6-3.5 0-2.8-2.5-5.4-5.6-5.4z"/>
+                    </g>
+                  </g>
+
+                  <!-- 2. 南予（宇和海：宇和島・愛南沖）の「丸い養殖いけす群（真鯛・シマアジ養殖日本一！）」 -->
+                  <g transform="translate(178, 592)">
+                    <!-- 丸いいけす3基＋波紋 -->
+                    <ellipse cx="0" cy="0" rx="18" ry="8" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="0" cy="0" rx="14" ry="6" fill="#2A6B84" stroke="#E87A2E" stroke-width="2" />
+                    <path d="M -5 0 Q 0 -3 5 0 Q 0 2 -5 0 Z" fill="#F48272" />
+
+                    <ellipse cx="34" cy="-9" rx="17" ry="7.5" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="34" cy="-9" rx="13" ry="5.5" fill="#2A6B84" stroke="#E87A2E" stroke-width="1.8" />
+                    <path d="M 29 -9 Q 34 -12 39 -9 Q 34 -7 29 -9 Z" fill="#92D6E8" />
+
+                    <ellipse cx="22" cy="12" rx="18" ry="8" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="22" cy="12" rx="14" ry="6" fill="#2A6B84" stroke="#E87A2E" stroke-width="2" />
+                    <path d="M 17 12 Q 22 9 27 12 Q 22 14 17 12 Z" fill="#F48272" />
+
+                    <!-- 手書き風極小ラベル -->
+                    <rect x="-56" y="25" width="154" height="20" rx="10" fill="rgba(252,251,247,0.9)" stroke="rgba(42,107,132,0.35)" stroke-width="1" />
+                    <text x="21" y="38.5" text-anchor="middle" fill="#184C63" font-size="9.2" font-weight="700">🐟 真鯛・シマアジ養殖日本一！</text>
+                  </g>
+
+                  <!-- 3. 東予（今治・しまなみ＆燧灘沖）の養殖いけすと白い渡り船・漁船 -->
+                  <g transform="translate(592, 166)">
+                    <ellipse cx="0" cy="0" rx="15" ry="6.5" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="0" cy="0" rx="11.5" ry="4.8" fill="#2A6B84" stroke="#E87A2E" stroke-width="1.7" />
+                    <ellipse cx="26" cy="7" rx="14" ry="6" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="1" stroke-dasharray="3 2" />
+                    <ellipse cx="26" cy="7" rx="10.5" ry="4.4" fill="#2A6B84" stroke="#E87A2E" stroke-width="1.7" />
+                    <text x="14" y="24" text-anchor="middle" fill="#23576E" font-size="8.6" font-weight="700" paint-order="stroke fill" stroke="rgba(248,246,240,0.85)" stroke-width="2.5">燧灘の養殖いけす</text>
+                  </g>
+
+                  <!-- しまなみ海道の島々のそばを進む小さな渡り船・漁船 -->
+                  <g transform="translate(415, 92)">
+                    <path d="M -24 5 Q -10 3 2 3" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="2 2" />
+                    <polygon points="0,2 18,2 22,-3 -3,-3" fill="#FFFDF8" stroke="#1E3B4D" stroke-width="1.1" />
+                    <rect x="4" y="-8" width="8" height="5" rx="1" fill="#FFFDF8" stroke="#1E3B4D" stroke-width="1" />
+                    <polygon points="8,-12 15,-10 8,-8" fill="#D96326" />
+                  </g>
+
+                  <!-- 伊予灘を進む小さな白い漁船 -->
+                  <g transform="translate(235, 252)">
+                    <path d="M 24 4 Q 36 3 46 4" fill="none" stroke="#FFFFFF" stroke-width="1.4" stroke-dasharray="2 2" />
+                    <polygon points="0,2 18,2 21,-2 -3,-2" fill="#FFFDF8" stroke="#1E3B4D" stroke-width="1.1" />
+                    <rect x="5" y="-7" width="7" height="5" rx="1" fill="#FFFDF8" stroke="#1E3B4D" stroke-width="1" />
+                    <polygon points="8,-11 2,-9 8,-7" fill="#D96326" />
+                  </g>
+
+                  <!-- 4. 八幡浜・伊方・西予沿岸の「みかん・柑橘の段々畑🍊」ミニイラスト -->
+                  <g transform="translate(212, 352)">
+                    <!-- 段々畑のグリーン＆石垣アーチ -->
+                    <path d="M -22 8 Q 0 -2 22 8" fill="none" stroke="#5B8746" stroke-width="3" stroke-linecap="round" />
+                    <path d="M -18 14 Q 0 5 18 14" fill="none" stroke="#789E54" stroke-width="2.6" stroke-linecap="round" />
+                    <!-- オレンジのみかんの実 -->
+                    <circle cx="-12" cy="3" r="4" fill="#F27924" stroke="#FFF8EB" stroke-width="0.8" />
+                    <circle cx="0" cy="0" r="4.3" fill="#FF9838" stroke="#FFF8EB" stroke-width="0.8" />
+                    <circle cx="12" cy="3" r="4" fill="#F27924" stroke="#FFF8EB" stroke-width="0.8" />
+                    <circle cx="-6" cy="9" r="3.8" fill="#FF9838" stroke="#FFF8EB" stroke-width="0.8" />
+                    <circle cx="7" cy="9" r="3.8" fill="#F27924" stroke="#FFF8EB" stroke-width="0.8" />
+                    <rect x="-54" y="-22" width="108" height="19" rx="9.5" fill="rgba(252,251,247,0.92)" stroke="rgba(217,99,38,0.4)" stroke-width="1" />
+                    <text x="0" y="-9.5" text-anchor="middle" fill="#B54B16" font-size="9" font-weight="700">🍊 みかんの段々畑</text>
+                  </g>
+
+                  <!-- 5. 中予〜東予（伊予・東温・西条・山沿い）の「キウイ王国🥝」ミニイラスト -->
+                  <g transform="translate(546, 378)">
+                    <!-- キウイのつる棚とグリーンの実 -->
+                    <path d="M -24 0 Q 0 -7 24 0" fill="none" stroke="#6E4E35" stroke-width="2" stroke-linecap="round" />
+                    <circle cx="-14" cy="5" r="4.5" fill="#75B848" stroke="#4D3620" stroke-width="1" />
+                    <circle cx="-3" cy="6" r="4.5" fill="#9E7B46" stroke="#4D3620" stroke-width="1" />
+                    <circle cx="8" cy="5" r="4.8" fill="#8CD156" stroke="#4D3620" stroke-width="1" />
+                    <circle cx="8" cy="5" r="1.8" fill="#EAF7D5" />
+                    <circle cx="19" cy="6" r="4.5" fill="#9E7B46" stroke="#4D3620" stroke-width="1" />
+                    <rect x="-52" y="15" width="108" height="19" rx="9.5" fill="rgba(252,251,247,0.92)" stroke="rgba(74,107,93,0.4)" stroke-width="1" />
+                    <text x="2" y="27.5" text-anchor="middle" fill="#3A6347" font-size="9" font-weight="700">🥝 キウイ生産日本一</text>
+                  </g>
+
+                  <!-- 6. パトロール隊のミニ犬イラスト（しまなみ海道入口 ＆ 佐田岬半島先端） -->
+                  <!-- (A) しまなみ海道入口で見守る「隊長みろく」ミニイラスト -->
+                  <g transform="translate(476, 34)">
+                    <circle cx="0" cy="0" r="15" fill="#FCFBF7" stroke="#D96326" stroke-width="1.8" />
+                    <!-- 柴犬の三角耳と顔 -->
+                    <polygon points="-9,-5 -11,-14 -3,-9" fill="#D88C4A" stroke="#4A2E1B" stroke-width="1.2" />
+                    <polygon points="9,-5 11,-14 3,-9" fill="#D88C4A" stroke="#4A2E1B" stroke-width="1.2" />
+                    <ellipse cx="0" cy="1" rx="10" ry="8.5" fill="#D88C4A" stroke="#4A2E1B" stroke-width="1.2" />
+                    <path d="M -8 2 Q 0 -1 8 2 C 7 7, -7 7, -8 2 Z" fill="#FCF6EA" />
+                    <circle cx="-3.8" cy="-1" r="1.3" fill="#231815" />
+                    <circle cx="3.8" cy="-1" r="1.3" fill="#231815" />
+                    <ellipse cx="0" cy="2" rx="2" ry="1.4" fill="#231815" />
+                    <path d="M -2 5 L -2 8.5 C -2 10, 2 10, 2 8.5 L 2 5 Z" fill="#F08A99" />
+                    <rect x="18" y="-9" width="96" height="18" rx="9" fill="#142330" />
+                    <text x="66" y="3" text-anchor="middle" fill="#FCFBF7" font-size="8.5" font-weight="700">しまなみ巡回中🐾</text>
+                  </g>
+
+                  <!-- (B) 佐田岬半島の先頭を走る「副隊長JIN＆ハク」ミニシルエット -->
+                  <g transform="translate(68, 434)">
+                    <circle cx="0" cy="0" r="14" fill="#FCFBF7" stroke="#4A6B5D" stroke-width="1.6" />
+                    <!-- 垂れ耳チワックスJINの顔 -->
+                    <path d="M -7 -5 C -13 -5, -14 3, -9 6 Z" fill="#A6612A" />
+                    <path d="M 7 -5 C 13 -5, 14 3, 9 6 Z" fill="#A6612A" />
+                    <ellipse cx="0" cy="0" rx="8.5" ry="7.5" fill="#D48C4B" stroke="#4A2E1B" stroke-width="1.1" />
+                    <circle cx="-3.2" cy="-1" r="1.4" fill="#1E1410" />
+                    <circle cx="3.2" cy="-1" r="1.4" fill="#1E1410" />
+                    <ellipse cx="0" cy="2" rx="1.8" ry="1.3" fill="#1E1410" />
+                    <rect x="-36" y="17" width="92" height="17" rx="8.5" fill="rgba(252,251,247,0.92)" stroke="#4A6B5D" stroke-width="1" />
+                    <text x="10" y="28.5" text-anchor="middle" fill="#142330" font-size="8.3" font-weight="700">佐田岬パトロール🐾</text>
+                  </g>
+                </g>"""
+
     svg = f"""              <svg id="ehime-map" viewBox="0 0 {W} {H}" role="img" aria-label="国土数値情報GISデータに基づく愛媛県全20市町インタラクティブ地図">
                 <defs>
                   <linearGradient id="seaGrad" x1="0" y1="0" x2="1" y2="1">
@@ -279,6 +424,7 @@ def generate_svg() -> str:
 
                 <!-- 愛媛県全20市町 行政区域GISポリゴン -->
 {chr(10).join(muni_groups)}
+{decorations_svg}
 
                 <!-- 方位記号（コンパスローズ）＆ 20km縮尺スケールバー（国土地理院・地図帳スタイル） -->
                 <g class="map-carto-hud" transform="translate(755, 628)" aria-hidden="true">

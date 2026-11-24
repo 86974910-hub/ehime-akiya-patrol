@@ -14,6 +14,7 @@ web/assets/*.png
 web/assets/*.jpeg
 web/assets/*.jpg
 !web/assets/ogp.png
+!web/assets/hero_illustration.png
 web/assets/dogs/*.png
 web/assets/dogs/*.jpeg
 web/assets/dogs/*.jpg

@@ -223,55 +223,65 @@ button:focus-visible {
   gap: 14px;
 }
 
-/* Editorial Asymmetric Visual Emblem */
+/* Editorial Asymmetric Visual Emblem (Cover Illustration Card) */
 .hero-visual {
-  display: none;
+  display: block;
   position: relative;
-  padding: 28px 26px;
-  background: linear-gradient(150deg, #142330 0%, #1F394D 62%, #2B5366 100%);
-  color: var(--washi);
-  border-radius: 18px;
+  padding: 12px;
+  background: var(--washi-pure);
+  color: var(--navy);
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid var(--hairline-strong);
+  box-shadow: 0 14px 32px rgba(20, 35, 48, 0.09);
 }
 
-.hero-visual::before {
-  content: "";
-  position: absolute;
-  right: -40px;
-  top: -40px;
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 99, 38, 0.38) 0%, transparent 70%);
-  pointer-events: none;
+.hero-illust-frame {
+  border-radius: 13px;
+  overflow: hidden;
+  border: 1px solid rgba(20, 35, 48, 0.12);
+  background: #FBF7EE;
 }
 
-.hero-visual-kicker {
-  font-family: var(--font-base);
-  font-weight: 500;
-  font-size: 0.82rem;
-  letter-spacing: 0.09em;
-  color: #E8C5B0;
-  margin-bottom: 12px;
+.hero-illust-img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.hero-visual-quote {
-  font-family: var(--font-base);
-  font-weight: 500;
-  font-size: 1.05rem;
-  line-height: 1.85;
-  letter-spacing: 0.04em;
-  margin: 0 0 18px;
+.hero-illust-caption {
+  padding: 12px 6px 4px;
+}
+
+.hero-illust-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.illust-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--washi);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--navy-soft);
 }
 
 .hero-visual-meta {
   display: flex;
   justify-content: space-between;
-  padding-top: 14px;
-  border-top: 1px solid rgba(248, 246, 240, 0.18);
-  font-size: 0.8rem;
-  color: rgba(248, 246, 240, 0.78);
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px dashed var(--hairline-strong);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--muted);
 }
 
 /* Live Status Bar (Glassmorphism Strip) */
@@ -407,6 +417,78 @@ button:focus-visible {
 .section-head {
   margin-bottom: 30px;
   max-width: 680px;
+}
+
+.map-section-head {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: space-between;
+}
+
+.map-haku-guide {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--washi-pure);
+  border: 1.5px solid rgba(217, 99, 38, 0.36);
+  border-radius: 16px;
+  padding: 10px 15px;
+  align-self: flex-start;
+  box-shadow: 0 6px 16px rgba(20, 35, 48, 0.05);
+}
+
+.map-haku-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 25%;
+  border: 2px solid var(--mikan);
+  background: #FBF7EE;
+  flex-shrink: 0;
+}
+
+.map-haku-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--mikan-dark);
+  margin-bottom: 2px;
+}
+
+.map-haku-bubble p {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.45;
+}
+
+/* Playful Ehime Motif Divider */
+.ehime-motif-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 4px 22px 14px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.ehime-motif-divider .motif-line {
+  flex: 1;
+  height: 1px;
+  border-top: 1.5px dashed rgba(217, 99, 38, 0.32);
+}
+
+.ehime-motif-divider .motif-icons {
+  font-size: 0.92rem;
+  letter-spacing: 0.32em;
+  color: var(--mikan);
+  white-space: nowrap;
 }
 
 .section-title {
@@ -1026,16 +1108,47 @@ button:focus-visible {
   color: var(--navy-soft);
 }
 
-/* Captain Miroku Speech Bubble in Field Research Section */
+/* 3 Brothers Dialogue Stage in Field Research Section */
+.patrol-chat-stage {
+  margin-top: 22px;
+  padding: 18px 16px;
+  background: rgba(252, 251, 247, 0.72);
+  border: 1px dashed rgba(20, 35, 48, 0.22);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.patrol-chat-header {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.04em;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--hairline);
+}
+
 .captain-speech-box {
-  margin-top: 20px;
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 16px;
+  padding: 12px 14px;
   background: var(--washi-pure);
-  border: 1px solid rgba(217, 99, 38, 0.34);
+  border: 1px solid rgba(217, 99, 38, 0.32);
   border-radius: 14px;
+}
+
+.captain-speech-box.is-right {
+  flex-direction: row-reverse;
+}
+
+.captain-speech-box.is-jin {
+  border-color: rgba(74, 107, 93, 0.35);
+}
+
+.captain-speech-box.is-haku {
+  border-color: rgba(58, 110, 136, 0.35);
 }
 
 .captain-avatar-wrap {
@@ -1047,13 +1160,21 @@ button:focus-visible {
 }
 
 .captain-avatar {
-  width: 56px;
-  height: 56px;
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center 25%;
   border: 2px solid var(--mikan);
   background: var(--sand);
+}
+
+.captain-speech-box.is-jin .captain-avatar {
+  border-color: var(--sage);
+}
+
+.captain-speech-box.is-haku .captain-avatar {
+  border-color: #3A6E88;
 }
 
 .captain-avatar-name {
@@ -1067,8 +1188,16 @@ button:focus-visible {
   position: relative;
   background: var(--mikan-soft);
   border-radius: 11px;
-  padding: 11px 14px;
+  padding: 10px 13px;
   flex: 1;
+}
+
+.captain-speech-box.is-jin .captain-bubble {
+  background: var(--sage-soft);
+}
+
+.captain-speech-box.is-haku .captain-bubble {
+  background: #EBF2F6;
 }
 
 .captain-bubble::before {
@@ -1082,11 +1211,38 @@ button:focus-visible {
   border-color: transparent var(--mikan-soft) transparent transparent;
 }
 
+.captain-speech-box.is-right .captain-bubble::before {
+  left: auto;
+  right: -7px;
+  border-width: 6px 0 6px 7px;
+  border-color: transparent transparent transparent var(--sage-soft);
+}
+
+.captain-speech-box.is-haku .captain-bubble::before {
+  border-color: transparent #EBF2F6 transparent transparent;
+}
+
+.bubble-kicker {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--mikan-dark);
+  margin-bottom: 3px;
+}
+
+.captain-speech-box.is-jin .bubble-kicker {
+  color: var(--sage);
+}
+
+.captain-speech-box.is-haku .bubble-kicker {
+  color: #26566E;
+}
+
 .captain-bubble p {
   margin: 0;
-  font-size: 0.84rem;
+  font-size: 0.83rem;
   font-weight: 500;
-  line-height: 1.65;
+  line-height: 1.62;
   color: var(--navy);
 }
 
@@ -1540,8 +1696,12 @@ button:focus-visible {
     padding: 64px 0 54px;
   }
   .hero-grid {
-    grid-template-columns: 1.28fr 0.72fr;
-    gap: 44px;
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: 38px;
+  }
+  .map-section-head {
+    flex-direction: row;
+    align-items: flex-end;
   }
   .hero-visual {
     display: block;
