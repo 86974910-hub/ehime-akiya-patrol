@@ -94,9 +94,17 @@ function applyExternalLinks() {
   const nw = document.getElementById("link-note-welcome");
   const nm = document.getElementById("link-note-membership");
   const xp = document.getElementById("link-x-profile");
+  const sn = document.getElementById("sidebar-link-note");
+  const sx = document.getElementById("sidebar-link-x");
+  const dn = document.getElementById("drawer-link-note");
+  const dx = document.getElementById("drawer-link-x");
   if (nw) nw.href = EXTERNAL_LINKS.noteWelcomeUrl;
   if (nm) nm.href = EXTERNAL_LINKS.noteMembershipUrl;
   if (xp) xp.href = EXTERNAL_LINKS.xProfileUrl;
+  if (sn) sn.href = EXTERNAL_LINKS.noteMembershipUrl;
+  if (sx) sx.href = EXTERNAL_LINKS.xProfileUrl;
+  if (dn) dn.href = EXTERNAL_LINKS.noteMembershipUrl;
+  if (dx) dx.href = EXTERNAL_LINKS.xProfileUrl;
 
   if (EXTERNAL_LINKS.googleFormEmbedUrl) {
     const container = document.getElementById("google-form-container");
@@ -507,8 +515,69 @@ function bindEvents() {
   });
 }
 
+function initSidebarNavigation() {
+  // 1. Mobile drawer toggle
+  const toggleBtn = document.getElementById("menu-toggle");
+  const closeBtn = document.getElementById("drawer-close");
+  const drawer = document.getElementById("mobile-drawer");
+  const backdrop = document.getElementById("drawer-backdrop");
+
+  const setDrawerOpen = (open) => {
+    if (!drawer || !backdrop) return;
+    drawer.classList.toggle("is-open", open);
+    backdrop.classList.toggle("is-open", open);
+    drawer.setAttribute("aria-hidden", open ? "false" : "true");
+    backdrop.setAttribute("aria-hidden", open ? "false" : "true");
+    if (toggleBtn) toggleBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  };
+
+  if (toggleBtn) toggleBtn.addEventListener("click", () => setDrawerOpen(true));
+  if (closeBtn) closeBtn.addEventListener("click", () => setDrawerOpen(false));
+  if (backdrop) backdrop.addEventListener("click", () => setDrawerOpen(false));
+  if (drawer) {
+    drawer.querySelectorAll("a[href^='#']").forEach((a) => {
+      a.addEventListener("click", () => setDrawerOpen(false));
+    });
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setDrawerOpen(false);
+  });
+
+  // 2. Scroll-spy highlighting for PC sidebar & mobile drawer
+  const navLinks = Array.from(document.querySelectorAll("[data-nav-target]"));
+  if (!navLinks.length || !("IntersectionObserver" in window)) return;
+
+  const sectionIds = Array.from(new Set(navLinks.map((a) => a.getAttribute("data-nav-target"))));
+  const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
+  if (!sections.length) return;
+
+  const setActive = (id) => {
+    navLinks.forEach((a) => {
+      a.classList.toggle("is-active", a.getAttribute("data-nav-target") === id);
+    });
+  };
+
+  const spy = new IntersectionObserver(
+    (entries) => {
+      const visible = entries
+        .filter((e) => e.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (visible.length > 0) {
+        setActive(visible[0].target.id);
+      }
+    },
+    {
+      rootMargin: "-20% 0px -55% 0px",
+      threshold: [0.05, 0.2, 0.5],
+    }
+  );
+  sections.forEach((sec) => spy.observe(sec));
+}
+
 async function init() {
   initScrollReveal();
+  initSidebarNavigation();
   applyExternalLinks();
   bindEvents();
   try {

@@ -23,90 +23,223 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#">
-        <span>愛媛の空き家パトロール</span>
+  <!-- Mobile / Tablet Slim Header (< 1024px) -->
+  <header class="mobile-header">
+    <div class="mobile-header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-name">愛媛の空き家パトロール</span>
         <span class="brand-sub">Setouchi &amp; Ehime Life</span>
       </a>
-      <nav class="header-nav" aria-label="メインナビゲーション">
-        <a href="#map-section">全20市町マップ</a>
-        <a href="#patrol-dogs-section">パトロール隊</a>
-        <a href="#inspection-section">現地代理下見</a>
-        <a href="#media-section">note・X速報</a>
-        <a href="#contact-section">ご依頼・相談</a>
-      </nav>
-      <a class="header-cta" href="#contact-section">下見を相談する</a>
+      <div class="mobile-header-actions">
+        <a class="mobile-cta" href="#contact-section">下見を相談</a>
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="mobile-drawer"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main>
-    <!-- Editorial Hero Section -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <span class="en-kicker">Setouchi &amp; Ehime Life</span>
-            <h1 class="hero-title">都会の時計を外して、瀬戸内の光と古民家で、新しい人生を耕す。</h1>
-            <p class="hero-lead">
-              愛媛県全20市町の空き家バンクを毎日自動巡回。バラバラだった<span id="lead-total-count" class="num">538</span>件のリアルな相場と、地元民だけの本音メモを一つの地図に。
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-mikan" href="#map-section">
-                <span>地図から市町を選ぶ</span>
-                <span class="btn-arrow" aria-hidden="true">→</span>
-              </a>
-              <a class="btn btn-ghost" href="#inspection-section">
-                <span>1万円の現地代理下見を知る</span>
-              </a>
-            </div>
-          </div>
+  <!-- Mobile / Tablet Slide-in Drawer -->
+  <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-drawer" id="mobile-drawer" aria-label="モバイルナビゲーション" aria-hidden="true">
+    <div class="drawer-head">
+      <div>
+        <div class="sidebar-brand-title">愛媛の空き家パトロール</div>
+        <div class="sidebar-brand-sub">Setouchi &amp; Ehime Life</div>
+      </div>
+      <button type="button" class="drawer-close" id="drawer-close" aria-label="メニューを閉じる">×</button>
+    </div>
+    <nav class="drawer-nav" aria-label="サイト内メニュー">
+      <a href="#top" data-nav-target="top">トップ</a>
+      <a href="#concept-section" data-nav-target="concept-section">パトロールの想い</a>
+      <a href="#map-section" data-nav-target="map-section">全20市町 空き家マップ</a>
+      <a href="#patrol-dogs-section" data-nav-target="patrol-dogs-section">3兄弟パトロール隊</a>
+      <a href="#media-section" data-nav-target="media-section">noteメンバーシップ</a>
+      <a href="#inspection-section" data-nav-target="inspection-section">1万円の現地代理下見</a>
+      <a href="#contact-section" data-nav-target="contact-section">ご依頼・お問い合わせ</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a class="sidebar-cta" href="#contact-section">
+        <span>下見を相談する</span>
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+      <div class="sidebar-socials">
+        <a class="social-pill" id="drawer-link-note" href="https://note.com/" target="_blank" rel="noopener noreferrer" aria-label="noteを開く">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3h7.38a1.5 1.5 0 0 1 1.06.44l4.62 4.62a1.5 1.5 0 0 1 .44 1.06V19.5A1.5 1.5 0 0 1 18.5 21h-12A1.5 1.5 0 0 1 5 19.5v-15Zm3 4.5h8v1.8H8V9Zm0 4h8v1.8H8V13Zm0 4h5v1.8H8V17Z"/></svg>
+          <span>note</span>
+        </a>
+        <a class="social-pill" id="drawer-link-x" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）を開く">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X</span>
+        </a>
+      </div>
+    </div>
+  </aside>
 
-          <aside class="hero-visual hero-visual-illustrated" aria-label="愛媛の空き家パトロール隊カバーイラスト">
-            <div class="hero-illust-frame">
-              <img
-                src="assets/hero_illustration.png"
-                alt="みかんの段々畑・キウイ棚・宇和海の養殖いけすが広がる愛媛の風景の中をパトロールする愛犬3兄弟（海忇・仁・珀）"
-                class="hero-illust-img"
-                width="960"
-                height="760"
-              />
-            </div>
-            <div class="hero-illust-caption">
-              <div class="hero-illust-tags">
-                <span class="illust-tag">🍊 柑橘の段々畑</span>
-                <span class="illust-tag">🥝 キウイ日本一</span>
-                <span class="illust-tag">🐟 宇和海の真鯛・シマアジ養殖</span>
-              </div>
-              <div class="hero-visual-meta">
-                <span>東予・中予・南予 全20市町を毎日巡回</span>
-                <span class="num">05:10 JST Patrol</span>
-              </div>
-            </div>
-          </aside>
+  <!-- PC Left Fixed Sidebar (>= 1024px) -->
+  <aside class="site-sidebar" aria-label="メインナビゲーション">
+    <div class="sidebar-top">
+      <a class="sidebar-brand" href="#top">
+        <span class="sidebar-brand-title">愛媛の空き家パトロール</span>
+        <span class="sidebar-brand-sub">Setouchi &amp; Ehime Life</span>
+      </a>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="セクション移動">
+      <a href="#top" class="is-active" data-nav-target="top">
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>トップ</span>
+      </a>
+      <a href="#concept-section" data-nav-target="concept-section">
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>パトロールの想い</span>
+      </a>
+      <a href="#map-section" data-nav-target="map-section">
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>全20市町 空き家マップ</span>
+      </a>
+      <a href="#patrol-dogs-section" data-nav-target="patrol-dogs-section">
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>3兄弟パトロール隊</span>
+      </a>
+      <a href="#media-section" data-nav-target="media-section">
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>noteメンバーシップ</span>
+      </a>
+      <a href="#inspection-section" data-nav-target="inspection-section">
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>1万円の現地代理下見</span>
+      </a>
+      <a href="#contact-section" data-nav-target="contact-section">
+        <span class="nav-dot" aria-hidden="true"></span>
+        <span>ご依頼・お問い合わせ</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <a class="sidebar-cta" href="#contact-section">
+        <span>下見を相談する</span>
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+      <div class="sidebar-socials">
+        <a class="social-pill" id="sidebar-link-note" href="https://note.com/" target="_blank" rel="noopener noreferrer" aria-label="noteを開く">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4.5A1.5 1.5 0 0 1 6.5 3h7.38a1.5 1.5 0 0 1 1.06.44l4.62 4.62a1.5 1.5 0 0 1 .44 1.06V19.5A1.5 1.5 0 0 1 18.5 21h-12A1.5 1.5 0 0 1 5 19.5v-15Zm3 4.5h8v1.8H8V9Zm0 4h8v1.8H8V13Zm0 4h5v1.8H8V17Z"/></svg>
+          <span>note</span>
+        </a>
+        <a class="social-pill" id="sidebar-link-x" href="https://x.com/" target="_blank" rel="noopener noreferrer" aria-label="X（旧Twitter）を開く">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Right Main Workspace -->
+  <div class="page-shell">
+  <main>
+    <!-- 1. Full-Bleed Large Hero Section -->
+    <section class="hero-stage" id="top" aria-label="メインビジュアル">
+      <div class="hero-media">
+        <img
+          src="assets/hero_main_web.webp"
+          alt="朝日差し込む瀬戸内海・宇和海の海とみかんの段々畑・キウイ棚・古民家を背景に歩く愛犬3兄弟（海忇・仁・珀）"
+          class="hero-bg-img"
+          width="1600"
+          height="893"
+          fetchpriority="high"
+        />
+        <div class="hero-scrim" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero-stage-inner">
+        <div class="hero-overlay-copy">
+          <span class="hero-kicker">Setouchi &amp; Ehime Life</span>
+          <h1 class="hero-headline">
+            都会の時計を外して、<br />
+            瀬戸内の光と古民家で、<br />
+            新しい人生を耕す。
+          </h1>
+          <div class="hero-actions">
+            <a class="btn btn-mikan" href="#map-section">
+              <span>地図から市町を選ぶ</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-hero-glass" href="#inspection-section">
+              <span>1万円の代理下見を知る</span>
+            </a>
+          </div>
         </div>
 
-        <!-- Live Status Bar (Glassmorphism Strip) -->
-        <div class="live-bar" role="region" aria-label="リアルタイム巡回ステータス">
-          <div class="live-cell">
-            <div class="live-label"><span class="live-dot"></span>総掲載数（募集中）</div>
-            <div class="live-val" id="stat-total">--件</div>
-            <div class="live-sub" id="stat-breakdown">売買 --件 / 賃貸 --件</div>
+        <!-- Live Status Bar (Frosted Glass Strip at Hero Bottom) -->
+        <div class="hero-live-wrap">
+          <div class="live-bar" role="region" aria-label="リアルタイム巡回ステータス">
+            <div class="live-cell">
+              <div class="live-label"><span class="live-dot"></span>総掲載数（募集中）</div>
+              <div class="live-val" id="stat-total">--件</div>
+              <div class="live-sub" id="stat-breakdown">売買 --件 / 賃貸 --件</div>
+            </div>
+            <div class="live-cell">
+              <div class="live-label">売買最安値 / 中央値</div>
+              <div class="live-val" id="stat-min-price">--万円</div>
+              <div class="live-sub" id="stat-median-price">中央値 --万円</div>
+            </div>
+            <div class="live-cell">
+              <div class="live-label">監視エリア</div>
+              <div class="live-val">県内全20市町</div>
+              <div class="live-sub" id="stat-covered">直接取得 --市町</div>
+            </div>
+            <div class="live-cell">
+              <div class="live-label">最終巡回日時</div>
+              <div class="live-val" id="stat-updated" style="font-size: 1.04rem;">----</div>
+              <div class="live-sub" id="stat-recent">直近7日新着・改定 --件</div>
+            </div>
           </div>
-          <div class="live-cell">
-            <div class="live-label">売買最安値 / 中央値</div>
-            <div class="live-val" id="stat-min-price">--万円</div>
-            <div class="live-sub" id="stat-median-price">中央値 --万円</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Concept Section (パトロールの想い・導入ストーリー) -->
+    <section class="section section-concept reveal" id="concept-section">
+      <div class="container">
+        <div class="concept-grid">
+          <div class="concept-head">
+            <span class="en-kicker">Our Concept</span>
+            <h2 class="section-title">パトロールの想い</h2>
           </div>
-          <div class="live-cell">
-            <div class="live-label">監視エリア</div>
-            <div class="live-val">県内全20市町</div>
-            <div class="live-sub" id="stat-covered">直接取得 --市町</div>
-          </div>
-          <div class="live-cell">
-            <div class="live-label">最終巡回日時</div>
-            <div class="live-val" id="stat-updated" style="font-size: 1.08rem;">----</div>
-            <div class="live-sub" id="stat-recent">直近7日新着・改定 --件</div>
+          <div class="concept-body">
+            <p class="concept-lead">
+              愛媛全20市町の空き家バンクを、毎日朝5時10分に自動巡回。<br class="pc-only" />
+              点在していた<span id="lead-total-count" class="num">661</span>件のリアルな相場と、地元で暮らす私たちだけの本音メモを一つの地図に束ねました。
+            </p>
+            <p class="concept-sub">
+              「移住先を探したいけれど、自治体ごとにサイトがバラバラで比較できない」「写真だけで飛行機やレンタカー代をかけて見に行くのは不安」――そんな遠方からの移住検討者の迷いをなくすため、愛媛在住の運営者と愛犬3兄弟が、データと現地の両面から空き家探しを支えています。
+            </p>
+            <div class="concept-pillars">
+              <div class="concept-pillar">
+                <span class="pillar-num">01</span>
+                <h3>毎朝5:10の全20市町巡回</h3>
+                <p>東予・中予・南予から島しょ部まで、更新された新着・値下げ・募集終了を毎日記録します。</p>
+              </div>
+              <div class="concept-pillar">
+                <span class="pillar-num">02</span>
+                <h3>相場と補助金を一目で比較</h3>
+                <p>無料マップ上で各市町の価格帯・中央値・改修補助金を一覧化。土地勘がなくても候補を絞れます。</p>
+              </div>
+              <div class="concept-pillar">
+                <span class="pillar-num">03</span>
+                <h3>行く前に確かめる1万円の下見</h3>
+                <p>気になる物件が見つかったら、地元住民が現地へ出向き、道幅・日当たり・周辺環境を動画でお届けします。</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -468,10 +601,10 @@
     <section class="section section-paper reveal" id="patrol-dogs-section">
       <div class="container">
         <div class="section-head">
-          <span class="en-kicker">Ehime Life &amp; Patrol Team</span>
-          <h2 class="section-title">愛媛の暮らしと、3匹のパトロール隊</h2>
+          <span class="en-kicker">Ehime Life &amp; Patrol Squad</span>
+          <h2 class="section-title">愛媛の暮らしと、3兄弟パトロール隊</h2>
           <p class="section-desc">
-            「本当に愛媛に住んでいる人が見ているの？」と気になる方へ。毎日20市町の空き家チェックを見守っている、わが家の3兄弟をご紹介します。
+            ファーストビューのイラストで愛媛の道を歩いていた3匹は、実際にここで暮らすわが家の愛犬たち。毎日20市町の空き家チェックを見守っている3兄弟をご紹介します。
           </p>
         </div>
 
@@ -551,7 +684,128 @@
       </div>
     </section>
 
-    <!-- Service 1: Field Research Report -->
+    <!-- 5. Membership Section: note & X Media -->
+    <section class="section reveal" id="media-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="en-kicker">Membership &amp; Daily Updates</span>
+          <h2 class="section-title">無料Webマップと「noteメンバーシップ」の違い</h2>
+          <p class="section-desc">
+            全体相場と代表サンプルは当サイトで無料公開。全20市町の値下げ履歴・成約スピード・公開サイトでは書けない地元民の本音メモは、noteメンバーシップ（月額1,280円）でお届けしています。
+          </p>
+        </div>
+
+        <div class="tier-showcase">
+          <div class="tier-compare-card">
+            <div class="tier-compare-header">
+              <span class="en-kicker" style="margin-bottom:2px;">Plan Comparison</span>
+              <h3>無料Webサイト vs 有料noteメンバーシップ（月額1,280円）</h3>
+            </div>
+            <div class="tier-table-wrap">
+              <table class="tier-table" aria-label="無料Webサイトと有料noteメンバーシップの比較表">
+                <thead>
+                  <tr>
+                    <th>提供機能・データ</th>
+                    <th>無料Webサイト</th>
+                    <th class="is-member-col">noteメンバーシップ<br /><span class="th-price">月額 1,280円</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>全20市町の募集件数・価格相場マップ</td>
+                    <td>◯（毎日更新）</td>
+                    <td class="is-member-col"><strong>◯（毎日更新）</strong></td>
+                  </tr>
+                  <tr>
+                    <td>各市町の物件ピックアップ閲覧</td>
+                    <td>代表サンプル最大3件</td>
+                    <td class="is-member-col"><strong>新着・変動の全件リスト＋公式URL</strong></td>
+                  </tr>
+                  <tr>
+                    <td>値下げ履歴（旧価格→新価格・差額）</td>
+                    <td>件数のみ表示</td>
+                    <td class="is-member-col"><strong>◯（値下げ幅・価格推移を全件公開）</strong></td>
+                  </tr>
+                  <tr>
+                    <td>募集終了・成約スピード（掲載経過日数）</td>
+                    <td>件数のみ表示</td>
+                    <td class="is-member-col"><strong>◯（何日で成約・終了したか全件記録）</strong></td>
+                  </tr>
+                  <tr>
+                    <td>地元民のリアルな本音メモ</td>
+                    <td>―</td>
+                    <td class="is-member-col"><strong>◯（道幅・周辺環境・割安判定を追記）</strong></td>
+                  </tr>
+                  <tr>
+                    <td>現地代理下見レポート料金</td>
+                    <td>通常 10,000円/件</td>
+                    <td class="is-member-col"><strong>会員価格 8,000円/件（毎回2,000円OFF＆優先対応）</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="member-benefits-card">
+            <span class="member-pill-tag">MONTHLY 1,280 JPY</span>
+            <h3>noteメンバーシップ 3つのコア特典</h3>
+            <ul class="benefit-list">
+              <li>
+                <span class="benefit-num">1</span>
+                <div>
+                  <strong>全20市町の新着・値下げ額・成約スピードを毎週逃さず配信</strong>
+                  <p>どの物件がいくら値下げされたか、人気物件が何日で募集終了になったかを独自ログから網羅。</p>
+                </div>
+              </li>
+              <li>
+                <span class="benefit-num">2</span>
+                <div>
+                  <strong>公開サイトでは書けない「地元民のリアルな本音メモ」</strong>
+                  <p>前面道路の狭さ、冬の凍結、スーパーや病院までの距離感、価格の割安度などクローズドならではの所見。</p>
+                </div>
+              </li>
+              <li>
+                <span class="benefit-num">3</span>
+                <div>
+                  <strong>現地代理下見が毎回2,000円OFF（通常10,000円 → 会員8,000円）＆優先対応</strong>
+                  <p>1回下見を依頼するだけで月額会費（1,280円）以上の割引になり、初回から実質お得にご利用いただけます。</p>
+                </div>
+              </li>
+            </ul>
+            <a class="btn btn-mikan" style="width:100%;" id="link-note-membership" href="https://note.com/" target="_blank" rel="noopener noreferrer">
+              <span>noteメンバーシップ（月額1,280円）を見る</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="media-columns">
+          <article class="media-col">
+            <div>
+              <h3>無料看板記事（全20市町まとめ）</h3>
+              <p>全20市町の空き家バンク公式リンク、エリア別価格相場、購入前のチェックポイントを1本にまとめた保存版ガイドです。</p>
+            </div>
+            <a class="btn btn-ghost" id="link-note-welcome" href="https://note.com/" target="_blank" rel="noopener noreferrer">
+              <span>noteでまとめ記事を読む</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="media-col">
+            <div>
+              <h3>X（旧Twitter）毎日速報</h3>
+              <p>100万円以下・畑付き・海近・改修不要などの注目物件を検知し次第、140字の速報ポストでお知らせしています。</p>
+            </div>
+            <a class="btn btn-ghost" id="link-x-profile" href="https://x.com/" target="_blank" rel="noopener noreferrer">
+              <span>Xで速報を受け取る</span>
+              <span class="btn-arrow" aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Field Inspection Section: Field Research Report -->
     <section class="section section-sand reveal" id="inspection-section">
       <div class="container">
         <div class="section-head">
@@ -702,127 +956,6 @@
       </div>
     </section>
 
-    <!-- Service 2: note & X Media -->
-    <section class="section reveal" id="media-section">
-      <div class="container">
-        <div class="section-head">
-          <span class="en-kicker">Membership &amp; Daily Updates</span>
-          <h2 class="section-title">無料Webマップと「noteメンバーシップ」の違い</h2>
-          <p class="section-desc">
-            全体相場と代表サンプルは当サイトで無料公開。全20市町の値下げ履歴・成約スピード・公開サイトでは書けない地元民の本音メモは、noteメンバーシップ（月額1,280円）でお届けしています。
-          </p>
-        </div>
-
-        <div class="tier-showcase">
-          <div class="tier-compare-card">
-            <div class="tier-compare-header">
-              <span class="en-kicker" style="margin-bottom:2px;">Plan Comparison</span>
-              <h3>無料Webサイト vs 有料noteメンバーシップ（月額1,280円）</h3>
-            </div>
-            <div class="tier-table-wrap">
-              <table class="tier-table" aria-label="無料Webサイトと有料noteメンバーシップの比較表">
-                <thead>
-                  <tr>
-                    <th>提供機能・データ</th>
-                    <th>無料Webサイト</th>
-                    <th class="is-member-col">noteメンバーシップ<br /><span class="th-price">月額 1,280円</span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>全20市町の募集件数・価格相場マップ</td>
-                    <td>◯（毎日更新）</td>
-                    <td class="is-member-col"><strong>◯（毎日更新）</strong></td>
-                  </tr>
-                  <tr>
-                    <td>各市町の物件ピックアップ閲覧</td>
-                    <td>代表サンプル最大3件</td>
-                    <td class="is-member-col"><strong>新着・変動の全件リスト＋公式URL</strong></td>
-                  </tr>
-                  <tr>
-                    <td>値下げ履歴（旧価格→新価格・差額）</td>
-                    <td>件数のみ表示</td>
-                    <td class="is-member-col"><strong>◯（値下げ幅・価格推移を全件公開）</strong></td>
-                  </tr>
-                  <tr>
-                    <td>募集終了・成約スピード（掲載経過日数）</td>
-                    <td>件数のみ表示</td>
-                    <td class="is-member-col"><strong>◯（何日で成約・終了したか全件記録）</strong></td>
-                  </tr>
-                  <tr>
-                    <td>地元民のリアルな本音メモ</td>
-                    <td>―</td>
-                    <td class="is-member-col"><strong>◯（道幅・周辺環境・割安判定を追記）</strong></td>
-                  </tr>
-                  <tr>
-                    <td>現地代理下見レポート料金</td>
-                    <td>通常 10,000円/件</td>
-                    <td class="is-member-col"><strong>会員価格 8,000円/件（毎回2,000円OFF＆優先対応）</strong></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="member-benefits-card">
-            <span class="member-pill-tag">MONTHLY 1,280 JPY</span>
-            <h3>noteメンバーシップ 3つのコア特典</h3>
-            <ul class="benefit-list">
-              <li>
-                <span class="benefit-num">1</span>
-                <div>
-                  <strong>全20市町の新着・値下げ額・成約スピードを毎週逃さず配信</strong>
-                  <p>どの物件がいくら値下げされたか、人気物件が何日で募集終了になったかを独自ログから網羅。</p>
-                </div>
-              </li>
-              <li>
-                <span class="benefit-num">2</span>
-                <div>
-                  <strong>公開サイトでは書けない「地元民のリアルな本音メモ」</strong>
-                  <p>前面道路の狭さ、冬の凍結、スーパーや病院までの距離感、価格の割安度などクローズドならではの所見。</p>
-                </div>
-              </li>
-              <li>
-                <span class="benefit-num">3</span>
-                <div>
-                  <strong>現地代理下見が毎回2,000円OFF（通常10,000円 → 会員8,000円）＆優先対応</strong>
-                  <p>1回下見を依頼するだけで月額会費（1,280円）以上の割引になり、初回から実質お得にご利用いただけます。</p>
-                </div>
-              </li>
-            </ul>
-            <a class="btn btn-mikan" style="width:100%;" id="link-note-membership" href="https://note.com/" target="_blank" rel="noopener noreferrer">
-              <span>noteメンバーシップ（月額1,280円）を見る</span>
-              <span class="btn-arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="media-columns">
-          <article class="media-col">
-            <div>
-              <h3>無料看板記事（全20市町まとめ）</h3>
-              <p>全20市町の空き家バンク公式リンク、538件のエリア別価格相場、購入前のチェックポイントを1本にまとめた保存版ガイドです。</p>
-            </div>
-            <a class="btn btn-ghost" id="link-note-welcome" href="https://note.com/" target="_blank" rel="noopener noreferrer">
-              <span>noteでまとめ記事を読む</span>
-              <span class="btn-arrow" aria-hidden="true">↗</span>
-            </a>
-          </article>
-
-          <article class="media-col">
-            <div>
-              <h3>X（旧Twitter）毎日速報</h3>
-              <p>100万円以下・畑付き・海近・改修不要などの注目物件を検知し次第、140字の速報ポストでお知らせしています。</p>
-            </div>
-            <a class="btn btn-ghost" id="link-x-profile" href="https://x.com/" target="_blank" rel="noopener noreferrer">
-              <span>Xで速報を受け取る</span>
-              <span class="btn-arrow" aria-hidden="true">↗</span>
-            </a>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact / Form Section -->
     <section class="section section-paper reveal" id="contact-section">
       <div class="container">
@@ -869,6 +1002,7 @@
       </div>
     </div>
   </footer>
+  </div><!-- /.page-shell -->
 
   <script src="js/app.js"></script>
 </body>
