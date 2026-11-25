@@ -1118,8 +1118,20 @@ button:focus-visible {
   height: 100%;
   display: block;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center 22%;
   transition: transform 0.5s var(--ease-out-expo);
+}
+
+.dog-photo.is-miroku {
+  object-position: center 18%;
+}
+
+.dog-photo.is-jin {
+  object-position: center 20%;
+}
+
+.dog-photo.is-haku {
+  object-position: center 24%;
 }
 
 .dog-card:hover .dog-photo {
@@ -1177,8 +1189,10 @@ button:focus-visible {
 
 .dog-name-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 10px;
+  column-gap: 10px;
+  row-gap: 4px;
   margin-bottom: 10px;
 }
 
@@ -1189,6 +1203,8 @@ button:focus-visible {
   font-weight: 700;
   color: var(--navy);
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .dog-breed {
