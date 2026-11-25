@@ -3,8 +3,10 @@ const EXTERNAL_LINKS = {
   noteWelcomeUrl: "https://note.com/",
   noteMembershipUrl: "https://note.com/",
   xProfileUrl: "https://x.com/",
-  // GoogleフォームURLを設定すると自動的にiframe埋め込みに切り替わります
-  googleFormEmbedUrl: "",
+  googleFormEmbedUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSd2rBzDyDmYHRSk-kdIVCxP09Wu-mhGPK_RrnelS403AeSebA/viewform?embedded=true",
+  googleFormDirectUrl:
+    "https://docs.google.com/forms/d/e/1FAIpQLSd2rBzDyDmYHRSk-kdIVCxP09Wu-mhGPK_RrnelS403AeSebA/viewform",
   contactEmail: "ehime.akiya.patrol@gmail.com",
 };
 
@@ -108,12 +110,14 @@ function applyExternalLinks() {
 
   if (EXTERNAL_LINKS.googleFormEmbedUrl) {
     const container = document.getElementById("google-form-container");
-    if (container) {
+    const existingIframe = container?.querySelector("iframe.form-iframe");
+    if (existingIframe) {
+      if (existingIframe.getAttribute("src") !== EXTERNAL_LINKS.googleFormEmbedUrl) {
+        existingIframe.setAttribute("src", EXTERNAL_LINKS.googleFormEmbedUrl);
+      }
+    } else if (container) {
       container.innerHTML = `
-        <iframe class="form-iframe" src="${escapeHtml(EXTERNAL_LINKS.googleFormEmbedUrl)}" title="現地代理下見・お問い合わせフォーム">読み込み中…</iframe>
-        <p style="margin:12px 0 0; font-size:0.84rem; color:#5F6F7C; text-align:center;">
-          フォームが開かない場合は <a href="mailto:${escapeHtml(EXTERNAL_LINKS.contactEmail)}" style="text-decoration:underline;">${escapeHtml(EXTERNAL_LINKS.contactEmail)}</a> までご連絡ください。
-        </p>
+        <iframe class="form-iframe" src="${escapeHtml(EXTERNAL_LINKS.googleFormEmbedUrl)}" width="100%" height="1020" frameborder="0" marginheight="0" marginwidth="0" title="現地代理下見・お問い合わせフォーム" loading="lazy">読み込んでいます…</iframe>
       `;
     }
   }
