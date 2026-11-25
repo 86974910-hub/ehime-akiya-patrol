@@ -1,9 +1,9 @@
 {
   "summary": {
-    "total_count": 661,
+    "total_count": 667,
     "municipality_total": 20,
     "covered_municipalities": 19,
-    "sale_count": 590,
+    "sale_count": 596,
     "rent_count": 71,
     "sale_min_man": 1.0,
     "sale_max_man": 8800.0,
@@ -11,17 +11,17 @@
     "rent_min_yen": 10000,
     "rent_max_yen": 250000,
     "rent_median_yen": 32000,
-    "recent_7days_count": 4,
+    "recent_7days_count": 11,
     "recent_changes_7d": {
-      "new_count": 3,
-      "price_down_count": 1,
-      "closed_count": 4
+      "new_count": 9,
+      "price_down_count": 2,
+      "closed_count": 8
     },
-    "last_updated": "2026-11-25 06:55",
+    "last_updated": "2026-11-26 05:16",
     "region_counts": {
-      "東予": 365,
-      "中予": 63,
-      "南予": 233
+      "東予": 366,
+      "中予": 67,
+      "南予": 234
     }
   },
   "municipalities": [
@@ -222,7 +222,7 @@
       "recent_changes_7d": {
         "new_count": 0,
         "price_down_count": 0,
-        "closed_count": 0
+        "closed_count": 1
       },
       "subsidy": {
         "municipality": "西条市",
@@ -380,23 +380,23 @@
     {
       "name": "四国中央市",
       "region": "東予",
-      "count": 18,
-      "sale_count": 17,
+      "count": 19,
+      "sale_count": 18,
       "rent_count": 1,
       "price_stats": {
         "min_man": 50.0,
         "max_man": 1498.0,
-        "median_man": 280.0
+        "median_man": 265.0
       },
       "tags": {
-        "under_100": 3,
+        "under_100": 4,
         "farm": 3,
         "sea": 2,
-        "parking": 16,
+        "parking": 17,
         "good_cond": 1
       },
       "recent_changes_7d": {
-        "new_count": 1,
+        "new_count": 2,
         "price_down_count": 0,
         "closed_count": 1
       },
@@ -422,6 +422,19 @@
       },
       "featured": [
         {
+          "id": "No.58",
+          "status": "新着",
+          "district": "川滝町下山",
+          "kind": "売却",
+          "price": "売却：５００，０００円",
+          "layout": "",
+          "built": "昭和５５年",
+          "land_area": "364.44㎡",
+          "bldg_area": "99.87㎡",
+          "notes": "自然豊かな山間部エリア。鉄筋コンクリート造２階建て。 / 駐車場:有 （車庫 無） / 多少の補修は必要 / ・昭和 55 年建築で改修歴がなく、12 年間未使用のため、設備や内装の改修が必要。 ・解体には高額な費用がかかる見込み。再建築不",
+          "url": "https://shikokuchuoiju.jp/app/wp-content/uploads/2026/11/81a9bffdc001461b5e8ee827e80c9163.pdf"
+        },
+        {
           "id": "No.47",
           "status": "新着",
           "district": "土居町土居",
@@ -446,19 +459,6 @@
           "bldg_area": "151.13㎡",
           "notes": "閑静な住宅地。木造２階建て。再建築不可。 / 駐車場:無 / 多少の補修は必要 / ・再建築不可 ・駐車場なし",
           "url": "https://shikokuchuoiju.jp/app/wp-content/uploads/2026/11/9e0d83376745045caf994f73652abeb6.pdf"
-        },
-        {
-          "id": "No.54",
-          "status": "新着(初回ベースライン)",
-          "district": "土居町天満",
-          "kind": "売却",
-          "price": "売却： ５００，０００円 賃貸（月額）： 円",
-          "layout": "",
-          "built": "昭和 2 年",
-          "land_area": "589.50㎡",
-          "bldg_area": "160.85㎡",
-          "notes": "木造平屋建て。離れ、物置あり。雨漏り箇所あり。残置物あり。 / 駐車場:有 （車庫 有・無） / ・増改築複数回あり ・一部床に沈みあり ・雨漏り箇所あり ・残置物あり（売主にて処分） ・オール電化仕様（電気温水器の設置が必要）",
-          "url": "https://shikokuchuoiju.jp/app/wp-content/uploads/2026/07/3b6832eba2d8d7e7ae11a75d5a7c456e.pdf"
         }
       ],
       "list_url": "https://shikokuchuoiju.jp/akiyabank/",
@@ -556,25 +556,25 @@
     {
       "name": "伊予市",
       "region": "中予",
-      "count": 6,
-      "sale_count": 6,
+      "count": 7,
+      "sale_count": 7,
       "rent_count": 0,
       "price_stats": {
         "min_man": 200.0,
-        "max_man": 1500.0,
-        "median_man": 575.0
+        "max_man": 3490.0,
+        "median_man": 600.0
       },
       "tags": {
         "under_100": 0,
         "farm": 0,
-        "sea": 0,
-        "parking": 3,
+        "sea": 1,
+        "parking": 4,
         "good_cond": 0
       },
       "recent_changes_7d": {
-        "new_count": 0,
+        "new_count": 1,
         "price_down_count": 0,
-        "closed_count": 0
+        "closed_count": 1
       },
       "subsidy": {
         "municipality": "伊予市",
@@ -597,6 +597,19 @@
         "official_url": "https://akisapo-iyo.com/"
       },
       "featured": [
+        {
+          "id": "第８６号",
+          "status": "新着",
+          "district": "双海町上灘",
+          "kind": "売買",
+          "price": "３,４９０万円",
+          "layout": "",
+          "built": "昭和４９年（店舗 昭和４３年）",
+          "land_area": "１２１９．６３㎡",
+          "bldg_area": "２２０．９１㎡（店舗 ２１２．８８㎡）",
+          "notes": "１７台（うち貸駐車場１４台） / 庭あり 倉庫あり / 都市計画区域外",
+          "url": "https://akisapo-iyo.com/akiya_bank/10006"
+        },
         {
           "id": "第８４号",
           "status": "新着(初回ベースライン)",
@@ -622,19 +635,6 @@
           "bldg_area": "１２１．０２㎡",
           "notes": "１台可 / 車庫あり / 市街化調整区域",
           "url": "https://akisapo-iyo.com/akiya_bank/9970"
-        },
-        {
-          "id": "第８２号",
-          "status": "新着(初回ベースライン)",
-          "district": "下吾川",
-          "kind": "売買",
-          "price": "５５０万円",
-          "layout": "",
-          "built": "昭和６１年",
-          "land_area": "１０４．１９㎡",
-          "bldg_area": "９９．９２㎡",
-          "notes": "なし / 市街化区域",
-          "url": "https://akisapo-iyo.com/akiya_bank/9951"
         }
       ],
       "list_url": "https://akisapo-iyo.com/akiya_list",
@@ -807,11 +807,11 @@
     {
       "name": "砥部町",
       "region": "中予",
-      "count": 2,
-      "sale_count": 2,
+      "count": 5,
+      "sale_count": 5,
       "rent_count": 0,
       "price_stats": {
-        "min_man": 1600.0,
+        "min_man": 500.0,
         "max_man": 2000.0,
         "median_man": 1800.0
       },
@@ -823,7 +823,7 @@
         "good_cond": 0
       },
       "recent_changes_7d": {
-        "new_count": 0,
+        "new_count": 3,
         "price_down_count": 0,
         "closed_count": 0
       },
@@ -849,30 +849,43 @@
       },
       "featured": [
         {
-          "id": "第8７号",
-          "status": "新着(ソース拡充ベースライン)",
-          "district": "宮内",
+          "id": "第88号",
+          "status": "新着",
+          "district": "砥部町内",
           "kind": "売買",
-          "price": "1600.0万円",
-          "layout": "5DK",
-          "built": "",
+          "price": "500.0万円",
+          "layout": "7K",
+          "built": "昭和48年",
           "land_area": "",
-          "bldg_area": "105.99㎡",
-          "notes": "売買物件 1600.0万円 砥部町宮内 / ５DK",
-          "url": "https://e-iju.net/property/%e7%a9%ba%e3%81%8d%e5%ae%b6%e3%83%90%e3%83%b3%e3%82%af%e7%89%a9%e4%bb%b6%e7%ac%ac8%ef%bc%97%e5%8f%b7/"
+          "bldg_area": "111.91㎡",
+          "notes": "売買物件 500.0万円 砥部町 / 7K",
+          "url": "https://e-iju.net/property/%e7%a9%ba%e3%81%8d%e5%ae%b6%e3%83%90%e3%83%b3%e3%82%af%e7%89%a9%e4%bb%b6%e7%ac%ac88%e5%8f%b7/"
         },
         {
-          "id": "第86号",
-          "status": "新着(ソース拡充ベースライン)",
-          "district": "千足",
+          "id": "岩谷口　戸建て②",
+          "status": "新着",
+          "district": "岩谷口539-5",
           "kind": "売買",
-          "price": "2000.0万円",
-          "layout": "2LDK",
+          "price": "1820.0万円",
+          "layout": "3LDK",
           "built": "",
           "land_area": "",
-          "bldg_area": "90.66㎡",
-          "notes": "売買物件 2000.0万円 砥部町千足 / ２LDK",
-          "url": "https://e-iju.net/property/%e7%a9%ba%e3%81%8d%e5%ae%b6%e3%83%90%e3%83%b3%e3%82%af%e7%89%a9%e4%bb%b6%e7%ac%ac86%e5%8f%b7/"
+          "bldg_area": "86.11㎡",
+          "notes": "売買物件 1820.0万円 砥部町岩谷口539-5 / 3LDK",
+          "url": "https://e-iju.net/property/%e5%b2%a9%e8%b0%b7%e5%8f%a3%e3%80%80%e6%88%b8%e5%bb%ba%e3%81%a6%e2%91%a1/"
+        },
+        {
+          "id": "岩谷口　戸建て➀",
+          "status": "新着",
+          "district": "岩谷口539-3",
+          "kind": "売買",
+          "price": "1800.0万円",
+          "layout": "3LDK",
+          "built": "",
+          "land_area": "",
+          "bldg_area": "79.48㎡",
+          "notes": "売買物件 1800.0万円 砥部町岩谷口539-3 / 3LDK",
+          "url": "https://e-iju.net/property/%e5%b2%a9%e8%b0%b7%e5%8f%a3%e3%80%80%e6%88%b8%e5%bb%ba%e3%81%a6%e2%9e%80/"
         }
       ],
       "list_url": "https://e-iju.net/akiyashisetsu",
@@ -987,7 +1000,7 @@
       },
       "recent_changes_7d": {
         "new_count": 0,
-        "price_down_count": 0,
+        "price_down_count": 1,
         "closed_count": 0
       },
       "subsidy": {
@@ -1011,6 +1024,19 @@
         "official_url": "https://yawatahama-iju.com/"
       },
       "featured": [
+        {
+          "id": "No.265",
+          "status": "値下げ(650 万円→600 万円)",
+          "district": "まち暮らし",
+          "kind": "売買",
+          "price": "600 万円",
+          "layout": "5DK",
+          "built": "1957年12月",
+          "land_area": "228.17㎡",
+          "bldg_area": "1階 76.03㎡ 2階 46.28㎡ 計122.31㎡",
+          "notes": "中古（多少の補修必要【入居者負担】） / あり（1台分） / 電気・プロパンガス・公営水道・公共下水道",
+          "url": "https://yawatahama-iju.com/akiya/19268/"
+        },
         {
           "id": "No.224",
           "status": "新着(初回ベースライン)",
@@ -1036,19 +1062,6 @@
           "bldg_area": "平屋 39.66㎡（約12坪） ＋ 浴室・倉庫",
           "notes": "多少の修繕が必要です。 / 無 / 電気・プロパンガス・公共水道・公共下水道",
           "url": "https://yawatahama-iju.com/akiya/11337/"
-        },
-        {
-          "id": "No.267",
-          "status": "新着(初回ベースライン)",
-          "district": "山暮らし",
-          "kind": "売買",
-          "price": "48 万円",
-          "layout": "4K",
-          "built": "1981年9月",
-          "land_area": "76.61㎡",
-          "bldg_area": "1階 40.47㎡ 2階 36.77㎡ 計77.24㎡",
-          "notes": "中古（多少の補修必要【入居者負担】） / あり / 電気・プロパンガス・公営水道・汲み取りトイレ",
-          "url": "https://yawatahama-iju.com/akiya/19350/"
         }
       ],
       "list_url": "https://yawatahama-iju.com/akiya/",
@@ -1076,7 +1089,7 @@
       "recent_changes_7d": {
         "new_count": 1,
         "price_down_count": 0,
-        "closed_count": 1
+        "closed_count": 2
       },
       "subsidy": {
         "municipality": "大洲市",
@@ -1282,13 +1295,13 @@
     {
       "name": "内子町",
       "region": "南予",
-      "count": 10,
-      "sale_count": 7,
+      "count": 11,
+      "sale_count": 8,
       "rent_count": 3,
       "price_stats": {
         "min_man": 100.0,
         "max_man": 1800.0,
-        "median_man": 400.0
+        "median_man": 350.0
       },
       "tags": {
         "under_100": 2,
@@ -1298,9 +1311,9 @@
         "good_cond": 1
       },
       "recent_changes_7d": {
-        "new_count": 0,
+        "new_count": 1,
         "price_down_count": 0,
-        "closed_count": 0
+        "closed_count": 1
       },
       "subsidy": {
         "municipality": "内子町",
@@ -1323,6 +1336,19 @@
         "official_url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/"
       },
       "featured": [
+        {
+          "id": "No.97",
+          "status": "新着",
+          "district": "内子エリア 立山3108",
+          "kind": "売買",
+          "price": "134万円",
+          "layout": "",
+          "built": "1967年",
+          "land_area": "176.46m²",
+          "bldg_area": "105.20㎡",
+          "notes": "必要 / 令和7年4月まで利用",
+          "url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/ijyu/akiya97.html"
+        },
         {
           "id": "No.96",
           "status": "新着(初回ベースライン)",
@@ -1348,19 +1374,6 @@
           "bldg_area": "63.63㎡",
           "notes": "修繕必要 / 20年利用していない。",
           "url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/ijyu/akiya69.html"
-        },
-        {
-          "id": "No.80",
-          "status": "新着(初回ベースライン)",
-          "district": "内子エリア 内子町内子3457番地",
-          "kind": "賃貸",
-          "price": "5.5万円",
-          "layout": "",
-          "built": "昭和46年",
-          "land_area": "98.25㎡",
-          "bldg_area": "80.02㎡",
-          "notes": "修繕不要 / 5年間利用していない",
-          "url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/ijyu/akiya80.html"
         }
       ],
       "list_url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/search/search.php?search=1&page=1&all=1",
