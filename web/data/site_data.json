@@ -1,9 +1,9 @@
 {
   "summary": {
-    "total_count": 667,
+    "total_count": 670,
     "municipality_total": 20,
     "covered_municipalities": 19,
-    "sale_count": 596,
+    "sale_count": 599,
     "rent_count": 71,
     "sale_min_man": 1.0,
     "sale_max_man": 8800.0,
@@ -11,16 +11,16 @@
     "rent_min_yen": 10000,
     "rent_max_yen": 250000,
     "rent_median_yen": 32000,
-    "recent_7days_count": 11,
+    "recent_7days_count": 14,
     "recent_changes_7d": {
-      "new_count": 9,
+      "new_count": 12,
       "price_down_count": 2,
       "closed_count": 8
     },
-    "last_updated": "2026-11-26 05:16",
+    "last_updated": "2026-11-27 05:16",
     "region_counts": {
-      "東予": 366,
-      "中予": 67,
+      "東予": 368,
+      "中予": 68,
       "南予": 234
     }
   },
@@ -28,23 +28,23 @@
     {
       "name": "今治市",
       "region": "東予",
-      "count": 88,
-      "sale_count": 81,
+      "count": 90,
+      "sale_count": 83,
       "rent_count": 7,
       "price_stats": {
         "min_man": 10.0,
         "max_man": 8800.0,
-        "median_man": 350.0
+        "median_man": 325.0
       },
       "tags": {
-        "under_100": 14,
+        "under_100": 15,
         "farm": 4,
         "sea": 34,
-        "parking": 41,
+        "parking": 42,
         "good_cond": 0
       },
       "recent_changes_7d": {
-        "new_count": 0,
+        "new_count": 2,
         "price_down_count": 1,
         "closed_count": 1
       },
@@ -70,6 +70,32 @@
       },
       "featured": [
         {
+          "id": "伯方26-017",
+          "status": "新着",
+          "district": "伯方地区 伯方町木浦",
+          "kind": "売買",
+          "price": "100万円",
+          "layout": "3LDK",
+          "built": "1982年1月建築",
+          "land_area": "163.46㎡",
+          "bldg_area": "89.54㎡",
+          "notes": "駐車場:無",
+          "url": "https://iju-imabari.jp/akiya-bank/%e4%bc%af%e6%96%b926-017/"
+        },
+        {
+          "id": "今治26-009",
+          "status": "新着",
+          "district": "近見地区 別宮町",
+          "kind": "売買",
+          "price": "300万円",
+          "layout": "4DK",
+          "built": "1983年8月建築",
+          "land_area": "65.33㎡",
+          "bldg_area": "101.18㎡",
+          "notes": "駐車場:有 / 1台",
+          "url": "https://iju-imabari.jp/akiya-bank/%e4%bb%8a%e6%b2%bb26-009/"
+        },
+        {
           "id": "吉海25-022",
           "status": "価格改定(380万円→250万円)",
           "district": "大島地区(吉海・宮窪） 吉海町名",
@@ -81,32 +107,6 @@
           "bldg_area": "85.57㎡",
           "notes": "特記事項有 / 駐車場:有 / 5台",
           "url": "https://iju-imabari.jp/akiya-bank/%e5%90%89%e6%b5%b725-022/"
-        },
-        {
-          "id": "大三島25-036",
-          "status": "新着(初回ベースライン)",
-          "district": "大三島地区（大三島・上浦） 大三島町口総",
-          "kind": "売買",
-          "price": "100万円",
-          "layout": "7DK",
-          "built": "",
-          "land_area": "441.07㎡",
-          "bldg_area": "221.47㎡",
-          "notes": "山林・畑付。新規営農を考えている方 / 駐車場:有 / 1台",
-          "url": "https://iju-imabari.jp/akiya-bank/%e5%a4%a7%e4%b8%89%e5%b3%b625-036/"
-        },
-        {
-          "id": "上浦018",
-          "status": "新着(初回ベースライン)",
-          "district": "大三島地区（大三島・上浦） 上浦町井口",
-          "kind": "売買",
-          "price": "100万円",
-          "layout": "5DK",
-          "built": "",
-          "land_area": "271.2㎡",
-          "bldg_area": "102.2㎡",
-          "notes": "駐車場:有 / 2台",
-          "url": "https://iju-imabari.jp/akiya-bank/%e4%b8%8a%e6%b5%a6018-%e4%b8%8a%e6%b5%a6%e7%94%ba%e4%ba%95%e5%8f%a3/"
         }
       ],
       "list_url": "https://iju-imabari.jp/vacant-house/",
@@ -719,23 +719,23 @@
     {
       "name": "久万高原町",
       "region": "中予",
-      "count": 21,
-      "sale_count": 17,
+      "count": 22,
+      "sale_count": 18,
       "rent_count": 4,
       "price_stats": {
         "min_man": 70.0,
-        "max_man": 700.0,
-        "median_man": 290.0
+        "max_man": 2150.0,
+        "median_man": 300.0
       },
       "tags": {
         "under_100": 3,
-        "farm": 4,
+        "farm": 5,
         "sea": 0,
-        "parking": 9,
-        "good_cond": 5
+        "parking": 10,
+        "good_cond": 6
       },
       "recent_changes_7d": {
-        "new_count": 0,
+        "new_count": 1,
         "price_down_count": 0,
         "closed_count": 0
       },
@@ -761,6 +761,19 @@
       },
       "featured": [
         {
+          "id": "No.8-17",
+          "status": "新着",
+          "district": "入野",
+          "kind": "売買",
+          "price": "2,150万円",
+          "layout": "",
+          "built": "平成23年8月",
+          "land_area": "329.28平方メートル（宅地）",
+          "bldg_area": "",
+          "notes": "修繕:不要 / 駐車場:あり（複数台） / 畑：509平方メートル / 広々とした敷地に暖炉のある空間、更にウッドチェアやデッキが置けちゃう庭有の住居だから、運動や遊びものびのび楽しめます。また火力の微妙な調整も簡単なＩＨクッキング",
+          "url": "https://www.kumakogen.jp/site/iju/27346.html"
+        },
+        {
           "id": "No.256",
           "status": "新着(初回ベースライン)",
           "district": "直瀬",
@@ -785,19 +798,6 @@
           "bldg_area": "",
           "notes": "修繕:不要 / 駐車場:あり（2台） / 畑：2,261平方メートル / リフォームして7年が経ちました。国道沿いにある物件です。すぐに生活が可能です。 年2回ほど帰省し、田舎暮らしをしています。",
           "url": "https://www.kumakogen.jp/site/iju/26280.html"
-        },
-        {
-          "id": "No.8-14",
-          "status": "新着(初回ベースライン)",
-          "district": "西明神",
-          "kind": "売買",
-          "price": "700万円",
-          "layout": "",
-          "built": "平成2年",
-          "land_area": "315平方メートル",
-          "bldg_area": "",
-          "notes": "修繕:不要 / 駐車場:車庫あり（1台） / 畑：270平方メートル / 現状渡しとなります。（家具等） 2年前に水回り整備、エアコン2台を入れ替えました。 オール電化、400V、コンロはIH、お風呂は四電のレンタル給湯器です。 住居",
-          "url": "https://www.kumakogen.jp/site/iju/27246.html"
         }
       ],
       "list_url": "https://www.kumakogen.jp/site/iju/list98-409.html",
