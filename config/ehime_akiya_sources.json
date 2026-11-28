@@ -3,98 +3,98 @@
     "municipality": "今治市",
     "list_url": "https://iju-imabari.jp/vacant-house/",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "いまばり暮らし(市公式移住ポータル)。まち/里山/海/しまなみエリア別。アットホーム(https://www.athome.co.jp/akiya/ehime/imabari-city/)にも掲載(bot遮断で未確認)。HTTP200確認済"
   },
   {
     "municipality": "上島町",
     "list_url": "https://kamijima-life.jp/residence/archive/",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "上島町空き家・空き地情報バンク一覧ページ"
   },
   {
     "municipality": "西条市",
     "list_url": "https://www.city.saijo.ehime.jp/soshiki/ijyusuishin/akiya-bank.html",
     "source_type": "pdf",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "市公式の空き家バンク一覧。各物件の詳細情報PDFを直接掲載"
   },
   {
     "municipality": "新居浜市",
     "list_url": "https://www.akiya-navi.com/niihama_akiya_bank/info.php",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "新居浜市空き家バンクナビ（メンテナンス復旧済・募集中物件を直接取得）"
   },
   {
     "municipality": "四国中央市",
     "list_url": "https://shikokuchuoiju.jp/akiyabank/",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "四国のまんなか生活(市の移住サイト)。川之江/三島/土居/新宮地区。HTTP200確認済"
   },
   {
     "municipality": "松山市",
     "list_url": "https://ritou-akiya.com/house",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "離島(忽那諸島：ritou-akiya.com)＋三津浜町家バンク(ミツハマル：mitsuhamaru.com)の両方を自動巡回・統合取得"
   },
   {
     "municipality": "伊予市",
     "list_url": "https://akisapo-iyo.com/akiya_list",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "NPO法人空き家サポート伊予の物件一覧ページ"
   },
   {
     "municipality": "東温市",
     "list_url": "https://toon-iju.com/akiya/",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "東温市移住・定住支援ポータルの空き家情報(selling/lease)"
   },
   {
     "municipality": "久万高原町",
     "list_url": "https://www.kumakogen.jp/site/iju/list98-409.html",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "町公式の空き情報一覧表。売却/賃貸、交渉中含む。HTTP200確認済"
   },
   {
     "municipality": "砥部町",
     "list_url": "https://e-iju.net/akiyashisetsu",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "えひめ空き家情報バンク（e-iju.net/akiyashisetsu）掲載の砥部町物件をPlaywrightで自動取得"
   },
   {
     "municipality": "宇和島市",
     "list_url": "https://www.city.uwajima.ehime.jp/site/ijyu/akiyabank.html",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "市公式。個別ページ(akiyaNN.html)に物件。HTTP200"
   },
   {
     "municipality": "八幡浜市",
     "list_url": "https://yawatahama-iju.com/akiya/",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "八幡浜市移住・定住支援ポータル内の空き家バンク一覧(page/1..5)"
   },
   {
     "municipality": "大洲市",
     "list_url": "https://www.city.ozu.ehime.jp/akiyabank/search/search.php",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "大洲市公式空き家バンク検索(type=11,12,21,31,32で種別一覧)"
   },
   {
     "municipality": "西予市",
     "list_url": "https://0cb21af5.viewer.kintoneapp.com/public/seiyo-akiya-bank",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "西予市公式空き家バンク（kViewer公開データベース）をPlaywrightで自動取得"
   },
   {
@@ -108,35 +108,35 @@
     "municipality": "内子町",
     "list_url": "https://www.town.uchiko.ehime.jp/teijyu-akiya/search/search.php?search=1&page=1&all=1",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "うちこ屋バンク全件検索URL"
   },
   {
     "municipality": "伊方町",
     "list_url": "https://www.town.ikata.ehime.jp/akiya/search/search.php?hid_flg_search=1&page=1",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "伊方町空き家バンク検索結果URL"
   },
   {
     "municipality": "松野町",
     "list_url": "https://www.town.matsuno.ehime.jp/site/akiya/",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "町公式。個別ページに物件。HTTP200"
   },
   {
     "municipality": "鬼北町",
     "list_url": "https://kihoku.umiyama-kurashi.jp/bukken_archive",
     "source_type": "html",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "鬼北町空き家情報サイト。HTTP200"
   },
   {
     "municipality": "愛南町",
     "list_url": "https://www.town.ainan.ehime.jp/kurashi/tetsuduki/sumai/iju/ijujoho.html",
     "source_type": "pdf",
-    "last_verified": "2026-11-28",
+    "last_verified": "2026-11-29",
     "notes": "登録物件一覧ページ。各物件は登録台帳PDFで公開"
   }
 ]

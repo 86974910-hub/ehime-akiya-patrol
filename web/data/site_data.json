@@ -1,9 +1,9 @@
 {
   "summary": {
-    "total_count": 671,
+    "total_count": 673,
     "municipality_total": 20,
     "covered_municipalities": 19,
-    "sale_count": 600,
+    "sale_count": 602,
     "rent_count": 71,
     "sale_min_man": 1.0,
     "sale_max_man": 8800.0,
@@ -11,17 +11,17 @@
     "rent_min_yen": 10000,
     "rent_max_yen": 250000,
     "rent_median_yen": 32000,
-    "recent_7days_count": 15,
+    "recent_7days_count": 17,
     "recent_changes_7d": {
-      "new_count": 13,
+      "new_count": 15,
       "price_down_count": 2,
       "closed_count": 8
     },
-    "last_updated": "2026-11-28 05:16",
+    "last_updated": "2026-11-29 05:17",
     "region_counts": {
       "東予": 368,
       "中予": 68,
-      "南予": 235
+      "南予": 237
     }
   },
   "municipalities": [
@@ -983,13 +983,13 @@
     {
       "name": "八幡浜市",
       "region": "南予",
-      "count": 67,
-      "sale_count": 64,
+      "count": 69,
+      "sale_count": 66,
       "rent_count": 3,
       "price_stats": {
         "min_man": 40.0,
         "max_man": 3180.0,
-        "median_man": 395.0
+        "median_man": 415.0
       },
       "tags": {
         "under_100": 11,
@@ -999,7 +999,7 @@
         "good_cond": 0
       },
       "recent_changes_7d": {
-        "new_count": 0,
+        "new_count": 2,
         "price_down_count": 1,
         "closed_count": 0
       },
@@ -1025,6 +1025,32 @@
       },
       "featured": [
         {
+          "id": "No.314",
+          "status": "新着",
+          "district": "まち暮らし",
+          "kind": "売買",
+          "price": "680 万円",
+          "layout": "4LDK",
+          "built": "1966年3月",
+          "land_area": "121.19㎡",
+          "bldg_area": "1階 55.41㎡ 2階 86.47㎡ 計 141.88㎡",
+          "notes": "中古（多少の補修必要【入居者負担】） / あり / 電気・公営水道・公共下水道・プロパンガス",
+          "url": "https://yawatahama-iju.com/akiya/21275/"
+        },
+        {
+          "id": "No.313",
+          "status": "新着",
+          "district": "まち暮らし",
+          "kind": "売買",
+          "price": "980 万円",
+          "layout": "3LDK",
+          "built": "1984年12月",
+          "land_area": "109.96㎡",
+          "bldg_area": "1階 61.27㎡ 2階 41.40㎡ 計 102.67㎡",
+          "notes": "中古（多少の補修必要【入居者負担】） / あり / 電気・公営水道・公共下水道・プロパンガス",
+          "url": "https://yawatahama-iju.com/akiya/21272/"
+        },
+        {
           "id": "No.265",
           "status": "値下げ(650 万円→600 万円)",
           "district": "まち暮らし",
@@ -1036,32 +1062,6 @@
           "bldg_area": "1階 76.03㎡ 2階 46.28㎡ 計122.31㎡",
           "notes": "中古（多少の補修必要【入居者負担】） / あり（1台分） / 電気・プロパンガス・公営水道・公共下水道",
           "url": "https://yawatahama-iju.com/akiya/19268/"
-        },
-        {
-          "id": "No.224",
-          "status": "新着(初回ベースライン)",
-          "district": "海暮らし",
-          "kind": "売買",
-          "price": "100 万円",
-          "layout": "3K",
-          "built": "1961年12月",
-          "land_area": "80.62㎡",
-          "bldg_area": "46.28㎡",
-          "notes": "中古（多少の補修必要） / なし / 電気・公営水道",
-          "url": "https://yawatahama-iju.com/akiya/17166/"
-        },
-        {
-          "id": "No.118",
-          "status": "新着(初回ベースライン)",
-          "district": "海暮らし",
-          "kind": "売買",
-          "price": "100 万円",
-          "layout": "和室 8帖×1 ・5帖×1 ・3帖 × 1、 洋室 ×1 、",
-          "built": "不明",
-          "land_area": "156.68㎡（約47.39坪）",
-          "bldg_area": "平屋 39.66㎡（約12坪） ＋ 浴室・倉庫",
-          "notes": "多少の修繕が必要です。 / 無 / 電気・プロパンガス・公共水道・公共下水道",
-          "url": "https://yawatahama-iju.com/akiya/11337/"
         }
       ],
       "list_url": "https://yawatahama-iju.com/akiya/",
